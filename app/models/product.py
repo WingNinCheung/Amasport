@@ -20,6 +20,10 @@ class Product(db.Model):
 
     order_products = relationship("Order_Product", back_populates="product")
 
+    cart_items = relationship("Cart_Item", back_populates="products")
+
+    review = relationship("Review", back_populates="product")
+
     def to_dict(self):
 
         return {
