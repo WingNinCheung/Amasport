@@ -1,6 +1,7 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from sqlalchemy.orm import relationship
 
 
 class User(db.Model, UserMixin):
@@ -15,6 +16,8 @@ class User(db.Model, UserMixin):
     state = db.Column(db.String(50), nullable=False)
     zip_code = db.Column(db.Integer, nullable=False)
     country = db.Column(db.String(50), nullable=False)
+
+    orders = relationship("Order", back_populates="user")
 
     @property
     def password(self):

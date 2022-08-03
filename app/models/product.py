@@ -1,4 +1,5 @@
 from .db import db
+from sqlalchemy.orm import relationship
 
 
 class Product(db.Model):
@@ -17,20 +18,21 @@ class Product(db.Model):
     asin = db.Column(db.String(100), nullable=False)
     image = db.Column(db.String(1000), nullable=False)
 
+    order_products = relationship("Order_Product", back_populates="product")
 
-def to_dict(self):
+    def to_dict(self):
 
-    return {
-        "id": self.id,
-        "name": self.name,
-        "price": self.price,
-        "category": self.category,
-        "brand": self.brand,
-        "about": self.about,
-        "description": self.description,
-        "dimensions": self.dimensions,
-        "date_available": self.date_available,
-        "manufacturer": self.manufacturer,
-        "asin": self.asin,
-        "image": self.image,
-    }
+        return {
+            "id": self.id,
+            "name": self.name,
+            "price": self.price,
+            "category": self.category,
+            "brand": self.brand,
+            "about": self.about,
+            "description": self.description,
+            "dimensions": self.dimensions,
+            "date_available": self.date_available,
+            "manufacturer": self.manufacturer,
+            "asin": self.asin,
+            "image": self.image,
+        }
