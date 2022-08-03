@@ -16,6 +16,7 @@ function ProductDetails() {
 
   const allProducts = useSelector((state) => Object.values(state.product));
 
+  // to find that specific product
   if (allProducts.length !== 0) {
     product = allProducts.find((item) => item.id == id);
     about = product.about.split(".");
