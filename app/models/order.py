@@ -40,3 +40,6 @@ class Order(db.Model):
             "delivery_status": self.delivery_status,
             "created_at": self.created_at,
         }
+
+    def __repr__(self):
+        return f"<Order ({self.id},{self.price}"

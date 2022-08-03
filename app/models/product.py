@@ -40,3 +40,6 @@ class Product(db.Model):
             "asin": self.asin,
             "image": self.image,
         }
+
+    def __repr__(self):
+        return f"<Product ({self.id},{self.name}"

@@ -8,11 +8,11 @@ const NavBar = () => {
 
   return (
     <nav>
-      <NavLink to="/" exact={true} activeClassName="active">
-        Home
-      </NavLink>
       {!sessionUser && (
         <section>
+          <NavLink to="/" exact={true} activeClassName="active">
+            Home
+          </NavLink>
           <NavLink to="/login" exact={true} activeClassName="active">
             Login
           </NavLink>
@@ -23,6 +23,9 @@ const NavBar = () => {
       )}
       {sessionUser && (
         <section>
+          <NavLink to="/home" exact={true} activeClassName="active">
+            Amasport
+          </NavLink>
           <NavLink to="/users" exact={true} activeClassName="active">
             Users
           </NavLink>
