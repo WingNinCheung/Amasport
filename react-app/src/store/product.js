@@ -14,7 +14,6 @@ export const getProducts = () => async (dispatch) => {
 
   if (res.ok) {
     const products = await res.json();
-    console.log("proooooo", products);
     dispatch(load(products));
   }
 };

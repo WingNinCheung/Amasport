@@ -17,9 +17,9 @@ function Home() {
     <div>
       {allProducts &&
         allProducts.map((product) => (
-          <div>
+          <div key={product.id}>
             <NavLink to={`products/${product.id}`}>
-              <img src={product.image}></img>
+              <img src={product.image} alt="products"></img>
               <div>{product.name}</div>
             </NavLink>
             <div>${product.price}</div>
