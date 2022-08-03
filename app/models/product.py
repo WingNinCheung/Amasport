@@ -18,11 +18,11 @@ class Product(db.Model):
     asin = db.Column(db.String(100), nullable=False)
     image = db.Column(db.String(1000), nullable=False)
 
-    order_products = relationship("Order_Product", back_populates="product")
-
     cart_items = relationship("Cart_Item", back_populates="products")
 
     review = relationship("Review", back_populates="product")
+
+    orders = relationship("Order", back_populates="product")
 
     def to_dict(self):
 
