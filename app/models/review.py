@@ -26,3 +26,6 @@ class Review(db.Model):
             "review_body": self.review_body,
             "created_at": self.created_at,
         }
+
+    def __repr__(self):
+        return f"<Review ({self.user_id},{self.product_id}"
