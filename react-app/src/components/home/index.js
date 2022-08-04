@@ -7,8 +7,6 @@ function Home() {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => Object.values(state.product));
 
-  console.log("product store is ", allProducts);
-
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);

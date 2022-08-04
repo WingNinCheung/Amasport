@@ -60,7 +60,7 @@ function ProductDetails() {
             <table>
               <thead>
                 <tr>
-                  <th colspan="2"></th>
+                  <th colSpan="2"></th>
                 </tr>
               </thead>
               <tbody>
