@@ -24,6 +24,7 @@ function Reviews() {
     }, 200);
 
     // dispatch(getAllReviews());
+    dispatch(getReviews(id));
 
     return () => clearTimeout(time);
   }, [dispatch]);
@@ -34,8 +35,6 @@ function Reviews() {
     await dispatch(deleteReview(reviewId));
     await dispatch(getReviews(id));
   };
-
-  // console.log("In function", reviews);
 
   return (
     <div className="review-container">
@@ -62,7 +61,9 @@ function Reviews() {
                 <div>{review.created_at}</div>
                 {sessionUser.user.id == review.user.id ? (
                   <div>
-                    <NavLink to="/home">Edit</NavLink>
+                    <NavLink to={`/products/${id}/reviews/${review.id}/edit`}>
+                      Edit
+                    </NavLink>
                     <button value={review.id} onClick={handleDelete}>
                       Delete
                     </button>

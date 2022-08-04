@@ -75,6 +75,22 @@ export const deleteReview = (reviewId) => async (dispatch) => {
   }
 };
 
+export const updateReview = (data, id) => async (dispatch) => {
+  const res = await fetch(`/api/reviews/${id}/edit`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (res.ok) {
+    const review = await res.json();
+
+    console.lot("review in thunk", review);
+    dispatch(addOneReview(review));
+    return review;
+  }
+};
+
 // Reducer
 
 const reviewReducer = (state = {}, action) => {

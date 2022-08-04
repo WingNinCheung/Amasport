@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getProducts } from "../../store/product";
 import { useEffect } from "react";
 import Reviews from "../review/review";
+import { getReviews } from "../../store/review";
 
 function ProductDetails() {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ function ProductDetails() {
 
   useEffect(() => {
     dispatch(getProducts());
+    dispatch(getReviews(id));
   }, [dispatch]);
 
   const allProducts = useSelector((state) => Object.values(state.product));
