@@ -56,6 +56,12 @@ function Reviews() {
                 <div>{review.rating}</div>
                 <div>{review.review_body}</div>
                 <div>{review.created_at}</div>
+                {sessionUser.user.id == review.user.id ? (
+                  <div>
+                    <NavLink to="/home">Edit</NavLink>
+                    <button>Delete</button>
+                  </div>
+                ) : null}
               </div>
             ))}
         </div>
