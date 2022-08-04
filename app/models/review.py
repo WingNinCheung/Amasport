@@ -25,6 +25,7 @@ class Review(db.Model):
             "rating": self.rating,
             "review_body": self.review_body,
             "created_at": self.created_at,
+            "user": self.user.to_dict(),
         }
 
     def __repr__(self):

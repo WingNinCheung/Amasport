@@ -10,7 +10,7 @@ function Reviews() {
   const reviews = useSelector((state) => Object.values(state.review));
   const sessionUser = useSelector((state) => state.session);
 
-  console.log("front is ", reviews[0].reviews[0].username);
+  console.log("front is ", reviews);
 
   useEffect(() => {
     dispatch(getReviews(id));
@@ -37,11 +37,11 @@ function Reviews() {
           <h3>Top reviews from the United States</h3>
           {reviews &&
             reviews.map((review) => (
-              <div className="each-review" key={review.reviews.id}>
-                {/* <div>{review.users.username}</div> */}
-                <div>{review.reviews.rating}</div>
-                <div>{review.reviews.review_body}</div>
-                <div>{review.reviews.created_at}</div>
+              <div className="each-review" key={review.id}>
+                <div>{review.user.username}</div>
+                <div>{review.rating}</div>
+                <div>{review.review_body}</div>
+                <div>{review.created_at}</div>
               </div>
             ))}
         </div>

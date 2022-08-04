@@ -20,16 +20,9 @@ def reviews(id):
         # print("BBBBBBB", review)
 
         # return {"reviews": [review]}
-        return {
-            "reviews": [
-                {
-                    "reviews": [
-                        review.to_dict() or review.user.to_dict() for review in reviews
-                    ],
-                    # "users": [review.user.to_dict() for review in reviews],
-                }
-            ]
-        }
+
+        return {"reviews": {"reviews": [review.to_dict() for review in reviews]}}
+        # return {"reviews"}
 
     return "1"
 
