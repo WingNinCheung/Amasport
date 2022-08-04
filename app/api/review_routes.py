@@ -19,4 +19,5 @@ def reviews(id):
         return {"reviews": [review]}
 
     # return {"reviews": [{"reviews": {"rating": "No Reviews Yet"}}]}
-    return None
+    print("******", reviews)
+    return "1"

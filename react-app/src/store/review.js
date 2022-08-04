@@ -1,9 +1,17 @@
 const LOAD_REVIEWS = "PRODUCT/LOAD_REVIEWS";
+const OTHER = "PRODUCT/ERROR";
 
 // Action
 const load = (reviews) => {
   return {
     type: LOAD_REVIEWS,
+    reviews,
+  };
+};
+
+const error = (reviews) => {
+  return {
+    type: OTHER,
     reviews,
   };
 };
@@ -15,11 +23,14 @@ export const getReviews = (productId) => async (dispatch) => {
   console.log(res);
   if (res.ok) {
     const reviews = await res.json();
-    console.log(reviews.reviews);
-    dispatch(load(reviews));
-  } else {
-    console.log("else");
-    return "wrong";
+    console.log("This", reviews);
+    if (reviews !== 1) {
+      dispatch(load(reviews));
+    } else {
+      console.log("in else");
+      dispatch(error(reviews));
+    }
+    return reviews;
   }
 };
 
@@ -33,7 +44,8 @@ const reviewReducer = (state = {}, action) => {
         newState[review.id] = review;
       });
       return newState;
-
+    case OTHER:
+      return {};
     default:
       return state;
   }

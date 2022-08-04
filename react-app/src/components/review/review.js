@@ -14,7 +14,7 @@ function Reviews() {
     dispatch(getReviews(id));
   }, [dispatch]);
 
-  console.log(reviews);
+  console.log("In function", reviews);
 
   return (
     <div className="review-container">
