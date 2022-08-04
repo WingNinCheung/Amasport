@@ -1,6 +1,7 @@
 const LOAD_REVIEWS = "PRODUCT/LOAD_REVIEWS";
 const ADD_REVIEW = "PRODUCT/ADD_REVIEWS";
 const OTHER = "PRODUCT/ERROR";
+const DELETE_REVIEW = "PRODUCT/DELETE_REVIEW";
 
 // Action
 const error = (reviews) => {
@@ -20,6 +21,13 @@ const load = (reviews) => {
 const addOneReview = (reviews) => {
   return {
     type: ADD_REVIEW,
+    reviews,
+  };
+};
+
+const deleteOneReview = (reviews) => {
+  return {
+    type: DELETE_REVIEW,
     reviews,
   };
 };
@@ -56,6 +64,17 @@ export const addReview = (review, productId) => async (dispatch) => {
   }
 };
 
+export const deleteReview = (reviewId) => async (dispatch) => {
+  const res = await fetch(`/api/reviews/${reviewId}/delete`, {
+    method: "DELETE",
+  });
+
+  console.log(res);
+  if (res.ok) {
+    dispatch(deleteOneReview(reviewId));
+  }
+};
+
 // Reducer
 
 const reviewReducer = (state = {}, action) => {
@@ -82,6 +101,10 @@ const reviewReducer = (state = {}, action) => {
     //   },
     // };
     // return newState;
+    case DELETE_REVIEW:
+      newState = { ...state };
+      delete newState[action.reviewId];
+      return newState;
     case OTHER:
       return {};
     default:

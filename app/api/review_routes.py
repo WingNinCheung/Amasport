@@ -1,5 +1,5 @@
 from crypt import methods
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from sqlalchemy import null
 from app.models import Review, User, review
 from ..models import db
@@ -40,3 +40,12 @@ def addReview(id):
     db.session.commit()
 
     return {"reviews": [review.to_dict()]}
+
+
+@review_routes.route("/<int:id>/delete", methods=["DELETE"])
+def deleteReview(id):
+    review = Review.query.get(id)
+    print("******", review)
+    db.session.delete(review)
+    db.session.commit()
+    return jsonify("Successfully deleted")

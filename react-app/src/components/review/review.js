@@ -2,6 +2,7 @@ import { getReviews } from "../../store/review";
 import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { deleteReview } from "../../store/review";
 
 function Reviews() {
   const dispatch = useDispatch();
@@ -27,8 +28,11 @@ function Reviews() {
     return () => clearTimeout(time);
   }, [dispatch]);
 
-  const createReview = (e) => {
+  const handleDelete = async (e) => {
     e.preventDefault();
+    const reviewId = e.target.value;
+    await dispatch(deleteReview(reviewId));
+    await dispatch(getReviews(id));
   };
 
   // console.log("In function", reviews);
@@ -59,7 +63,9 @@ function Reviews() {
                 {sessionUser.user.id == review.user.id ? (
                   <div>
                     <NavLink to="/home">Edit</NavLink>
-                    <button>Delete</button>
+                    <button value={review.id} onClick={handleDelete}>
+                      Delete
+                    </button>
                   </div>
                 ) : null}
               </div>
