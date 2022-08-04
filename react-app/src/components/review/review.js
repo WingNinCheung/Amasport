@@ -1,5 +1,5 @@
 import { getReviews } from "../../store/review";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -8,12 +8,23 @@ function Reviews() {
   const { id } = useParams();
 
   const reviews = useSelector((state) => Object.values(state.review));
+  const [addReview, setAddReview] = useState(false);
   const sessionUser = useSelector((state) => state.session);
 
   console.log("front is ", reviews);
 
+  // useEffect(() => {
+  //   dispatch(getReviews(id));
+  // }, [dispatch, addReview]);
+
   useEffect(() => {
-    dispatch(getReviews(id));
+    let time = setTimeout(() => {
+      dispatch(getReviews(id));
+    }, 200);
+
+    // dispatch(getAllReviews());
+
+    return () => clearTimeout(time);
   }, [dispatch]);
 
   const createReview = (e) => {
@@ -28,7 +39,10 @@ function Reviews() {
         <h3>Customer Reviews</h3>
         <h4>Review this product</h4>
         <h5>Share your thoughts with other customers</h5>
-        <NavLink to={`/products/${id}/reviews/new`}>
+        <NavLink
+          onClick={() => setAddReview(true)}
+          to={`/products/${id}/reviews/new`}
+        >
           Write a customer review
         </NavLink>
       </section>

@@ -12,17 +12,10 @@ def reviews(id):
 
     reviews = Review.query.filter(Review.product_id == id).all()
 
-    print("****", reviews)
-    reviewArr = []
     if reviews:
-        # for i in reviews:
-        #     review = {"reviews": i.to_dict(), "users": i.user.to_dict()}
-        # print("BBBBBBB", review)
 
-        # return {"reviews": [review]}
-
-        return {"reviews": {"reviews": [review.to_dict() for review in reviews]}}
-        # return {"reviews"}
+        # return {"reviews": {"reviews": [review.to_dict() for review in reviews]}}
+        return {"reviews": [review.to_dict() for review in reviews]}
 
     return "1"
 
@@ -46,6 +39,4 @@ def addReview(id):
     db.session.add(review)
     db.session.commit()
 
-    format_review = {"reviews": review.to_dict(), "users": review.user.to_dict()}
-    print("*****", format_review)
-    return {"reviews": [format_review]}
+    return {"reviews": [review.to_dict()]}

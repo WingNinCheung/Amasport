@@ -17,10 +17,10 @@ const load = (reviews) => {
   };
 };
 
-const addOneReview = (review) => {
+const addOneReview = (reviews) => {
   return {
     type: ADD_REVIEW,
-    review,
+    reviews,
   };
 };
 
@@ -30,7 +30,7 @@ export const getReviews = (productId) => async (dispatch) => {
 
   if (res.ok) {
     const reviews = await res.json();
-    console.log("normal data ", reviews);
+    console.log("normal data ", reviews.reviews);
 
     if (reviews !== 1) {
       dispatch(load(reviews));
@@ -48,11 +48,10 @@ export const addReview = (review, productId) => async (dispatch) => {
     body: JSON.stringify(review),
   });
 
-  console.log("res ", res);
   if (res.ok) {
     const data = await res.json();
+    console.log("create data ", data.reviews[0].id);
     dispatch(addOneReview(data));
-    console.log("create data ", data);
     return data;
   }
 };
@@ -63,26 +62,26 @@ const reviewReducer = (state = {}, action) => {
   let newState = {};
   switch (action.type) {
     case LOAD_REVIEWS:
-      action.reviews.reviews.reviews.forEach((review) => {
+      action.reviews.reviews.forEach((review) => {
         newState[review.id] = review;
       });
       return newState;
     case ADD_REVIEW:
-      if (!state[action.review.reviews.id]) {
+      if (!state[action.reviews.reviews[0].id]) {
         newState = {
           ...state,
-          [action.review.reviews.id]: action.review.reviews,
+          [action.reviews.reviews[0].id]: action.reviews.reviews[0],
         };
         return newState;
       }
-      newState = {
-        ...state,
-        [action.review.id]: {
-          ...state[action.review.id],
-          ...action.review,
-        },
-      };
-      return newState;
+    // newState = {
+    //   ...state,
+    //   [action.reviews.reviews[0].id]: {
+    //     ...state[action.reviews.reviews[0].id],
+    //     ...action.reviews.reviews[0],
+    //   },
+    // };
+    // return newState;
     case OTHER:
       return {};
     default:
