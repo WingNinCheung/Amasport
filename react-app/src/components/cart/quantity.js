@@ -22,7 +22,6 @@ function Quantity({ product }) {
 
   useEffect(() => {
     dispatch(updateQuantity(userId, productId, qty));
-    // dispatch(getCart(userId));
   }, [dispatch, qty]);
 
   // useEffect(() => {
