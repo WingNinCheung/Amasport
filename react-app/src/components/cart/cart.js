@@ -2,6 +2,7 @@ import { getCart } from "../../store/cart";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
+import Quantity from "./quantity";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -17,10 +18,6 @@ function Cart() {
   useEffect(() => {
     dispatch(getCart(userId));
   }, [dispatch]);
-
-  const deleteCartItem = (e) => {
-    e.preventDefault();
-  };
 
   return (
     <div>
@@ -41,26 +38,7 @@ function Cart() {
               </div>
               <h5>In Stock</h5>
               <h4>prime & FREE Returns</h4>
-              <div>
-                <label>Qty:</label>
-                <select
-                  onChange={(e) => setQty(e.target.value)}
-                  defaultValue={item.quantity}
-                >
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                </select>
-                <button value={item.id} onClick={deleteCartItem}>
-                  Delete
-                </button>
-              </div>
+              <Quantity product={item} />
             </div>
           ))}
       </div>
