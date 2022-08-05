@@ -6,7 +6,7 @@ from ..models import db
 cart_routes = Blueprint("carts", __name__)
 
 
-@cart_routes.route("/<int:id>/")
+@cart_routes.route("/<int:id>")
 def getCart(id):
 
     cart = Cart_Item.query.filter(Cart_Item.user_id == id).all()
