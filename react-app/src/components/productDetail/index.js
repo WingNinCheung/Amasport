@@ -11,6 +11,20 @@ function ProductDetails() {
   let about;
   let product;
 
+  let today = new Date();
+  let date = new Date().toDateString().split(" ");
+  date.pop();
+  date = date.join(" ");
+
+  let cutOff = new Date();
+
+  cutOff.setHours(17);
+  cutOff.setMinutes(0);
+  cutOff.setMilliseconds(0);
+  let expiredDate = Math.abs(cutOff - today) / 36e5;
+  expiredDate = expiredDate.toFixed(2).split(".");
+  console.log(expiredDate);
+
   useEffect(() => {
     dispatch(getProducts());
     dispatch(getReviews(id));
@@ -28,30 +42,41 @@ function ProductDetails() {
     <div>
       {allProducts && product && (
         <div>
-          <div>
-            <img src={product.image} alt="product"></img>
-          </div>
-          <div>{product.name}</div>
-          <div>${product.price}</div>
-          <div>
-            <h4>Category:</h4>
-            <span>{product.category}</span>
-          </div>
-          <div>
-            <h4>Brand:</h4>
-            <span>{product.brand}</span>
-          </div>
-          <div>
-            <h4>Item Dimension:</h4>
-            <span>{product.dimensions} inches</span>
-          </div>
-          <div>
-            <h3>About this item:</h3>
-            <ul>
-              {about.map((sentence) => (
-                <li key={sentence}>{sentence}</li>
-              ))}
-            </ul>
+          <div className="upper-container">
+            <div>
+              <img src={product.image} alt="product"></img>
+            </div>
+            <div>{product.name}</div>
+            <div>${product.price}</div>
+            <div>
+              <h4>Category:</h4>
+              <span>{product.category}</span>
+            </div>
+            <div>
+              <h4>Brand:</h4>
+              <span>{product.brand}</span>
+            </div>
+            <div>
+              <h4>Item Dimension:</h4>
+              <span>{product.dimensions} inches</span>
+            </div>
+            <div>
+              <h3>About this item:</h3>
+              <ul>
+                {about.map((sentence) => (
+                  <li key={sentence}>{sentence}</li>
+                ))}
+              </ul>
+              <div className="price-section">
+                <h3>${product.price}</h3>
+                <div>& FREE Returns</div>
+                <div>
+                  FREE Prime delivery {date}. Order within {expiredDate[0]} hrs{" "}
+                  {expiredDate[1]} mins{" "}
+                </div>
+                <h4>In Stock</h4>
+              </div>
+            </div>
           </div>
           <section className="description-section">
             <h3>Product Description</h3>
