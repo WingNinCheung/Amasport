@@ -11,6 +11,8 @@ import { authenticate } from "./store/session";
 import Splash from "./components/Splash";
 import Home from "./components/home";
 import ProductDetails from "./components/productDetail";
+import CreateReview from "./components/review/createReview";
+import EditReview from "./components/review/editReview";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -51,6 +53,15 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/products/:id" exact={true}>
           <ProductDetails />
+        </ProtectedRoute>
+        <ProtectedRoute path="/products/:id/reviews/new" exact={true}>
+          <CreateReview />
+        </ProtectedRoute>
+        <ProtectedRoute
+          path="/products/:productId/reviews/:id/edit"
+          exact={true}
+        >
+          <EditReview />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
