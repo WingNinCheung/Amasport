@@ -85,7 +85,7 @@ export const updateReview = (data, id) => async (dispatch) => {
   if (res.ok) {
     const review = await res.json();
 
-    console.lot("review in thunk", review);
+    console.log("review in thunk", review);
     dispatch(addOneReview(review));
     return review;
   }

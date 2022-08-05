@@ -48,13 +48,15 @@ def editReview(id):
     print("HITTTTTTT")
     review = Review.query.get(id)
 
-    print("*********", review)
+    print("*********", request.json)
 
     review.rating = request.json["rating"]
     review.review_body = request.json["review_body"]
     review.created_at = request.json["created_at"]
 
-    return "1"
+    db.session.commit()
+
+    return review.to_dict()
 
 
 @review_routes.route("/<int:id>/delete", methods=["DELETE"])

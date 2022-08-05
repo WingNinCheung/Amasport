@@ -53,7 +53,7 @@ function EditReview() {
     const data = {
       user_id: sessionUser.user.id,
       product_id: productId,
-      rating,
+      rating: rating,
       review_body: review,
       created_at: dateNow,
     };

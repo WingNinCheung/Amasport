@@ -24,7 +24,6 @@ function Reviews() {
     }, 200);
 
     // dispatch(getAllReviews());
-    dispatch(getReviews(id));
 
     return () => clearTimeout(time);
   }, [dispatch]);
