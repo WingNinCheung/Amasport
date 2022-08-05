@@ -16,16 +16,19 @@ function Quantity({ product }) {
     (product) => product.product_id == productId
   );
   //   const [qty, setQty] = useState(myProduct.quantity);
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
 
   console.log("New State", updatedCart);
   console.log(typeof myProduct.quantity);
 
   useEffect(() => {
     dispatch(updateQuantity(userId, productId, qty));
-    dispatch(getCart(userId));
+    // dispatch(getCart(userId));
+  }, [dispatch, qty, userId]);
+
+  useEffect(() => {
     setQty(myProduct.quantity);
-  }, [dispatch, qty]);
+  }, []);
 
   const deleteCartItem = (e) => {
     e.preventDefault();

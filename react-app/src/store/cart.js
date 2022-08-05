@@ -1,6 +1,7 @@
 const OTHER = "PRODUCT/ERROR";
 const LOAD_CARTS = "CART/LOAD_CART";
 const UPDATE_QUANTITY = "CART/UPDATE_QUANTITY";
+const REMOVE_ALL = "CART/REMOVE";
 
 // Action
 const error = (cart) => {
@@ -21,6 +22,12 @@ const changeQuantity = (cart) => {
   return {
     type: UPDATE_QUANTITY,
     cart,
+  };
+};
+
+const removeAll = () => {
+  return {
+    type: REMOVE_ALL,
   };
 };
 
@@ -51,6 +58,10 @@ export const updateQuantity = (userId, productId, qty) => async (dispatch) => {
   }
 };
 
+export const removeAllCart = () => async (dispatch) => {
+  dispatch(removeAll());
+};
+
 // Reducer
 
 const carrReducer = (state = {}, action) => {
@@ -70,6 +81,8 @@ const carrReducer = (state = {}, action) => {
         },
       };
       return newState;
+    case REMOVE_ALL:
+      return {};
     default:
       return state;
   }

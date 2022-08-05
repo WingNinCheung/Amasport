@@ -10,10 +10,7 @@ function Cart() {
   const cart = useSelector((state) => Object.values(state.cart));
   const userId = sessionUser.user.id;
 
-  const [qty, setQty] = useState(1);
-
-  console.log(cart);
-  console.log(qty);
+  console.log("c", cart);
 
   useEffect(() => {
     dispatch(getCart(userId));
@@ -23,10 +20,9 @@ function Cart() {
     <div>
       <div className="upper-cart">
         <h1>Shopping Cart</h1>
-        <div>Price</div>
       </div>
       <div className="cart-container">
-        {cart &&
+        {cart.length ? (
           cart.map((item) => (
             <div className="cart-item" key={item.id}>
               <div>
@@ -40,7 +36,10 @@ function Cart() {
               <h4>prime & FREE Returns</h4>
               <Quantity product={item} />
             </div>
-          ))}
+          ))
+        ) : (
+          <h2>Your Amazon Cart is empty.</h2>
+        )}
       </div>
     </div>
   );
