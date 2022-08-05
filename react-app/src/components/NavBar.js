@@ -33,7 +33,6 @@ const NavBar = () => {
           <NavLink to="/cart" exact={true} activeClassName="active">
             <img style={{ backgroundColor: "black" }} src={cartIcon}></img>
           </NavLink>
-
           <LogoutButton />
         </section>
       )}
