@@ -7,7 +7,6 @@ import { getCart } from "../../store/cart";
 function Quantity({ product }) {
   const userId = product.user_id;
   const productId = product.product_id;
-  //   console.log(userId, productId);
 
   const dispatch = useDispatch();
   const updatedCart = useSelector((state) => Object.values(state.cart));
@@ -15,8 +14,8 @@ function Quantity({ product }) {
   const myProduct = updatedCart.find(
     (product) => product.product_id == productId
   );
-  //   const [qty, setQty] = useState(myProduct.quantity);
-  const [qty, setQty] = useState(1);
+  const [qty, setQty] = useState(myProduct.quantity);
+  // const [qty, setQty] = useState(1);
 
   console.log("New State", updatedCart);
   console.log(typeof myProduct.quantity);
@@ -24,11 +23,11 @@ function Quantity({ product }) {
   useEffect(() => {
     dispatch(updateQuantity(userId, productId, qty));
     // dispatch(getCart(userId));
-  }, [dispatch, qty, userId]);
+  }, [dispatch, qty]);
 
-  useEffect(() => {
-    setQty(myProduct.quantity);
-  }, []);
+  // useEffect(() => {
+  //   setQty(myProduct.quantity);
+  // }, []);
 
   const deleteCartItem = (e) => {
     e.preventDefault();

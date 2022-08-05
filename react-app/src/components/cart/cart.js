@@ -38,7 +38,7 @@ function Cart() {
             </div>
           ))
         ) : (
-          <h2>Your Amazon Cart is empty.</h2>
+          <h2>Your Amasport Cart is empty.</h2>
         )}
       </div>
     </div>
