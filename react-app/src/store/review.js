@@ -38,7 +38,6 @@ export const getReviews = (productId) => async (dispatch) => {
 
   if (res.ok) {
     const reviews = await res.json();
-    console.log("normal data ", reviews.reviews);
 
     if (reviews !== 1) {
       dispatch(load(reviews));
@@ -58,7 +57,6 @@ export const addReview = (review, productId) => async (dispatch) => {
 
   if (res.ok) {
     const data = await res.json();
-    console.log("create data ", data.reviews[0].id);
     dispatch(addOneReview(data));
     return data;
   }
@@ -68,8 +66,6 @@ export const deleteReview = (reviewId) => async (dispatch) => {
   const res = await fetch(`/api/reviews/${reviewId}/delete`, {
     method: "DELETE",
   });
-
-  console.log(res);
   if (res.ok) {
     dispatch(deleteOneReview(reviewId));
   }
@@ -85,7 +81,7 @@ export const updateReview = (data, id) => async (dispatch) => {
   if (res.ok) {
     const review = await res.json();
 
-    console.log("review in thunk", review);
+    console.log("review in thunkkk", review);
     dispatch(addOneReview(review));
     return review;
   }
@@ -109,14 +105,14 @@ const reviewReducer = (state = {}, action) => {
         };
         return newState;
       }
-    // newState = {
-    //   ...state,
-    //   [action.reviews.reviews[0].id]: {
-    //     ...state[action.reviews.reviews[0].id],
-    //     ...action.reviews.reviews[0],
-    //   },
-    // };
-    // return newState;
+      newState = {
+        ...state,
+        [action.reviews.reviews[0].id]: {
+          ...state[action.reviews.reviews[0].id],
+          ...action.reviews.reviews[0],
+        },
+      };
+      return newState;
     case DELETE_REVIEW:
       newState = { ...state };
       delete newState[action.reviewId];

@@ -12,8 +12,6 @@ function Reviews() {
   const [addReview, setAddReview] = useState(false);
   const sessionUser = useSelector((state) => state.session);
 
-  console.log("front is ", reviews);
-
   // useEffect(() => {
   //   dispatch(getReviews(id));
   // }, [dispatch, addReview]);

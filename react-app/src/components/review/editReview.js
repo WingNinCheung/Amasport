@@ -57,7 +57,12 @@ function EditReview() {
       review_body: review,
       created_at: dateNow,
     };
-    dispatch(updateReview(data, id));
+
+    const edited = dispatch(updateReview(data, id));
+
+    if (edited) {
+      history.push(`/products/${productId}`);
+    }
     console.log(data);
     // const newReview = dispatch(addReview(data, id));
     // if (newReview) {
@@ -93,7 +98,7 @@ function EditReview() {
               onChange={(e) => setReview(e.target.value)}
               value={review}
             ></textarea>
-            <button disabled={validationError.length}>Submit</button>
+            <button disabled={validationError.length}>Edit</button>
           </form>
         </div>
       )}

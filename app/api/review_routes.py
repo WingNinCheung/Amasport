@@ -45,10 +45,7 @@ def addReview(id):
 @review_routes.route("/<int:id>/edit", methods=["PUT"])
 def editReview(id):
 
-    print("HITTTTTTT")
     review = Review.query.get(id)
-
-    print("*********", request.json)
 
     review.rating = request.json["rating"]
     review.review_body = request.json["review_body"]
@@ -56,7 +53,7 @@ def editReview(id):
 
     db.session.commit()
 
-    return review.to_dict()
+    return {"reviews": [review.to_dict()]}
 
 
 @review_routes.route("/<int:id>/delete", methods=["DELETE"])
