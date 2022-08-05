@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { getProducts } from "../../store/product";
 import { useEffect } from "react";
 import Reviews from "../review/review";
@@ -7,6 +7,7 @@ import { getReviews } from "../../store/review";
 
 function ProductDetails() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const { id } = useParams();
   let about;
   let product;
@@ -23,7 +24,6 @@ function ProductDetails() {
   cutOff.setMilliseconds(0);
   let expiredDate = Math.abs(cutOff - today) / 36e5;
   expiredDate = expiredDate.toFixed(2).split(".");
-  console.log(expiredDate);
 
   useEffect(() => {
     dispatch(getProducts());
@@ -37,6 +37,13 @@ function ProductDetails() {
     product = allProducts.find((item) => item.id == id);
     about = product.about.split(".");
   }
+
+  const addToCart = (e) => {
+    e.preventDefault();
+
+    console.log("Click");
+    history.push("/cart");
+  };
 
   return (
     <div>
@@ -75,6 +82,8 @@ function ProductDetails() {
                   {expiredDate[1]} mins{" "}
                 </div>
                 <h4>In Stock</h4>
+                <button onClick={addToCart}>Add to Cart</button>
+                <button>Buy Now</button>
               </div>
             </div>
           </div>
