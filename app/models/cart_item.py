@@ -21,6 +21,7 @@ class Cart_Item(db.Model):
             "user_id": self.user_id,
             "product_id": self.product_id,
             "quantity": self.quantity,
+            "products": self.products.to_dict(),
         }
 
     def __repr__(self):
