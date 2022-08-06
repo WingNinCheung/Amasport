@@ -9,7 +9,7 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const cart = useSelector((state) => Object.values(state.cart));
-  const userId = sessionUser.id;
+  // const userId = sessionUser.id;
   let totalQuantity = 0;
 
   cart.forEach((item) => {
@@ -17,9 +17,10 @@ const NavBar = () => {
   });
 
   useEffect(() => {
-    dispatch(getCart(userId));
-  }, [dispatch]);
+    dispatch(getCart(sessionUser?.id));
+  }, [dispatch, sessionUser]);
 
+  console.log("cart is ", cart);
   return (
     <nav>
       {!sessionUser && (
