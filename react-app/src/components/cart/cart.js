@@ -10,8 +10,6 @@ function Cart() {
   const cart = useSelector((state) => Object.values(state.cart));
   const userId = sessionUser.user.id;
 
-  console.log("c", cart);
-
   useEffect(() => {
     dispatch(getCart(userId));
   }, [dispatch]);

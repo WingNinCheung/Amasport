@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { updateQuantity } from "../../store/cart";
-import { getCart } from "../../store/cart";
+import { getCart, deleteProduct } from "../../store/cart";
 
 function Quantity({ product }) {
   const userId = product.user_id;
@@ -15,10 +15,6 @@ function Quantity({ product }) {
     (product) => product.product_id == productId
   );
   const [qty, setQty] = useState(myProduct.quantity);
-  // const [qty, setQty] = useState(1);
-
-  console.log("New State", updatedCart);
-  console.log(typeof myProduct.quantity);
 
   useEffect(() => {
     dispatch(updateQuantity(userId, productId, qty));
@@ -27,9 +23,10 @@ function Quantity({ product }) {
   // useEffect(() => {
   //   setQty(myProduct.quantity);
   // }, []);
-
-  const deleteCartItem = (e) => {
+  const deleteCartItem = async (e) => {
     e.preventDefault();
+    await dispatch(deleteProduct(userId, productId));
+    await dispatch(getCart(userId));
   };
 
   return (

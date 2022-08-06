@@ -1,14 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { getProducts } from "../../store/product";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Reviews from "../review/review";
 import { getReviews } from "../../store/review";
+import AddToCart from "./addToCart";
+import AddToCartModal from "./addToCartModal";
 
 function ProductDetails() {
   const dispatch = useDispatch();
   const history = useHistory();
+
+  // product id
   const { id } = useParams();
+
+  const [showsideMenu, setShowsideMenu] = useState(false);
+
   let about;
   let product;
 
@@ -40,9 +47,9 @@ function ProductDetails() {
 
   const addToCart = (e) => {
     e.preventDefault();
-
+    // setShowsideMenu(true);
+    <AddToCart />;
     console.log("Click");
-    history.push("/cart");
   };
 
   return (
@@ -82,7 +89,7 @@ function ProductDetails() {
                   {expiredDate[1]} mins{" "}
                 </div>
                 <h4>In Stock</h4>
-                <button onClick={addToCart}>Add to Cart</button>
+                <AddToCartModal />
                 <button>Buy Now</button>
               </div>
             </div>
