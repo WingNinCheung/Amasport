@@ -7,8 +7,8 @@ function AddToCartModal() {
 
   return (
     <>
-      <button className="login-button" onClick={() => setShowModal(true)}>
-        Add From Modal
+      <button className="addCart-button" onClick={() => setShowModal(true)}>
+        Add to Cart
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

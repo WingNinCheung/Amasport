@@ -30,3 +30,28 @@ def updateQty(userId, productId, qty):
     db.session.commit()
 
     return {"cart": [item.to_dict() for item in cart]}
+
+
+@cart_routes.route("/<userId>/<productId>/add", methods=["POST"])
+def createItem(userId, productId):
+    new_item = Cart_Item(user_id=userId, product_id=productId, quantity=request.json)
+    print("*********", new_item)
+
+    db.session.add(new_item)
+    db.session.commit()
+
+    return {"cart": [new_item.to_dict()]}
+
+
+@cart_routes.route("/<userId>/<productId>/delete", methods=["DELETE"])
+def deleteItem(userId, productId):
+
+    items = Cart_Item.query.filter(
+        Cart_Item.user_id == userId, Cart_Item.product_id == productId
+    ).all()
+
+    for item in items:
+        db.session.delete(item)
+
+    db.session.commit()
+    return jsonify("Successfully deleted")

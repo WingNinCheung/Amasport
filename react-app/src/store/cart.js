@@ -1,6 +1,8 @@
 const OTHER = "PRODUCT/ERROR";
 const LOAD_CARTS = "CART/LOAD_CART";
 const UPDATE_QUANTITY = "CART/UPDATE_QUANTITY";
+const ADD_ITEM = "CART/ADD_ITEM";
+const REMOVE_ITEM = "CART/REMOVE_ITEM";
 const REMOVE_ALL = "CART/REMOVE";
 
 // Action
@@ -25,6 +27,20 @@ const changeQuantity = (cart) => {
   };
 };
 
+const addItem = (cart) => {
+  return {
+    type: ADD_ITEM,
+    cart,
+  };
+};
+
+const deleteItem = (cart) => {
+  return {
+    type: REMOVE_ITEM,
+    cart,
+  };
+};
+
 const removeAll = () => {
   return {
     type: REMOVE_ALL,
@@ -33,7 +49,7 @@ const removeAll = () => {
 
 // Thunk
 export const getCart = (userId) => async (dispatch) => {
-  const res = await fetch(`api/carts/${userId}`);
+  const res = await fetch(`/api/carts/${userId}`);
 
   if (res.ok) {
     const cart = await res.json();
@@ -55,6 +71,34 @@ export const updateQuantity = (userId, productId, qty) => async (dispatch) => {
     console.log("review in thunkkk", cart);
     dispatch(changeQuantity(cart));
     return cart;
+  }
+};
+
+export const addProduct = (userId, productId, qty) => async (dispatch) => {
+  console.log("in thunk");
+  const res = await fetch(`/api/carts/${userId}/${productId}/add`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: 1,
+  });
+
+  if (res.ok) {
+    const cart = await res.json();
+
+    console.log("review in thunkkk", cart);
+    // dispatch(changeQuantity(cart));
+    // return cart;
+  }
+};
+
+export const deleteProduct = (userId, productId) => async (dispatch) => {
+  console.log("in");
+  const res = await fetch(`/api/carts/${userId}/${productId}/delete`, {
+    method: "DELETE",
+  });
+
+  if (res.ok) {
+    dispatch(deleteItem(res));
   }
 };
 
@@ -80,6 +124,10 @@ const carrReducer = (state = {}, action) => {
           ...action.cart.cart[0],
         },
       };
+      return newState;
+    case REMOVE_ITEM:
+      newState = { ...state };
+      delete newState[action.cart];
       return newState;
     case REMOVE_ALL:
       return {};

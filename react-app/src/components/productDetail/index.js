@@ -89,7 +89,6 @@ function ProductDetails() {
                   {expiredDate[1]} mins{" "}
                 </div>
                 <h4>In Stock</h4>
-                <button onClick={addToCart}>Add to Cart</button>
                 <AddToCartModal />
                 <button>Buy Now</button>
               </div>
