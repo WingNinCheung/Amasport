@@ -14,6 +14,7 @@ import ProductDetails from "./components/productDetail";
 import CreateReview from "./components/review/createReview";
 import EditReview from "./components/review/editReview";
 import Cart from "./components/cart/cart";
+import Checkout from "./components/checkout/checkout";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -66,6 +67,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/cart" exact={true}>
           <Cart />
+        </ProtectedRoute>
+        <ProtectedRoute path="/cart/checkout" exact={true}>
+          <Checkout />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
