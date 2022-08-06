@@ -17,13 +17,10 @@ def getCart(id):
 @cart_routes.route("/<userId>/<productId>/<qty>", methods=["PUT"])
 def updateQty(userId, productId, qty):
     print("In DB!!!!!!!!!!!")
-    # print("IDDDDD", productId)
 
     cart = Cart_Item.query.filter(
         Cart_Item.user_id == userId, Cart_Item.product_id == productId
-    ).all()
-
-    # print("*" * 10, cart[1])
+    )
 
     cart[0].quantity = qty
 
@@ -35,7 +32,6 @@ def updateQty(userId, productId, qty):
 @cart_routes.route("/<userId>/<productId>/add", methods=["POST"])
 def createItem(userId, productId):
     new_item = Cart_Item(user_id=userId, product_id=productId, quantity=request.json)
-    print("*********", new_item)
 
     db.session.add(new_item)
     db.session.commit()

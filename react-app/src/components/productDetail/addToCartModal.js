@@ -12,7 +12,7 @@ function AddToCartModal() {
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <AddToCart />
+          <AddToCart showModal={showModal} />
         </Modal>
       )}
     </>
