@@ -12,7 +12,7 @@ function AddToCart({ showModal }) {
   const { id } = useParams();
   const userId = sessionUser.user.id;
 
-  let exceedLimit = false;
+  const [exceedLimit, setExceedLimit] = useState(false);
 
   const myProduct = cart.find((product) => product.product_id == id);
   console.log("the socks ", myProduct);
@@ -29,8 +29,7 @@ function AddToCart({ showModal }) {
         await dispatch(updateQuantity(userId, id, myProduct.quantity));
         await dispatch(getCart(userId));
       } else {
-        console.log("no");
-        exceedLimit = true;
+        setExceedLimit(true);
       }
     }
   }, [dispatch]);
@@ -42,7 +41,19 @@ function AddToCart({ showModal }) {
     dispatch(getCart(userId));
   }, [dispatch]);
 
-  return <h1>Added TO cart Page</h1>;
+  return (
+    <div>
+      {!exceedLimit ? (
+        <div>
+          <i class="fa-solid fa-check"></i>
+        </div>
+      ) : (
+        <div>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default AddToCart;
