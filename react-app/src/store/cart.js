@@ -58,7 +58,6 @@ export const getCart = (userId) => async (dispatch) => {
 };
 
 export const updateQuantity = (userId, productId, qty) => async (dispatch) => {
-  console.log("in thunk");
   const res = await fetch(`/api/carts/${userId}/${productId}/${qty}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
@@ -67,15 +66,12 @@ export const updateQuantity = (userId, productId, qty) => async (dispatch) => {
 
   if (res.ok) {
     const cart = await res.json();
-
-    console.log("review in thunkkk", cart);
     dispatch(changeQuantity(cart));
     return cart;
   }
 };
 
 export const addProduct = (userId, productId, qty) => async (dispatch) => {
-  console.log("in thunk");
   const res = await fetch(`/api/carts/${userId}/${productId}/add`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

@@ -17,8 +17,7 @@ function Quantity({ product }) {
   const [qty, setQty] = useState(myProduct.quantity);
   // const [qty, setQty] = useState(1);
 
-  console.log("New State", updatedCart);
-  console.log(typeof myProduct.quantity);
+  // console.log("New State", updatedCart);
 
   useEffect(() => {
     dispatch(updateQuantity(userId, productId, qty));
@@ -30,6 +29,7 @@ function Quantity({ product }) {
   const deleteCartItem = async (e) => {
     e.preventDefault();
     await dispatch(deleteProduct(userId, productId));
+    await dispatch(getCart(userId));
   };
 
   return (
