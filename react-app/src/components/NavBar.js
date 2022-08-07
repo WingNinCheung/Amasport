@@ -41,9 +41,12 @@ const NavBar = () => {
           <NavLink to="/home" exact={true} activeClassName="active">
             Amasport
           </NavLink>
-          <NavLink to="/users" exact={true} activeClassName="active">
-            Users
-          </NavLink>
+          <div>
+            <NavLink to="/users" exact={true} activeClassName="active">
+              Hello, {sessionUser.username}
+              <div>Account & Lists</div>
+            </NavLink>
+          </div>
           <NavLink to="/cart" exact={true} activeClassName="active">
             <img style={{ backgroundColor: "black" }} src={cartIcon}></img>
           </NavLink>

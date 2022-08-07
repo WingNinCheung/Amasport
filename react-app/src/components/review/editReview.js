@@ -40,7 +40,8 @@ function EditReview() {
 
     if (review?.trim() === "") {
       errors.push("Review cannot be empty or all spaces");
-    } else if (review?.length > 250) {
+    }
+    if (review?.length > 250) {
       errors.push("Review cannot be more than 250 characters");
     }
 

@@ -5,7 +5,8 @@ import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
+import Account from "./components/Account";
+import Profile from "./components/profile";
 import User from "./components/User";
 import { authenticate } from "./store/session";
 import Splash from "./components/Splash";
@@ -14,6 +15,7 @@ import ProductDetails from "./components/productDetail";
 import CreateReview from "./components/review/createReview";
 import EditReview from "./components/review/editReview";
 import Cart from "./components/cart/cart";
+import Checkout from "./components/checkout/checkout";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,11 +46,14 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path="/users" exact={true}>
-          <UsersList />
+          <Account />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true}>
-          <User />
+          <Profile />
         </ProtectedRoute>
+        {/* <ProtectedRoute path="/users/:userId" exact={true}>
+          <User />
+        </ProtectedRoute> */}
         <ProtectedRoute path="/home" exact={true}>
           <Home />
         </ProtectedRoute>
@@ -66,6 +71,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/cart" exact={true}>
           <Cart />
+        </ProtectedRoute>
+        <ProtectedRoute path="/cart/checkout" exact={true}>
+          <Checkout />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
