@@ -1,23 +1,27 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-function EditAddress({ user, setUser, setShowModal, setChanges, changes }) {
-  const [street, setStreet] = useState(user.street);
-  const [city, setCity] = useState(user.city);
-  const [state, setState] = useState(user.state);
-  const [zip, setZip] = useState(user.zip_code);
+function AddAddress({ user, setUser, setShowModal, setChanges, changes }) {
+  const [street, setStreet] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zip, setZip] = useState("");
   const [validationError, setValidationError] = useState([]);
+
+  const history = useHistory();
 
   // validation errors handling
 
+  console.log("userid", user);
   useEffect(() => {
     let errors = [];
 
     let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
 
-    if (street.trim() === "" || city.trim() === "") {
+    if (street.trim().length === "" || city.trim() === "") {
       errors.push("Street and City name cannot be empty or all spaces");
     }
+
     if (street.length > 50) {
       errors.push("Street cannot be more than 50 characters");
     }
@@ -54,7 +58,7 @@ function EditAddress({ user, setUser, setShowModal, setChanges, changes }) {
   return (
     <div className="editAdd-container">
       <div>
-        <h3>Edit your address</h3>
+        <h3>Add your address</h3>
         <div>Only a U.S address is allowed</div>
       </div>
       <form>
@@ -134,11 +138,11 @@ function EditAddress({ user, setUser, setShowModal, setChanges, changes }) {
           <input onChange={(e) => setZip(e.target.value)} value={zip}></input>
         </label>
         <button onClick={handleChange} disabled={validationError.length}>
-          Save Changes
+          Add
         </button>
       </form>
     </div>
   );
 }
 
-export default EditAddress;
+export default AddAddress;

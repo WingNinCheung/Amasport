@@ -1,4 +1,5 @@
 from crypt import methods
+from itertools import count
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import User
@@ -30,11 +31,15 @@ def updateUser(id):
     city = request.json["city"]
     state = request.json["state"]
     zip_code = request.json["zip_code"]
+    country = request.json["country"]
+
+    print("*******", country)
 
     user.street = street
     user.city = city
     user.state = state
     user.zip_code = zip_code
+    user.country = country
 
     db.session.commit()
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import EditAddressModal from "./modal/editAddressModal";
+import AddAddressModal from "./modal/addAddressModal";
 
 function Profile() {
   const [user, setUser] = useState({});
@@ -42,10 +43,17 @@ function Profile() {
         <div>
           <h4>Physical Address</h4>
           <div>
-            {!user.street ? (
+            {user.street === null ? (
               <div>
                 <h5>No address found in our record </h5>
-                <div>Add here</div>
+                <span>
+                  <AddAddressModal
+                    user={user}
+                    setUser={setUser}
+                    setChanges={setChanges}
+                    changes={changes}
+                  />
+                </span>
               </div>
             ) : (
               <div>
