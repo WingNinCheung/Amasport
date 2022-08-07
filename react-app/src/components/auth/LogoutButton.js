@@ -8,6 +8,7 @@ const LogoutButton = () => {
   const onLogout = async (e) => {
     await dispatch(logout());
     await dispatch(removeAllCart());
+    localStorage.clear();
   };
 
   return <button onClick={onLogout}>Logout</button>;

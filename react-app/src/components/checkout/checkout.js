@@ -41,23 +41,29 @@ function Checkout() {
         <div>1 Choose a shipping address</div>
         <div>
           <h3>Your address</h3>
-          <input type="radio" value="default" />
+          <input type="radio" value="default" name="address" />
           <label>
             {user.street}, {user.city}, {user.state}, {user.zip_code},{" "}
             {user.country}
           </label>
           <h3>Other addresses</h3>
-          <input type="radio" />
-          <label>
-            {" "}
-            {street}, {city}, {state}, {zip}, {user.country}
-          </label>
-          <div>
-            <AddShippingAddressModal
-              setChanged={setChanged}
-              changed={changed}
-            />
-          </div>
+          {street && (
+            <div>
+              <input type="radio" name="address" />
+              <label>
+                {" "}
+                {street}, {city}, {state}, {zip}, {user.country}
+              </label>
+            </div>
+          )}
+          {!street && (
+            <div>
+              <AddShippingAddressModal
+                setChanged={setChanged}
+                changed={changed}
+              />
+            </div>
+          )}
         </div>
       </section>
     </div>
