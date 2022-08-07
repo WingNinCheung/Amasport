@@ -42,20 +42,27 @@ function Profile() {
         <div>
           <h4>Physical Address</h4>
           <div>
-            <div>
+            {!user.street ? (
               <div>
-                {user.street}, {user.city}, {user.state}, {user.zip_code},{" "}
-                {user.country}
+                <h5>No address found in our record </h5>
+                <div>Add here</div>
               </div>
-              <span>
-                <EditAddressModal
-                  user={user}
-                  setUser={setUser}
-                  setChanges={setChanges}
-                  changes={changes}
-                />
-              </span>
-            </div>
+            ) : (
+              <div>
+                <div>
+                  {user.street}, {user.city}, {user.state}, {user.zip_code},{" "}
+                  {user.country}
+                </div>
+                <span>
+                  <EditAddressModal
+                    user={user}
+                    setUser={setUser}
+                    setChanges={setChanges}
+                    changes={changes}
+                  />
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </section>
