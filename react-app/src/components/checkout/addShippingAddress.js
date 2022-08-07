@@ -1,13 +1,7 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-function AddShippingAddress({
-  setStreet,
-  setCity,
-  setState,
-  setZip,
-  setShowModal,
-}) {
+function AddShippingAddress({ setShowModal, setChanged, changed }) {
   const [newStreet, setNewStreet] = useState("");
   const [newCity, setNewCity] = useState("");
   const [newState, setNewState] = useState("");
@@ -42,6 +36,7 @@ function AddShippingAddress({
   const handleChange = async (e) => {
     e.preventDefault();
     setShowModal(false);
+    setChanged(!changed);
   };
 
   return (
@@ -60,7 +55,7 @@ function AddShippingAddress({
         <input
           onChange={(e) => {
             setNewStreet(e.target.value);
-            setStreet(e.target.value);
+            localStorage.setItem("street", e.target.value);
           }}
           value={newStreet}
         ></input>
@@ -70,7 +65,8 @@ function AddShippingAddress({
           <input
             onChange={(e) => {
               setNewCity(e.target.value);
-              setCity(e.target.value);
+
+              localStorage.setItem("city", e.target.value);
             }}
             value={newCity}
           ></input>
@@ -80,7 +76,8 @@ function AddShippingAddress({
           <select
             onChange={(e) => {
               setNewState(e.target.value);
-              setState(e.target.value);
+
+              window.localStorage.setItem("state", e.target.value);
             }}
             value={newState}
           >
@@ -142,7 +139,8 @@ function AddShippingAddress({
           <input
             onChange={(e) => {
               setNewZip(e.target.value);
-              setZip(e.target.value);
+
+              localStorage.setItem("zip", e.target.value);
             }}
             value={newZip}
           ></input>

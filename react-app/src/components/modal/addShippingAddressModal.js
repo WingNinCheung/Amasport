@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal } from "../../components/modal/modal";
 import AddShippingAddress from "../checkout/addShippingAddress";
 
-function AddShippingAddressModal({ setStreet, setCity, setState, setZip }) {
+function AddShippingAddressModal({ setChanged, changed }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -13,11 +13,9 @@ function AddShippingAddressModal({ setStreet, setCity, setState, setZip }) {
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <AddShippingAddress
-            setStreet={setStreet}
-            setCity={setCity}
-            setState={setState}
-            setZip={setZip}
             setShowModal={setShowModal}
+            setChanged={setChanged}
+            changed={changed}
           />
         </Modal>
       )}

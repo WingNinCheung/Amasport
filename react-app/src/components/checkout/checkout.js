@@ -5,12 +5,21 @@ import AddShippingAddressModal from "../modal/addShippingAddressModal";
 function Checkout() {
   const [user, setUser] = useState({});
   const cart = useSelector((state) => Object.values(state.cart));
-  const [street, setStreet] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [zip, setZip] = useState("");
+  const [changed, setChanged] = useState(false);
 
-  console.log("street is ", street);
+  let street = window.localStorage.getItem("street");
+  let city = window.localStorage.getItem("city");
+  let state = window.localStorage.getItem("state");
+  let zip = window.localStorage.getItem("zip");
+
+  useEffect(() => {
+    // street = window.localStorage.getItem("street");
+    // city = window.localStorage.getItem("city");
+    // state = window.localStorage.getItem("state");
+    // zip = window.localStorage.getItem("zip");
+  }, [street, city, state, zip, changed]);
+
+  console.log("local storage ", street, city, state, zip);
 
   const sessionUser = useSelector((state) => state.session);
 
@@ -39,12 +48,14 @@ function Checkout() {
           </label>
           <h3>Other addresses</h3>
           <input type="radio" />
+          <label>
+            {" "}
+            {street}, {city}, {state}, {zip}, {user.country}
+          </label>
           <div>
             <AddShippingAddressModal
-              setStreet={setStreet}
-              setCity={setCity}
-              setState={setState}
-              setZip={setZip}
+              setChanged={setChanged}
+              changed={changed}
             />
           </div>
         </div>
