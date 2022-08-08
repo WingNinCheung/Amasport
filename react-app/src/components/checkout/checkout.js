@@ -3,10 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import AddShippingAddressModal from "../modal/addShippingAddressModal";
 import primeIcon from "../../images/amazon-prime-delivery-checkmark._CB659998231_.png";
+import { createOrder, getOrder } from "../../store/order";
+
 function Checkout() {
+  const dispatch = useDispatch();
   const [user, setUser] = useState({});
   const cart = useSelector((state) => Object.values(state.cart));
+  const order = useSelector((state) => Object.values(state.order));
   const [changed, setChanged] = useState(false);
+  let radioResult = "default";
+
+  console.log("Order!, ", order);
 
   let totalPrice = 0;
   let totalQuantity = 0;
@@ -17,7 +24,7 @@ function Checkout() {
   });
   totalPrice = totalPrice.toFixed(2);
 
-  let tax = (totalPrice * 0.00863).toFixed(2);
+  let tax = (totalPrice * 0.0863).toFixed(2);
   let finalPrice = Number(tax) + Number(totalPrice);
 
   let today = new Date();
@@ -58,10 +65,80 @@ function Checkout() {
   }, []);
 
   console.log(cart);
-  console.log(street);
+  useEffect(() => {
+    dispatch(getOrder(sessionUser.user.id));
+  }, [dispatch]);
 
   const handleRadio = (e) => {
-    console.log(e.target.value);
+    radioResult = e.target.value;
+  };
+
+  const placeOrder = (e) => {
+    e.preventDefault();
+    let data;
+    // console.log(user);
+    // if (radioResult === "default") {
+    //   cart.forEach((product) => {
+    // console.log(product);
+    //     data = {
+    //       user_id: user.id,
+    //       product_id: product.product_id,
+    //       quantity: product.quantity,
+    //       street: user.street,
+    //       city: user.city,
+    //       state: user.state,
+    //       zip_code: user.zip_code,
+    //       country: user.country,
+    //       delivery_time: 2,
+    //       delivery_status: "Pending",
+    //       created_at: today,
+    //     };
+    //     console.log(data);
+    //   });
+    // } else {
+    //   cart.forEach((product) => {
+    //     // console.log(product);
+    //     data = {
+    //       user_id: user.id,
+    //       product_id: product.product_id,
+    //       quantity: product.quantity,
+    //       street: street,
+    //       city: city,
+    //       state: state,
+    //       zip_code: zip,
+    //       country: user.country,
+    //       delivery_time: 2,
+    //       delivery_status: "Pending",
+    //       created_at: today,
+    //     };
+    //     console.log(data);
+    //   });
+    // }
+    cart.forEach((product) => {
+      if (radioResult === "default") {
+        street = user.street;
+        city = user.city;
+        state = user.state;
+        zip = user.zip_code;
+      }
+
+      data = {
+        user_id: user.id,
+        product_id: product.product_id,
+        quantity: product.quantity,
+        price: product.products.price,
+        street,
+        city,
+        state,
+        zip_code: zip,
+        country: user.country,
+        delivery_time: 2,
+        delivery_status: "Pending",
+        created_at: today,
+      };
+      // console.log(data);
+      dispatch(createOrder(data));
+    });
   };
 
   return (
@@ -75,6 +152,7 @@ function Checkout() {
             value="default"
             name="address"
             onChange={handleRadio}
+            checked
           />
           <label>
             {user.street}, {user.city}, {user.state}, {user.zip_code},{" "}
@@ -148,7 +226,7 @@ function Checkout() {
         </div>
       </section>
       <section className="summary">
-        <button>Place your order</button>
+        <button onClick={placeOrder}>Place your order</button>
         <div>
           By placing your order, you agree to Amasport's privacy notice and
           conditions of use.

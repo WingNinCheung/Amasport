@@ -20,7 +20,6 @@ const NavBar = () => {
     dispatch(getCart(sessionUser?.id));
   }, [dispatch, sessionUser]);
 
-  console.log("cart is ", cart);
   return (
     <nav>
       {!sessionUser && (

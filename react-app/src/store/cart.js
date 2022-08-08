@@ -104,7 +104,7 @@ export const removeAllCart = () => async (dispatch) => {
 
 // Reducer
 
-const carrReducer = (state = {}, action) => {
+const cartReducer = (state = {}, action) => {
   let newState = {};
   switch (action.type) {
     case LOAD_CARTS:
@@ -132,4 +132,4 @@ const carrReducer = (state = {}, action) => {
   }
 };
 
-export default carrReducer;
+export default cartReducer;
