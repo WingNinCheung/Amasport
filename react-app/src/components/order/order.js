@@ -4,12 +4,20 @@ import { useSelector, useDispatch } from "react-redux";
 import OrderHistory from "./orderHistory";
 import BugAgain from "./buyAgain";
 import CancelOrder from "./cancelOrder";
+import { getOrder } from "../../store/order";
 
 function Order() {
   const sessionUser = useSelector((state) => state.session.user);
-  const [showOrder, setShowOrder] = useState(false);
+  const order = useSelector((state) => Object.values(state.order));
+  const [showOrder, setShowOrder] = useState(true);
   const [showBuyAgain, setBuyAgain] = useState(false);
   const [showCancelled, setCancelled] = useState(false);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getOrder(sessionUser.id));
+  }, [dispatch]);
 
   return (
     <div>
