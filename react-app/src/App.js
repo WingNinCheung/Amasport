@@ -17,6 +17,7 @@ import EditReview from "./components/review/editReview";
 import Cart from "./components/cart/cart";
 import Checkout from "./components/checkout/checkout";
 import Order from "./components/order/order";
+import ThankYou from "./components/checkout/thankyou";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -78,6 +79,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/order-history" exact={true}>
           <Order />
+        </ProtectedRoute>
+        <ProtectedRoute path="/thank-you" exact={true}>
+          <ThankYou />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

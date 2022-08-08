@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import AddShippingAddressModal from "../modal/addShippingAddressModal";
 import primeIcon from "../../images/amazon-prime-delivery-checkmark._CB659998231_.png";
 import { createOrder, getOrder } from "../../store/order";
+import OrderedModal from "../modal/orderedModal";
 
 function Checkout() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [user, setUser] = useState({});
   const cart = useSelector((state) => Object.values(state.cart));
   const order = useSelector((state) => Object.values(state.order));
@@ -76,44 +78,7 @@ function Checkout() {
   const placeOrder = (e) => {
     e.preventDefault();
     let data;
-    // console.log(user);
-    // if (radioResult === "default") {
-    //   cart.forEach((product) => {
-    // console.log(product);
-    //     data = {
-    //       user_id: user.id,
-    //       product_id: product.product_id,
-    //       quantity: product.quantity,
-    //       street: user.street,
-    //       city: user.city,
-    //       state: user.state,
-    //       zip_code: user.zip_code,
-    //       country: user.country,
-    //       delivery_time: 2,
-    //       delivery_status: "Pending",
-    //       created_at: today,
-    //     };
-    //     console.log(data);
-    //   });
-    // } else {
-    //   cart.forEach((product) => {
-    //     // console.log(product);
-    //     data = {
-    //       user_id: user.id,
-    //       product_id: product.product_id,
-    //       quantity: product.quantity,
-    //       street: street,
-    //       city: city,
-    //       state: state,
-    //       zip_code: zip,
-    //       country: user.country,
-    //       delivery_time: 2,
-    //       delivery_status: "Pending",
-    //       created_at: today,
-    //     };
-    //     console.log(data);
-    //   });
-    // }
+
     cart.forEach((product) => {
       if (radioResult === "default") {
         street = user.street;
@@ -126,7 +91,7 @@ function Checkout() {
         user_id: user.id,
         product_id: product.product_id,
         quantity: product.quantity,
-        price: product.products.price,
+        price: finalPrice,
         street,
         city,
         state,
@@ -136,9 +101,9 @@ function Checkout() {
         delivery_status: "Pending",
         created_at: today,
       };
-      // console.log(data);
       dispatch(createOrder(data));
     });
+    history.push("/thank-you");
   };
 
   return (
