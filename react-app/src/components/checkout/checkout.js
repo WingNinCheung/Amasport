@@ -32,8 +32,8 @@ function Checkout() {
   delivery_date = delivery_date.join(" ");
 
   let cutOff = new Date();
-  cutOff.setDate(today.getDate() + 1);
-  cutOff.setHours(0);
+  cutOff.setDate(today.getDate());
+  cutOff.setHours(17);
   cutOff.setMinutes(0);
   cutOff.setMilliseconds(0);
 
@@ -58,6 +58,11 @@ function Checkout() {
   }, []);
 
   console.log(cart);
+  console.log(street);
+
+  const handleRadio = (e) => {
+    console.log(e.target.value);
+  };
 
   return (
     <div className="checkout-container">
@@ -65,7 +70,12 @@ function Checkout() {
         <h2>1 Choose a shipping address</h2>
         <div>
           <h3>Your address</h3>
-          <input type="radio" value="default" name="address" />
+          <input
+            type="radio"
+            value="default"
+            name="address"
+            onChange={handleRadio}
+          />
           <label>
             {user.street}, {user.city}, {user.state}, {user.zip_code},{" "}
             {user.country}
@@ -73,7 +83,12 @@ function Checkout() {
           <h3>Other addresses</h3>
           {street && (
             <div>
-              <input type="radio" name="address" />
+              <input
+                type="radio"
+                name="address"
+                value="added"
+                onChange={handleRadio}
+              />
               <label>
                 {" "}
                 {street}, {city}, {state}, {zip}, {user.country}

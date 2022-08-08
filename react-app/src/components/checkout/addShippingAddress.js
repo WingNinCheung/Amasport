@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 function AddShippingAddress({ setShowModal, setChanged, changed }) {
   const [newStreet, setNewStreet] = useState("");
   const [newCity, setNewCity] = useState("");
-  const [newState, setNewState] = useState("");
+  const [newState, setNewState] = useState("AL");
   const [newZip, setNewZip] = useState("");
   const [validationError, setValidationError] = useState([]);
 
@@ -76,8 +76,7 @@ function AddShippingAddress({ setShowModal, setChanged, changed }) {
           <select
             onChange={(e) => {
               setNewState(e.target.value);
-
-              window.localStorage.setItem("state", e.target.value);
+              localStorage.setItem("state", e.target.value);
             }}
             value={newState}
           >
@@ -139,7 +138,6 @@ function AddShippingAddress({ setShowModal, setChanged, changed }) {
           <input
             onChange={(e) => {
               setNewZip(e.target.value);
-
               localStorage.setItem("zip", e.target.value);
             }}
             value={newZip}
