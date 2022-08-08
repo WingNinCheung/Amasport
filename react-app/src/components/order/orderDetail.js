@@ -5,15 +5,19 @@ import OrderHistory from "./orderHistory";
 import BugAgain from "./buyAgain";
 import CancelOrder from "./cancelOrder";
 import { getOrder } from "../../store/order";
+import EditShippingModal from "../modal/editShippingModal";
 
 function OrderDetails() {
   const sessionUser = useSelector((state) => state.session.user);
   const order = useSelector((state) => Object.values(state.order));
+  let tax = 0;
 
   const { id } = useParams();
   const myOrder = order.find((order) => order.id == id);
 
-  const tax = Number(myOrder.price) - Number(myOrder.product.price);
+  if (myOrder) {
+    tax = Number(myOrder.price) - Number(myOrder.product.price);
+  }
   console.log("my order ", myOrder);
 
   const dispatch = useDispatch();
@@ -24,7 +28,7 @@ function OrderDetails() {
 
   return (
     <div>
-      {order && (
+      {myOrder && (
         <div>
           <h2>Order Details</h2>
           <div>Ordered on {myOrder.created_at}</div>
@@ -68,7 +72,9 @@ function OrderDetails() {
             <div>Brand: {myOrder.product.brand}</div>
             <div>Manufacturer: {myOrder.product.manufacturer}</div>
             <div>Condition: New</div>
-            <div></div>
+            <div>
+              <EditShippingModal myOrder={myOrder} id={id} />
+            </div>
           </div>
         </div>
       )}

@@ -47,6 +47,24 @@ export const createOrder = (data) => async (dispatch) => {
   }
 };
 
+export const updateOrder = (data, id) => async (dispatch) => {
+  const res = await fetch(`/api/orders/${id}/edit`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (res.ok) {
+    const order = await res.json();
+
+    console.log("review in thunkkk", order);
+    dispatch(addOrder(order));
+    return order;
+  }
+};
+
+// Reducer
+
 const orderReducer = (state = {}, action) => {
   let newState = {};
   switch (action.type) {

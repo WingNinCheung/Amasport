@@ -49,3 +49,18 @@ def addOrder():
     db.session.commit()
 
     return {"order": [order.to_dict()]}
+
+
+@order_routes.route("/<int:id>/edit", methods=["PUT"])
+def updateOrder(id):
+
+    order = Order.query.get(id)
+
+    order.street = request.json["street"]
+    order.city = request.json["city"]
+    order.state = request.json["state"]
+    order.zip_code = request.json["zip_code"]
+
+    db.session.commit()
+
+    return {"order": [order.to_dict()]}
