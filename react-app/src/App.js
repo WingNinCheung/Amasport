@@ -18,6 +18,7 @@ import Cart from "./components/cart/cart";
 import Checkout from "./components/checkout/checkout";
 import Order from "./components/order/order";
 import ThankYou from "./components/checkout/thankyou";
+import OrderDetails from "./components/order/orderDetail";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -82,6 +83,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/thank-you" exact={true}>
           <ThankYou />
+        </ProtectedRoute>
+        <ProtectedRoute path="/order/:id" exact={true}>
+          <OrderDetails />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

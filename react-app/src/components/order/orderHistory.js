@@ -14,7 +14,7 @@ function OrderHistory() {
     <div>
       <div>
         {order.map((item) => (
-          <div className="order-container">
+          <div key={item.id} className="order-container">
             <div className="topOrder">
               <div>
                 <div>ORDER PLACED</div>
