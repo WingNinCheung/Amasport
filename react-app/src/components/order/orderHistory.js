@@ -7,9 +7,14 @@ function OrderHistory() {
   const sessionUser = useSelector((state) => state.session.user);
   const order = useSelector((state) => Object.values(state.order));
 
+  const dispatch = useDispatch();
+
   console.log("order", order);
 
-  //   console.log("here", sessionUser);
+  useEffect(() => {
+    dispatch(getOrder(sessionUser.id));
+  }, []);
+
   return (
     <div>
       <div>
@@ -21,8 +26,12 @@ function OrderHistory() {
                 <span>{item.created_at}</span>
               </div>
               <div>
+                <div>Qty</div>
+                <span>{item.quantity}</span>
+              </div>
+              <div>
                 <div>TOTAL</div>
-                <span>{item.price}</span>
+                <span>${item.price}</span>
               </div>
               <div>
                 <div>SHIP TO</div>

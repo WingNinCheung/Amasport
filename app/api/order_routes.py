@@ -64,3 +64,13 @@ def updateOrder(id):
     db.session.commit()
 
     return {"order": [order.to_dict()]}
+
+
+@order_routes.route("/<int:id>/delete", methods=["DELETE"])
+def deleteReview(id):
+    order = Order.query.get(id)
+
+    db.session.delete(order)
+    db.session.commit()
+
+    return jsonify("Successfully deleted")

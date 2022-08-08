@@ -5,6 +5,7 @@ import AddShippingAddressModal from "../modal/addShippingAddressModal";
 import primeIcon from "../../images/amazon-prime-delivery-checkmark._CB659998231_.png";
 import { createOrder, getOrder } from "../../store/order";
 import OrderedModal from "../modal/orderedModal";
+import { removeAllCart } from "../../store/cart";
 
 function Checkout() {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ function Checkout() {
   const [changed, setChanged] = useState(false);
   let radioResult = "default";
 
-  // console.log("Order!, ", order);
+  console.log("cart!, ", cart);
 
   let totalPrice = 0;
   let totalQuantity = 0;
@@ -75,7 +76,7 @@ function Checkout() {
     radioResult = e.target.value;
   };
 
-  const placeOrder = (e) => {
+  const placeOrder = async (e) => {
     e.preventDefault();
     let data;
 
@@ -91,7 +92,7 @@ function Checkout() {
         user_id: user.id,
         product_id: product.product_id,
         quantity: product.quantity,
-        price: finalPrice,
+        price: (product.products.price * product.quantity * 1.0863).toFixed(2),
         street,
         city,
         state,
@@ -103,6 +104,8 @@ function Checkout() {
       };
       dispatch(createOrder(data));
     });
+
+    await dispatch(removeAllCart());
     history.push("/thank-you");
   };
 
@@ -223,7 +226,7 @@ function Checkout() {
                     <h3>Order total:</h3>
                   </td>
                   <td>
-                    <h3>${finalPrice}</h3>
+                    <h3>${finalPrice.toFixed(2)}</h3>
                   </td>
                 </tr>
               </tbody>

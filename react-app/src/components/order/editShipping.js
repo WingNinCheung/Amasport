@@ -45,7 +45,6 @@ function EditShipping({ myOrder, id, setShowModal }) {
     };
 
     dispatch(updateOrder(data, id));
-
     setShowModal(false);
   };
 

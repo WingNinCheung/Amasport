@@ -3,9 +3,10 @@ import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import OrderHistory from "./orderHistory";
 import BugAgain from "./buyAgain";
-import CancelOrder from "./cancelOrder";
+import DeleteOrder from "./deleteOrder";
 import { getOrder } from "../../store/order";
 import EditShippingModal from "../modal/editShippingModal";
+import DeleteOrderModal from "../modal/deleteOrderModal";
 
 function OrderDetails() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -16,7 +17,8 @@ function OrderDetails() {
   const myOrder = order.find((order) => order.id == id);
 
   if (myOrder) {
-    tax = Number(myOrder.price) - Number(myOrder.product.price);
+    tax =
+      Number(myOrder.price) - Number(myOrder.product.price * myOrder.quantity);
   }
   console.log("my order ", myOrder);
 
@@ -54,10 +56,16 @@ function OrderDetails() {
             </div>
             <div>
               <h4>Order Summary</h4>
-              <div>Item(s) Subtotal:${myOrder.product.price}</div>
+              <div>
+                Item(s) Subtotal:$
+                {(myOrder.product.price * myOrder.quantity).toFixed(2)}
+              </div>
               <div>Shipping & Handling: $0.00</div>
               <div>Subscribe & Save:: $0.00</div>
-              <div>Total before tax: ${myOrder.product.price}</div>
+              <div>
+                Total before tax: $
+                {(myOrder.product.price * myOrder.quantity).toFixed(2)}
+              </div>
               <div>Estimated tax: ${tax.toFixed(2)}</div>
               <div>Grand Total: ${myOrder.price}</div>
             </div>
@@ -74,6 +82,9 @@ function OrderDetails() {
             <div>Condition: New</div>
             <div>
               <EditShippingModal myOrder={myOrder} id={id} />
+            </div>
+            <div>
+              <DeleteOrderModal myOrder={myOrder} id={id} />
             </div>
           </div>
         </div>

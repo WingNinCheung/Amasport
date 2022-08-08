@@ -1,8 +1,6 @@
 const LOAD_ORDERS = "ORDER/LOAD_ORDERS";
 const CREATE_ORDER = "ORDER/CREATE_ORDER";
-// const ADD_ITEM = "CART/ADD_ITEM";
-// const REMOVE_ITEM = "CART/REMOVE_ITEM";
-// const REMOVE_ALL = "CART/REMOVE";
+const DELETE_ORDER = "ORDER/DELETE_ORDER";
 
 // Action
 
@@ -16,6 +14,13 @@ const load = (order) => {
 const addOrder = (order) => {
   return {
     type: CREATE_ORDER,
+    order,
+  };
+};
+
+const deleteOrder = (order) => {
+  return {
+    type: DELETE_ORDER,
     order,
   };
 };
@@ -56,10 +61,20 @@ export const updateOrder = (data, id) => async (dispatch) => {
 
   if (res.ok) {
     const order = await res.json();
-
-    console.log("review in thunkkk", order);
     dispatch(addOrder(order));
     return order;
+  }
+};
+
+export const removeOrder = (id) => async (dispatch) => {
+  console.log("hit");
+  const res = await fetch(`/api/orders/${id}/delete`, {
+    method: "DELETE",
+  });
+
+  console.log("res,", res);
+  if (res.ok) {
+    dispatch(deleteOrder(id));
   }
 };
 
@@ -88,6 +103,10 @@ const orderReducer = (state = {}, action) => {
           ...action.order.order[0],
         },
       };
+      return newState;
+    case DELETE_ORDER:
+      newState = { ...state };
+      delete newState[action.order];
       return newState;
     default:
       return state;

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import OrderHistory from "./orderHistory";
 import BugAgain from "./buyAgain";
-import CancelOrder from "./cancelOrder";
+import DeleteOrder from "./deleteOrder";
 import { getOrder } from "../../store/order";
 
 function Order() {
@@ -55,7 +55,7 @@ function Order() {
       </nav>
       <div>{showOrder && <OrderHistory />}</div>
       <div>{showBuyAgain && <BugAgain />}</div>
-      <div>{showCancelled && <CancelOrder />}</div>
+      <div>{showCancelled && <DeleteOrder />}</div>
     </div>
   );
 }
