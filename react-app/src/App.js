@@ -16,6 +16,7 @@ import CreateReview from "./components/review/createReview";
 import EditReview from "./components/review/editReview";
 import Cart from "./components/cart/cart";
 import Checkout from "./components/checkout/checkout";
+import Order from "./components/order/order";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -74,6 +75,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/cart/checkout" exact={true}>
           <Checkout />
+        </ProtectedRoute>
+        <ProtectedRoute path="/order-history" exact={true}>
+          <Order />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
