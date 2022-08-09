@@ -7,7 +7,6 @@ import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import Account from "./components/Account";
 import Profile from "./components/profile";
-import User from "./components/User";
 import { authenticate } from "./store/session";
 import Splash from "./components/Splash";
 import Home from "./components/home";
@@ -20,6 +19,7 @@ import Order from "./components/order/order";
 import ThankYou from "./components/checkout/thankyou";
 import OrderDetails from "./components/order/orderDetail";
 import SearchProductDetail from "./components/home/searchProductDetail";
+import CategoryNavBar from "./components/home/categoryNavBar";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -39,6 +39,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <CategoryNavBar />
       <Switch>
         <Route path="/" exact={true}>
           <Splash />
@@ -55,9 +56,6 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true}>
           <Profile />
         </ProtectedRoute>
-        {/* <ProtectedRoute path="/users/:userId" exact={true}>
-          <User />
-        </ProtectedRoute> */}
         <ProtectedRoute path="/home" exact={true}>
           <Home />
         </ProtectedRoute>

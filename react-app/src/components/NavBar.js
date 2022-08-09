@@ -28,8 +28,12 @@ const NavBar = () => {
 
   const search = (e) => {
     e.preventDefault();
-    setSearchText("");
-    history.push(`/search/${searchCategory}/${searchText}`);
+    if (/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(searchText)) {
+      window.alert("Special characters '!@#$%^&*()<>/;'[]' are not allowed");
+    } else {
+      setSearchText("");
+      history.push(`/search/${searchCategory}/${searchText}`);
+    }
   };
 
   return (
@@ -61,6 +65,10 @@ const NavBar = () => {
                 <option>All</option>
                 <option>Basketball</option>
                 <option>Tennis</option>
+                <option>Training</option>
+                <option>Sneakers</option>
+                <option>Shirts & Tops</option>
+                <option>Skateboarding</option>
                 <option>Other</option>
               </select>
             </span>
