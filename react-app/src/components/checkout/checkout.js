@@ -16,8 +16,6 @@ function Checkout() {
   const [changed, setChanged] = useState(false);
   let radioResult = "default";
 
-  console.log("cart!, ", user);
-
   let totalPrice = 0;
   let totalQuantity = 0;
 

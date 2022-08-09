@@ -1,19 +1,72 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getOrder } from "../../store/order";
+import { getOrder, updateStatus } from "../../store/order";
 
 function OrderHistory() {
   const sessionUser = useSelector((state) => state.session.user);
   const order = useSelector((state) => Object.values(state.order));
+  const [status, setStatus] = useState("");
+  let expiredDate = new Date();
+  let dateNow = new Date();
+  let deliveredDate = new Date();
 
   const dispatch = useDispatch();
 
   console.log("order", order);
 
   useEffect(() => {
+    order.forEach((item) => {
+      let orderTime = item.created_at;
+      orderTime = orderTime.split(" ");
+      orderTime.pop();
+      orderTime.join("");
+      orderTime = new Date(orderTime);
+      //   let expiredDate = new Date();
+      // original
+      expiredDate.setDate(orderTime.getDate());
+      expiredDate.setHours(orderTime.getHours() + 2);
+
+      //   expiredDate.setHours(orderTime.getHours());
+
+      // original
+      expiredDate.setMinutes(orderTime.getMinutes());
+
+      //   expiredDate.setMinutes(orderTime.getMinutes() + 1);
+
+      expiredDate.setMilliseconds(0);
+
+      //   let dateNow = new Date();
+      //   let deliveredDate = new Date();
+      //
+
+      deliveredDate.setDate(orderTime.getDate() + 2);
+      deliveredDate.setHours(orderTime.getHours());
+      deliveredDate.setMinutes(orderTime.getMinutes());
+
+      let expire = (expiredDate - dateNow) / 36e5;
+      let isdelivered = (deliveredDate - dateNow) / 36e5;
+
+      if (expire < 0) {
+        setStatus("Confirmed");
+        const data = {
+          delivery_status: "Confirmed",
+        };
+        dispatch(updateStatus(data, item.id));
+      } else if (isdelivered < 0) {
+        setStatus("Delivered");
+        const data = {
+          delivery_status: "Delivered",
+        };
+        dispatch(updateStatus(data, item.id));
+      }
+    });
+  }, [dispatch, status]);
+
+  useEffect(() => {
     dispatch(getOrder(sessionUser.id));
-  }, []);
+    setStatus("");
+  }, [dispatch, status]);
 
   return (
     <div>
@@ -23,7 +76,7 @@ function OrderHistory() {
             <div className="topOrder">
               <div>
                 <div>ORDER PLACED</div>
-                <span>{item.created_at}</span>
+                <span>{item.created_at.split(" ").slice(1, 4).join("-")}</span>
               </div>
               <div>
                 <div>Qty</div>
