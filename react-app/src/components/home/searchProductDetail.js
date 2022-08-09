@@ -37,7 +37,7 @@ function SearchProductDetail() {
       {searchProduct &&
         searchProduct.map((product) => (
           <div key={product.id}>
-            <NavLink to={`products/${product.id}`}>
+            <NavLink to={`/products/${product.id}`}>
               <img src={product.image} alt="products"></img>
               <div>{product.name}</div>
             </NavLink>
