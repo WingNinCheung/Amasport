@@ -38,7 +38,7 @@ function DeleteOrder({ setShowModal, id, myOrder }) {
             <button onClick={handleDelete}>Yes</button>
           </div>
           <div>
-            <button>Cancel</button>
+            <button onClick={() => setShowModal(false)}>Cancel</button>
           </div>
         </div>
       ) : (
