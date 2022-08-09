@@ -65,6 +65,10 @@ const NavBar = () => {
                 <option>All</option>
                 <option>Basketball</option>
                 <option>Tennis</option>
+                <option>Training</option>
+                <option>Sneakers</option>
+                <option>Shirts & Tops</option>
+                <option>Skateboarding</option>
                 <option>Other</option>
               </select>
             </span>

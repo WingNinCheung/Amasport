@@ -19,6 +19,7 @@ import Order from "./components/order/order";
 import ThankYou from "./components/checkout/thankyou";
 import OrderDetails from "./components/order/orderDetail";
 import SearchProductDetail from "./components/home/searchProductDetail";
+import CategoryNavBar from "./components/home/categoryNavBar";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -38,6 +39,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <CategoryNavBar />
       <Switch>
         <Route path="/" exact={true}>
           <Splash />
