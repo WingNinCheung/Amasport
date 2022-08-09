@@ -84,6 +84,9 @@ def updateStatus(id):
 
     order = Order.query.get(id)
 
+    if order.delivery_status is None:
+        return jsonify("Nothing to update")
+
     order.delivery_status = request.json["delivery_status"]
 
     db.session.commit()
