@@ -74,6 +74,9 @@ function OrderDetails() {
           </div>
           <div className="lowerOrder-section">
             <div>
+              <h4>Status: {myOrder.delivery_status}</h4>
+            </div>
+            <div>
               <img src={myOrder.product.image} alt="product"></img>
             </div>
             <div></div>

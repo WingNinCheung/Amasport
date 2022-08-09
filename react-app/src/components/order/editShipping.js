@@ -20,13 +20,9 @@ function EditShipping({ myOrder, id, setShowModal }) {
   expiredAt.setHours(createdAt.getHours() + 2);
   expiredAt.setMinutes(createdAt.getMinutes());
 
-  // console.log("creat", expiredAt.toDateString());
   expiredAt = expiredAt.toString().split(" ").slice(1, 5).join(" ");
-  console.log("creat", expiredAt);
 
   const dispatch = useDispatch();
-
-  console.log("in edit", myOrder);
 
   // validation errors handling
 

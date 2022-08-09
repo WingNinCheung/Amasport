@@ -24,14 +24,15 @@ function OrderHistory() {
       orderTime = new Date(orderTime);
       //   let expiredDate = new Date();
       // original
-      // expiredDate.setHours(orderTime.getHours() + 2);
+      expiredDate.setDate(orderTime.getDate());
+      expiredDate.setHours(orderTime.getHours() + 2);
 
-      expiredDate.setHours(orderTime.getHours());
+      //   expiredDate.setHours(orderTime.getHours());
 
       // original
-      // expiredDate.setMinutes(orderTime.getMinutes());
+      expiredDate.setMinutes(orderTime.getMinutes());
 
-      expiredDate.setMinutes(orderTime.getMinutes() + 1);
+      //   expiredDate.setMinutes(orderTime.getMinutes() + 1);
 
       expiredDate.setMilliseconds(0);
 

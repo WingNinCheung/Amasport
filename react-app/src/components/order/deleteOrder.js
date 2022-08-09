@@ -4,9 +4,21 @@ import { useSelector, useDispatch } from "react-redux";
 import OrderHistory from "./orderHistory";
 import { removeOrder } from "../../store/order";
 
-function DeleteOrder({ setShowModal, id }) {
+function DeleteOrder({ setShowModal, id, myOrder }) {
   const sessionUser = useSelector((state) => state.session.user);
   const history = useHistory();
+
+  let createdAt = myOrder.created_at;
+  createdAt = createdAt.split(" ");
+  createdAt.pop();
+  createdAt.join(" ");
+  createdAt = new Date(createdAt);
+  let expiredAt = new Date();
+  expiredAt.setDate(createdAt.getDate());
+  expiredAt.setHours(createdAt.getHours() + 2);
+  expiredAt.setMinutes(createdAt.getMinutes());
+
+  expiredAt = expiredAt.toString().split(" ").slice(1, 5).join(" ");
 
   const dispatch = useDispatch();
 
@@ -19,13 +31,28 @@ function DeleteOrder({ setShowModal, id }) {
 
   return (
     <div>
-      <h2>Are you sure you want to remove this order?</h2>
-      <div>
-        <button onClick={handleDelete}>Yes</button>
-      </div>
-      <div>
-        <button>Cancel</button>
-      </div>
+      {myOrder.delivery_status === "Pending" ? (
+        <div>
+          <h2>Are you sure you want to cancel this order?</h2>
+          <div>
+            <button onClick={handleDelete}>Yes</button>
+          </div>
+          <div>
+            <button>Cancel</button>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <h3>Sorry Your order is either confirmed or delivered already.</h3>
+          <div>The last day to edit your shipping address was {expiredAt}</div>
+          <div>
+            <img
+              src="https://media.istockphoto.com/vectors/sad-dog-cartoon-illustration-vector-id494059175?k=20&m=494059175&s=612x612&w=0&h=DZSc3Tow29THc9nfSe_sEQWV6Cd5BbFlXoTOG2Z4OVE="
+              alt="product"
+            ></img>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
