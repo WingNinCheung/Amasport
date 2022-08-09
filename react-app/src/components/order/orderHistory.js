@@ -5,7 +5,8 @@ import { getOrder, updateStatus } from "../../store/order";
 
 function OrderHistory() {
   const sessionUser = useSelector((state) => state.session.user);
-  const order = useSelector((state) => Object.values(state.order));
+  const orderOri = useSelector((state) => Object.values(state.order));
+  const order = orderOri.reverse();
   const [status, setStatus] = useState("");
 
   const dispatch = useDispatch();

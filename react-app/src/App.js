@@ -19,6 +19,7 @@ import Checkout from "./components/checkout/checkout";
 import Order from "./components/order/order";
 import ThankYou from "./components/checkout/thankyou";
 import OrderDetails from "./components/order/orderDetail";
+import SearchProductDetail from "./components/home/searchProductDetail";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -86,6 +87,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/order/:id" exact={true}>
           <OrderDetails />
+        </ProtectedRoute>
+        <ProtectedRoute path="/search/:category/:text" exact={true}>
+          <SearchProductDetail />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

@@ -9,7 +9,6 @@ import { getOrder } from "../../store/order";
 function Order() {
   const sessionUser = useSelector((state) => state.session.user);
   const order = useSelector((state) => Object.values(state.order));
-  const [showOrder, setShowOrder] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
