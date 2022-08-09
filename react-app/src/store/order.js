@@ -37,7 +37,6 @@ export const getOrder = (userId) => async (dispatch) => {
 };
 
 export const createOrder = (data) => async (dispatch) => {
-  console.log("in thunk");
   const res = await fetch(`/api/orders/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -46,7 +45,7 @@ export const createOrder = (data) => async (dispatch) => {
 
   if (res.ok) {
     const order = await res.json();
-    console.log(order);
+
     dispatch(addOrder(order));
     return order;
   }

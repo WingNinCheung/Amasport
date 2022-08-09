@@ -5,7 +5,7 @@ import AddShippingAddressModal from "../modal/addShippingAddressModal";
 import primeIcon from "../../images/amazon-prime-delivery-checkmark._CB659998231_.png";
 import { createOrder, getOrder } from "../../store/order";
 import OrderedModal from "../modal/orderedModal";
-import { removeAllCart } from "../../store/cart";
+import { removeCart } from "../../store/cart";
 
 function Checkout() {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ function Checkout() {
   const [changed, setChanged] = useState(false);
   let radioResult = "default";
 
-  console.log("cart!, ", cart);
+  console.log("cart!, ", user);
 
   let totalPrice = 0;
   let totalQuantity = 0;
@@ -105,7 +105,7 @@ function Checkout() {
       dispatch(createOrder(data));
     });
 
-    await dispatch(removeAllCart());
+    await dispatch(removeCart(user.id));
     history.push("/thank-you");
   };
 
