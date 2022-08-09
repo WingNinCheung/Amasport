@@ -1,6 +1,8 @@
 from crypt import methods
+from xmlrpc.client import DateTime
 from flask import Blueprint, request, jsonify
 from app.models import Review, User, Cart_Item, Order
+import datetime
 from ..models import db
 
 order_routes = Blueprint("orders", __name__)
@@ -28,7 +30,8 @@ def addOrder():
     country = request.json["country"]
     delivery_time = request.json["delivery_time"]
     delivery_status = request.json["delivery_status"]
-    created_at = request.json["created_at"]
+
+    date = datetime.datetime.now()
 
     order = Order(
         user_id=user_id,
@@ -42,7 +45,7 @@ def addOrder():
         country=country,
         delivery_time=delivery_time,
         delivery_status=delivery_status,
-        created_at=created_at,
+        created_at=date,
     )
 
     db.session.add(order)
@@ -74,3 +77,15 @@ def deleteReview(id):
     db.session.commit()
 
     return jsonify("Successfully deleted")
+
+
+@order_routes.route("/<int:id>/edit-status", methods=["PUT"])
+def updateStatus(id):
+
+    order = Order.query.get(id)
+
+    order.delivery_status = request.json["delivery_status"]
+
+    db.session.commit()
+
+    return {"order": [order.to_dict()]}

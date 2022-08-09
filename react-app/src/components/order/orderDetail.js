@@ -33,7 +33,9 @@ function OrderDetails() {
       {myOrder && (
         <div>
           <h2>Order Details</h2>
-          <div>Ordered on {myOrder.created_at}</div>
+          <div>
+            Ordered on {myOrder.created_at.split(" ").slice(1, 4).join("-")}
+          </div>
           <div className="upperOrder-section">
             <div>
               <h4>Shipping Address</h4>

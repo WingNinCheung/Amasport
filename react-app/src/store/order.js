@@ -1,6 +1,7 @@
 const LOAD_ORDERS = "ORDER/LOAD_ORDERS";
 const CREATE_ORDER = "ORDER/CREATE_ORDER";
 const DELETE_ORDER = "ORDER/DELETE_ORDER";
+const UPDATE_STATUS = "ORDER/UPDATE_STATUS";
 
 // Action
 
@@ -21,6 +22,13 @@ const addOrder = (order) => {
 const deleteOrder = (order) => {
   return {
     type: DELETE_ORDER,
+    order,
+  };
+};
+
+const update = (order) => {
+  return {
+    type: UPDATE_STATUS,
     order,
   };
 };
@@ -53,6 +61,20 @@ export const createOrder = (data) => async (dispatch) => {
 
 export const updateOrder = (data, id) => async (dispatch) => {
   const res = await fetch(`/api/orders/${id}/edit`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (res.ok) {
+    const order = await res.json();
+    dispatch(addOrder(order));
+    return order;
+  }
+};
+
+export const updateStatus = (data, id) => async (dispatch) => {
+  const res = await fetch(`/api/orders/${id}/edit-status`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
