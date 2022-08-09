@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getProducts } from "../../store/product";
 import { NavLink } from "react-router-dom";
+import primeIcon from "../../images/amazon-prime-delivery-checkmark._CB659998231_.png";
 
 function Home() {
   const dispatch = useDispatch();
@@ -22,7 +23,10 @@ function Home() {
               <div>{product.name}</div>
             </NavLink>
             <div>${product.price}</div>
-            <div>Get it by {product.date_available}</div>
+            <div>
+              <img style={{ height: "30px" }} src={primeIcon} alt="prime"></img>
+              FREE Two-Day
+            </div>
             <div>FREE Shipping by {product.manufacturer}</div>
           </div>
         ))}
