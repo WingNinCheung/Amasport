@@ -26,8 +26,6 @@ function SearchProductDetail() {
     });
   }
 
-  console.log("search result ,", searchProduct);
-
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
