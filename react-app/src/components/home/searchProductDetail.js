@@ -12,7 +12,7 @@ function SearchProductDetail() {
 
   console.log("here", text);
 
-  if (category === "All" && text === "~") {
+  if (category === "All") {
     searchProduct = allProducts.filter((product) => {
       return product.name.toLowerCase().includes(text.toLowerCase());
     });
