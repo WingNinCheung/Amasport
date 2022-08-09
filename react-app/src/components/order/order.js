@@ -55,7 +55,6 @@ function Order() {
       </nav>
       <div>{showOrder && <OrderHistory />}</div>
       <div>{showBuyAgain && <BugAgain />}</div>
-      <div>{showCancelled && <DeleteOrder />}</div>
     </div>
   );
 }
