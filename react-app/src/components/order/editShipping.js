@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { updateOrder } from "../../store/order";
+import { useSelector, useDispatch } from "react-redux";
 
-function AddShippingAddress({ setShowModal, setChanged, changed }) {
-  const [newStreet, setNewStreet] = useState("");
-  const [newCity, setNewCity] = useState("");
-  const [newState, setNewState] = useState("AL");
-  const [newZip, setNewZip] = useState("");
+function EditShipping({ myOrder, id, setShowModal }) {
+  const [street, setStreet] = useState(myOrder.street);
+  const [city, setCity] = useState(myOrder.city);
+  const [state, setState] = useState(myOrder.state);
+  const [zip, setZip] = useState(myOrder.zip_code);
   const [validationError, setValidationError] = useState([]);
 
-  const history = useHistory();
+  const dispatch = useDispatch();
 
   // validation errors handling
 
@@ -17,32 +19,39 @@ function AddShippingAddress({ setShowModal, setChanged, changed }) {
 
     let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
 
-    if (newStreet.trim().length === "" || newCity.trim() === "") {
+    if (street.trim() === "" || city.trim() === "") {
       errors.push("Street and City name cannot be empty or all spaces");
     }
-
-    if (newStreet.length > 50) {
+    if (street.length > 50) {
       errors.push("Street cannot be more than 50 characters");
     }
-    if (newCity.length > 22) {
+    if (city.length > 22) {
       errors.push("City name cannot be more than 22 characters");
     }
-    if (!isValidZip.test(newZip)) {
+    if (!isValidZip.test(zip)) {
       errors.push("Invalid zip code");
     }
     setValidationError(errors);
-  }, [newStreet, newCity, newState, newZip]);
+  }, [street, city, state, zip]);
 
   const handleChange = async (e) => {
     e.preventDefault();
+
+    const data = {
+      street,
+      city,
+      state,
+      zip_code: zip,
+    };
+
+    dispatch(updateOrder(data, id));
     setShowModal(false);
-    setChanged(!changed);
   };
 
   return (
     <div className="editAdd-container">
       <div>
-        <h3>Add your address</h3>
+        <h3>Edit your shipping address</h3>
         <div>Only a U.S address is allowed</div>
       </div>
       <form>
@@ -53,33 +62,17 @@ function AddShippingAddress({ setShowModal, setChanged, changed }) {
         </ul>
         <label> Street:</label>
         <input
-          onChange={(e) => {
-            setNewStreet(e.target.value);
-            localStorage.setItem("street", e.target.value);
-          }}
-          value={newStreet}
+          onChange={(e) => setStreet(e.target.value)}
+          value={street}
         ></input>
         <label>
           {" "}
           City
-          <input
-            onChange={(e) => {
-              setNewCity(e.target.value);
-
-              localStorage.setItem("city", e.target.value);
-            }}
-            value={newCity}
-          ></input>
+          <input onChange={(e) => setCity(e.target.value)} value={city}></input>
         </label>
         <label>
           State
-          <select
-            onChange={(e) => {
-              setNewState(e.target.value);
-              localStorage.setItem("state", e.target.value);
-            }}
-            value={newState}
-          >
+          <select onChange={(e) => setState(e.target.value)} value={state}>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -135,20 +128,14 @@ function AddShippingAddress({ setShowModal, setChanged, changed }) {
         </label>
         <label>
           Zip code
-          <input
-            onChange={(e) => {
-              setNewZip(e.target.value);
-              localStorage.setItem("zip", e.target.value);
-            }}
-            value={newZip}
-          ></input>
+          <input onChange={(e) => setZip(e.target.value)} value={zip}></input>
         </label>
         <button onClick={handleChange} disabled={validationError.length}>
-          Add
+          Save Changes
         </button>
       </form>
     </div>
   );
 }
 
-export default AddShippingAddress;
+export default EditShipping;

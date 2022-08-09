@@ -16,7 +16,6 @@ def getCart(id):
 
 @cart_routes.route("/<userId>/<productId>/<qty>", methods=["PUT"])
 def updateQty(userId, productId, qty):
-    print("In DB!!!!!!!!!!!")
 
     cart = Cart_Item.query.filter(
         Cart_Item.user_id == userId, Cart_Item.product_id == productId
@@ -51,3 +50,16 @@ def deleteItem(userId, productId):
 
     db.session.commit()
     return jsonify("Successfully deleted")
+
+
+@cart_routes.route("/<userId>/delete", methods=["DELETE"])
+def deleteCart(userId):
+
+    carts = Cart_Item.query.filter(Cart_Item.user_id == userId).all()
+
+    for item in carts:
+        db.session.delete(item)
+
+    db.session.commit()
+    print("carts *****", carts)
+    return {"cart": [item.id for item in carts]}

@@ -11,6 +11,7 @@ const NavBar = () => {
   const cart = useSelector((state) => Object.values(state.cart));
   // const userId = sessionUser.id;
   let totalQuantity = 0;
+  console.log("in nav bar", cart);
 
   cart.forEach((item) => {
     totalQuantity += item.quantity;
@@ -20,7 +21,6 @@ const NavBar = () => {
     dispatch(getCart(sessionUser?.id));
   }, [dispatch, sessionUser]);
 
-  console.log("cart is ", cart);
   return (
     <nav>
       {!sessionUser && (

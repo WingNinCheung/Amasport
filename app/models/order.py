@@ -39,6 +39,7 @@ class Order(db.Model):
             "delivery_time": self.delivery_time,
             "delivery_status": self.delivery_status,
             "created_at": self.created_at,
+            "product": self.product.to_dict(),
         }
 
     def __repr__(self):

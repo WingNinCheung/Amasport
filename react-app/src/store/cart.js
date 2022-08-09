@@ -4,6 +4,7 @@ const UPDATE_QUANTITY = "CART/UPDATE_QUANTITY";
 const ADD_ITEM = "CART/ADD_ITEM";
 const REMOVE_ITEM = "CART/REMOVE_ITEM";
 const REMOVE_ALL = "CART/REMOVE";
+const DELETE_CART = "CART/DELELE_ALL";
 
 // Action
 const error = (cart) => {
@@ -44,6 +45,13 @@ const deleteItem = (cart) => {
 const removeAll = () => {
   return {
     type: REMOVE_ALL,
+  };
+};
+
+const deleteCart = (cart) => {
+  return {
+    type: DELETE_CART,
+    cart,
   };
 };
 
@@ -88,7 +96,6 @@ export const addProduct = (userId, productId, qty) => async (dispatch) => {
 };
 
 export const deleteProduct = (userId, productId) => async (dispatch) => {
-  console.log("in");
   const res = await fetch(`/api/carts/${userId}/${productId}/delete`, {
     method: "DELETE",
   });
@@ -102,9 +109,20 @@ export const removeAllCart = () => async (dispatch) => {
   dispatch(removeAll());
 };
 
+export const removeCart = (userId) => async (dispatch) => {
+  const res = await fetch(`/api/carts/${userId}/delete`, {
+    method: "DELETE",
+  });
+
+  if (res.ok) {
+    const cart = await res.json();
+
+    dispatch(deleteCart(cart));
+  }
+};
 // Reducer
 
-const carrReducer = (state = {}, action) => {
+const cartReducer = (state = {}, action) => {
   let newState = {};
   switch (action.type) {
     case LOAD_CARTS:
@@ -127,9 +145,15 @@ const carrReducer = (state = {}, action) => {
       return newState;
     case REMOVE_ALL:
       return {};
+    case DELETE_CART:
+      newState = { ...state };
+      action.cart.cart.forEach((item) => {
+        delete newState[item];
+      });
+      return newState;
     default:
       return state;
   }
 };
 
-export default carrReducer;
+export default cartReducer;

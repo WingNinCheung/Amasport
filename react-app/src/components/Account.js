@@ -15,20 +15,12 @@ function Account() {
     fetchData();
   }, []);
 
-  // const userComponents = users.map((user) => {
-  //   return (
-  //     <li key={user.id}>
-  //       <NavLink to={`/users/${user.id}`}>{user.username}</NavLink>
-  //     </li>
-  //   );
-  // });
-
   return (
     <>
       <h1>Your Account </h1>
       <div>
         <div>
-          <NavLink to="/home">Your Orders</NavLink>
+          <NavLink to="/order-history">Your Orders</NavLink>
           <div>Track, return, or buy things again</div>
         </div>
         <div>

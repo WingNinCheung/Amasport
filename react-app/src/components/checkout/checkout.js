@@ -1,12 +1,22 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import AddShippingAddressModal from "../modal/addShippingAddressModal";
 import primeIcon from "../../images/amazon-prime-delivery-checkmark._CB659998231_.png";
+import { createOrder, getOrder } from "../../store/order";
+import OrderedModal from "../modal/orderedModal";
+import { removeCart } from "../../store/cart";
+
 function Checkout() {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [user, setUser] = useState({});
   const cart = useSelector((state) => Object.values(state.cart));
+  const order = useSelector((state) => Object.values(state.order));
   const [changed, setChanged] = useState(false);
+  let radioResult = "default";
+
+  console.log("cart!, ", user);
 
   let totalPrice = 0;
   let totalQuantity = 0;
@@ -17,7 +27,7 @@ function Checkout() {
   });
   totalPrice = totalPrice.toFixed(2);
 
-  let tax = (totalPrice * 0.00863).toFixed(2);
+  let tax = (totalPrice * 0.0863).toFixed(2);
   let finalPrice = Number(tax) + Number(totalPrice);
 
   let today = new Date();
@@ -32,8 +42,8 @@ function Checkout() {
   delivery_date = delivery_date.join(" ");
 
   let cutOff = new Date();
-  cutOff.setDate(today.getDate() + 1);
-  cutOff.setHours(0);
+  cutOff.setDate(today.getDate());
+  cutOff.setHours(17);
   cutOff.setMinutes(0);
   cutOff.setMilliseconds(0);
 
@@ -58,6 +68,46 @@ function Checkout() {
   }, []);
 
   console.log(cart);
+  useEffect(() => {
+    dispatch(getOrder(sessionUser.user.id));
+  }, [dispatch]);
+
+  const handleRadio = (e) => {
+    radioResult = e.target.value;
+  };
+
+  const placeOrder = async (e) => {
+    e.preventDefault();
+    let data;
+
+    cart.forEach((product) => {
+      if (radioResult === "default") {
+        street = user.street;
+        city = user.city;
+        state = user.state;
+        zip = user.zip_code;
+      }
+
+      data = {
+        user_id: user.id,
+        product_id: product.product_id,
+        quantity: product.quantity,
+        price: (product.products.price * product.quantity * 1.0863).toFixed(2),
+        street,
+        city,
+        state,
+        zip_code: zip,
+        country: user.country,
+        delivery_time: 2,
+        delivery_status: "Pending",
+        created_at: today,
+      };
+      dispatch(createOrder(data));
+    });
+
+    await dispatch(removeCart(user.id));
+    history.push("/thank-you");
+  };
 
   return (
     <div className="checkout-container">
@@ -65,7 +115,13 @@ function Checkout() {
         <h2>1 Choose a shipping address</h2>
         <div>
           <h3>Your address</h3>
-          <input type="radio" value="default" name="address" />
+          <input
+            type="radio"
+            value="default"
+            name="address"
+            onChange={handleRadio}
+            checked
+          />
           <label>
             {user.street}, {user.city}, {user.state}, {user.zip_code},{" "}
             {user.country}
@@ -73,7 +129,12 @@ function Checkout() {
           <h3>Other addresses</h3>
           {street && (
             <div>
-              <input type="radio" name="address" />
+              <input
+                type="radio"
+                name="address"
+                value="added"
+                onChange={handleRadio}
+              />
               <label>
                 {" "}
                 {street}, {city}, {state}, {zip}, {user.country}
@@ -133,7 +194,7 @@ function Checkout() {
         </div>
       </section>
       <section className="summary">
-        <button>Place your order</button>
+        <button onClick={placeOrder}>Place your order</button>
         <div>
           By placing your order, you agree to Amasport's privacy notice and
           conditions of use.
@@ -165,7 +226,7 @@ function Checkout() {
                     <h3>Order total:</h3>
                   </td>
                   <td>
-                    <h3>${finalPrice}</h3>
+                    <h3>${finalPrice.toFixed(2)}</h3>
                   </td>
                 </tr>
               </tbody>
