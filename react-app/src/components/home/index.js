@@ -8,7 +8,6 @@ function Home() {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => Object.values(state.product));
 
-  // localStorage.removeItem("searchText");
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);

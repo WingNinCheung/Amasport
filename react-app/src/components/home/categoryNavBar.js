@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
-import LogoutButton from "./auth/LogoutButton";
 import { useSelector, useDispatch } from "react-redux";
-import cartIcon from "../images/cartIcon.png";
 import { getCart, addProduct, updateQuantity } from "../store/cart";
 import SearchProductDetail from "./home/searchProductDetail";
 
-const NavBar = () => {
+const CategoryNavBar = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
@@ -28,12 +26,8 @@ const NavBar = () => {
 
   const search = (e) => {
     e.preventDefault();
-    if (/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(searchText)) {
-      window.alert("Special characters '!@#$%^&*()<>/;'[]' are not allowed");
-    } else {
-      setSearchText("");
-      history.push(`/search/${searchCategory}/${searchText}`);
-    }
+    setSearchText("");
+    history.push(`/search/${searchCategory}/${searchText}`);
   };
 
   return (
@@ -99,4 +93,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default CategoryNavBar;

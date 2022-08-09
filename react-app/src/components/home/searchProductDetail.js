@@ -10,10 +10,6 @@ function SearchProductDetail() {
   const { category, text } = useParams();
   let searchProduct;
 
-  console.log("this", category, text);
-
-  console.log("all products", allProducts);
-
   if (category === "All") {
     searchProduct = allProducts.filter((product) => {
       return product.name.toLowerCase().includes(text.toLowerCase());
