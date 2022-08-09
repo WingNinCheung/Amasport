@@ -8,7 +8,7 @@ function DeleteOrderModal({ id, myOrder }) {
   return (
     <>
       <button className="addCart-button" onClick={() => setShowModal(true)}>
-        Cencel order
+        Cancel order
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
