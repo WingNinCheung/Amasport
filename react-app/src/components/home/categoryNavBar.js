@@ -6,8 +6,8 @@ const CategoryNavBar = () => {
   return (
     <nav className="cate-nav">
       <span>
-        <NavLink className="category" to={`/home`}>
-          All
+        <NavLink className="category" to={`/search/All/~`}>
+          All Products
         </NavLink>
       </span>
       <span>

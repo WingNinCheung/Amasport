@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+  useHistory,
+  Redirect,
+} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
@@ -24,6 +30,7 @@ import CategoryNavBar from "./components/home/categoryNavBar";
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     (async () => {
@@ -38,11 +45,25 @@ function App() {
 
   return (
     <BrowserRouter>
+      {/* <Redirect exact from="/" to="/home" />
+      <Route path="/home">
+        <Home />
+      </Route> */}
+
       <NavBar />
-      <CategoryNavBar />
+      <ProtectedRoute>
+        <CategoryNavBar />
+      </ProtectedRoute>
       <Switch>
-        <Route path="/" exact={true}>
+        {/* <Route path="/" exact={true}>
           <Splash />
+        </Route> */}
+        <Route path="/" exact={true}>
+          <Redirect to="/home"></Redirect>
+          {/* <Home /> */}
+        </Route>
+        <Route path="/home">
+          <Home />
         </Route>
         <Route path="/login" exact={true}>
           <LoginForm />

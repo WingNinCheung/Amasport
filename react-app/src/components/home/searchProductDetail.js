@@ -41,6 +41,10 @@ function SearchProductDetail() {
       <div>
         {text !== "~" ? (
           <h4>Search results for "{text}"...</h4>
+        ) : category === "All" ? (
+          <div>
+            <h1>{category} Products</h1>
+          </div>
         ) : (
           <div>
             <h1>{category}</h1>

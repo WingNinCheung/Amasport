@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
 import { useHistory } from "react-router-dom";
+import "../navbar.css";
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -66,8 +67,11 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-        <button type="submit">Login</button>
+        <button className="logout-btn" type="submit">
+          Login
+        </button>
         <button
+          className="logout-btn"
           type="submit"
           onClick={() => {
             setEmail("demo@aa.io");
