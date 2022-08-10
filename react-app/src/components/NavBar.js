@@ -75,9 +75,10 @@ const NavBar = () => {
               {sessionUser.state}
             </div>
           </span>
-          <span>
-            <span>
+          <span className="search-container">
+            <span className="drop-down">
               <select
+                className="drop-down"
                 onChange={(e) => setSearchCategory(e.target.value)}
                 value={searchCategory}
               >
@@ -93,6 +94,7 @@ const NavBar = () => {
             </span>
             <span>
               <input
+                className="search-input"
                 type="text"
                 placeholder="Search by product name"
                 onChange={(e) => setSearchText(e.target.value)}
@@ -100,14 +102,23 @@ const NavBar = () => {
               ></input>
             </span>
             <span>
-              <button onClick={search} disabled={searchText.length === 0}>
+              <button
+                className="search-btn"
+                onClick={search}
+                disabled={searchText.length === 0}
+              >
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
             </span>
           </span>
-          <div>
-            <NavLink to="/users" exact={true} activeClassName="active">
-              Hello, {sessionUser.username}
+          <div className="to-account">
+            <NavLink
+              className="to-account"
+              to="/users"
+              exact={true}
+              activeClassName="active"
+            >
+              <div>Hello, {sessionUser.username}</div>
               <div>Account & Lists</div>
             </NavLink>
           </div>
