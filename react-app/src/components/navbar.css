@@ -1,0 +1,26 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  background-color: #131921;
+}
+
+.logo {
+  /* font-weight: bold; */
+  text-decoration: none;
+  padding: 1px 8px 0 6px;
+  margin: 5px;
+  font-size: 30px;
+  color: white;
+  font-family: Arial, sans serif;
+  cursor: pointer;
+}
+
+.logo-img {
+  width: 170px;
+  height: auto;
+  position: relative;
+  top: -40px;
+  left: -10px;
+  z-index: 1;
+}

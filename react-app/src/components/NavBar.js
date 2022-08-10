@@ -4,7 +4,7 @@ import LogoutButton from "./auth/LogoutButton";
 import { useSelector, useDispatch } from "react-redux";
 import cartIcon from "../images/cartIcon.png";
 import { getCart, addProduct, updateQuantity } from "../store/cart";
-import SearchProductDetail from "./home/searchProductDetail";
+import "./navbar.css";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -53,9 +53,19 @@ const NavBar = () => {
         </section>
       )}
       {sessionUser && (
-        <section>
-          <NavLink to="/home" exact={true} activeClassName="active">
-            Amasport
+        <section className="navbar">
+          <NavLink
+            className="logo"
+            to="/home"
+            exact={true}
+            activeClassName="active"
+          >
+            <div className="logo">Amasport</div>
+            <img
+              className="logo-img"
+              src="https://rainforest-dev.s3.us-west-1.amazonaws.com/amazonArrow.png"
+              alt="logo"
+            ></img>
           </NavLink>
           <span>
             <span>
