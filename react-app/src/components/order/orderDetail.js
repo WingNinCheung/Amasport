@@ -20,7 +20,7 @@ function OrderDetails() {
     tax =
       Number(myOrder.price) - Number(myOrder.product.price * myOrder.quantity);
   }
-  console.log("my order ", myOrder);
+  
 
   const dispatch = useDispatch();
 

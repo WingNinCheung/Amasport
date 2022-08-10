@@ -88,12 +88,12 @@ export const updateStatus = (data, id) => async (dispatch) => {
 };
 
 export const removeOrder = (id) => async (dispatch) => {
-  console.log("hit");
+  
   const res = await fetch(`/api/orders/${id}/delete`, {
     method: "DELETE",
   });
 
-  console.log("res,", res);
+ 
   if (res.ok) {
     dispatch(deleteOrder(id));
   }

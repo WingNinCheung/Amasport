@@ -22,7 +22,7 @@ function EditReview() {
   const [review, setReview] = useState(myReview?.review_body);
   const [validationError, setValidationError] = useState([]);
 
-  console.log(reviews);
+ 
 
   // format the date object into Month-Date-Year
   let dateNow = new Date().toDateString().split(" ");
@@ -64,11 +64,8 @@ function EditReview() {
     if (edited) {
       history.push(`/products/${productId}`);
     }
-    console.log(data);
-    // const newReview = dispatch(addReview(data, id));
-    // if (newReview) {
-    //   history.push(`/products/${id}`);
-    // }
+
+
   };
 
   return (

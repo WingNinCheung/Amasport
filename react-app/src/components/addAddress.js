@@ -12,7 +12,7 @@ function AddAddress({ user, setUser, setShowModal, setChanges, changes }) {
 
   // validation errors handling
 
-  console.log("userid", user);
+
   useEffect(() => {
     let errors = [];
 
