@@ -67,6 +67,14 @@ const NavBar = () => {
               alt="logo"
             ></img>
           </NavLink>
+          <span className="deli-to">
+            <div id="to-name">Deliver to {sessionUser.username}</div>
+            <div>
+              <i class="fa-solid fa-location-dot"></i> {sessionUser.city}
+              {"  "}
+              {sessionUser.state}
+            </div>
+          </span>
           <span>
             <span>
               <select

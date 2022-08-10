@@ -1,6 +1,6 @@
 .navbar {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   height: 80px;
   background-color: #131921;
 }
@@ -12,7 +12,7 @@
   margin: 5px;
   font-size: 30px;
   color: white;
-  font-family: Arial, sans serif;
+
   cursor: pointer;
 }
 
@@ -23,4 +23,26 @@
   top: -40px;
   left: -10px;
   z-index: 1;
+}
+
+.deli-to {
+  color: white;
+  margin: 20px;
+
+  font-size: 14px;
+  line-height: 15px;
+  font-weight: 700;
+  margin: 20px 2px 15px -5px;
+}
+
+#to-name {
+  color: #ccc;
+  font-size: 12px;
+  line-height: 14px;
+  height: 14px;
+  font-weight: 400;
+}
+
+.fa-location-dot {
+  margin-left: -14px;
 }
