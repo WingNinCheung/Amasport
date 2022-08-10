@@ -1,0 +1,23 @@
+.cate-nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #232f3e;
+  /* align-items: center; */
+  height: 39px;
+  font-size: 14px;
+}
+
+.category {
+  color: white;
+  text-decoration: none;
+  height: 12px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  display: block;
+  padding: 8px;
+}
+
+.category:hover {
+  border: 1px solid white;
+}
