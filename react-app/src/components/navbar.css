@@ -81,8 +81,71 @@
 .to-account {
   text-decoration: none;
   color: white;
-  margin: auto;
+  margin-left: 18%;
+  /* margin-top: 1%; */
   padding: auto;
+  /* position: relative; */
+  height: 100%;
+  padding: 10px;
+  width: auto;
+  box-sizing: border-box;
+  /* float: left; */
+  /* left: 60px; */
+}
+
+#hello {
+  font-size: 12px;
+  line-height: 14px;
+  height: 14px;
+  font-weight: 400;
+}
+
+.acct {
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: 700;
+}
+
+div.to-account:hover {
+  border: 1px solid white;
+  cursor: pointer;
+  overflow: hidden;
+  margin-right: -2px;
+}
+
+.cart-icon {
+  margin: auto;
+  position: absolute;
+  right: 6.5%;
+  top: 2%;
+}
+
+.quantity-icon {
+  color: #f08804;
+  font-size: 20px;
+  font-weight: bold;
+  width: 19px;
+  position: absolute;
+  right: 15%;
+}
+
+.logout-btn {
+  margin: auto;
+  height: 50%;
+  cursor: pointer;
+  text-align: center;
+  width: 100px;
+  background: linear-gradient(0deg, #f0c14d 0%, #faebc8 100%);
+  color: #131921;
+  font-weight: bold;
+}
+
+.log-container {
+  width: auto;
   position: relative;
   left: 60px;
+  top: 20px;
+  padding: 10px;
+
+  border-radius: 4px;
 }

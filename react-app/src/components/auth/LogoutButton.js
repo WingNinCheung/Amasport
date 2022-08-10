@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
 import { removeAllCart } from "../../store/cart";
+import "../navbar.css";
 
 const LogoutButton = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,13 @@ const LogoutButton = () => {
     localStorage.clear();
   };
 
-  return <button onClick={onLogout}>Logout</button>;
+  return (
+    <div className="log-container">
+      <button className="logout-btn" onClick={onLogout}>
+        Sign Out
+      </button>
+    </div>
+  );
 };
 
 export default LogoutButton;

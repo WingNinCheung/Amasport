@@ -118,14 +118,16 @@ const NavBar = () => {
               exact={true}
               activeClassName="active"
             >
-              <div>Hello, {sessionUser.username}</div>
-              <div>Account & Lists</div>
+              <div id="hello">Hello, {sessionUser.username}</div>
+              <div className="acct">Account & Lists</div>
             </NavLink>
           </div>
-          <NavLink to="/cart" exact={true} activeClassName="active">
-            <img style={{ backgroundColor: "black" }} src={cartIcon}></img>
-          </NavLink>
-          <span>{totalQuantity}</span>
+          <div className="cart-icon">
+            <NavLink to="/cart" exact={true} activeClassName="active">
+              <img style={{ backgroundColor: "black" }} src={cartIcon}></img>
+            </NavLink>
+            <span className="quantity-icon">{totalQuantity}</span>
+          </div>
           <LogoutButton />
         </section>
       )}
