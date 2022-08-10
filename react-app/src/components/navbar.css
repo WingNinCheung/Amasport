@@ -142,7 +142,14 @@ div.to-account:hover,
   width: 100px;
   background: linear-gradient(0deg, #f0c14d 0%, #faebc8 100%);
   color: #131921;
-  font-weight: bold;
+  border: 1px solid;
+  border-color: #c89411 #b0820f #99710d;
+  width: 103%;
+  padding: 8px 20px;
+  height: 30px;
+  margin-top: 10px;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
 .log-container {
