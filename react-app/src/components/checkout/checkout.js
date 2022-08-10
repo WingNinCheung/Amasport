@@ -131,6 +131,7 @@ function Checkout() {
                 name="address"
                 value="added"
                 onChange={handleRadio}
+                checked={true}
               />
               <label>
                 {" "}
