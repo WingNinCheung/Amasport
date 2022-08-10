@@ -20,17 +20,13 @@ function ProductDetails() {
   let product;
 
   let today = new Date();
-  let date = new Date().toDateString().split(" ");
-  date.pop();
-  date = date.join(" ");
-
-  let cutOff = new Date();
-
-  cutOff.setHours(17);
-  cutOff.setMinutes(0);
-  cutOff.setMilliseconds(0);
-  let expiredDate = Math.abs(cutOff - today) / 36e5;
-  expiredDate = expiredDate.toFixed(2).split(".");
+  // let date = new Date().toDateString().split(" ");
+  let date = new Date();
+  date.setDate(today.getDate() + 2);
+  date.setHours(today.getHours());
+  date.setMinutes(today.getMinutes());
+  date.setMilliseconds(today.getMilliseconds());
+  date = date.toDateString().split(" ").slice(1, 4).join(" ");
 
   useEffect(() => {
     dispatch(getProducts());
@@ -84,10 +80,7 @@ function ProductDetails() {
               <div className="price-section">
                 <h3>${product.price}</h3>
                 <div>& FREE Returns</div>
-                <div>
-                  FREE Prime delivery {date}. Order within {expiredDate[0]} hrs{" "}
-                  {expiredDate[1]} mins{" "}
-                </div>
+                <div>FREE Prime delivery {date}. Order by 5 p.m of today</div>
                 <h4>In Stock</h4>
                 <AddToCartModal />
                 <button>Buy Now</button>
