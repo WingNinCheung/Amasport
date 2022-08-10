@@ -92,7 +92,7 @@ const NavBar = () => {
                 <option>Other</option>
               </select>
             </span>
-            <span>
+            <div>
               <input
                 className="search-input"
                 type="text"
@@ -100,7 +100,7 @@ const NavBar = () => {
                 onChange={(e) => setSearchText(e.target.value)}
                 value={searchText}
               ></input>
-            </span>
+            </div>
             <span>
               <button
                 className="search-btn"
@@ -113,7 +113,7 @@ const NavBar = () => {
           </span>
           <div className="to-account">
             <NavLink
-              className="to-account"
+              className="to-link"
               to="/users"
               exact={true}
               activeClassName="active"
@@ -122,10 +122,12 @@ const NavBar = () => {
               <div className="acct">Account & Lists</div>
             </NavLink>
           </div>
-          <div className="cart-icon">
-            <NavLink to="/cart" exact={true} activeClassName="active">
-              <img style={{ backgroundColor: "black" }} src={cartIcon}></img>
-            </NavLink>
+          <div className="cart-container">
+            <div className="cart-icon">
+              <NavLink to="/cart" exact={true} activeClassName="active">
+                <img style={{ backgroundColor: "black" }} src={cartIcon}></img>
+              </NavLink>
+            </div>
             <span className="quantity-icon">{totalQuantity}</span>
           </div>
           <LogoutButton />
