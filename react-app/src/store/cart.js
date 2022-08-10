@@ -89,7 +89,6 @@ export const addProduct = (userId, productId, qty) => async (dispatch) => {
   if (res.ok) {
     const cart = await res.json();
 
-    console.log("review in thunkkk", cart);
     // dispatch(changeQuantity(cart));
     // return cart;
   }

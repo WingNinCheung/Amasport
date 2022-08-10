@@ -1,27 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const CategoryNavBar = () => {
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const sessionUser = useSelector((state) => state.session.user);
-  //   const cart = useSelector((state) => Object.values(state.cart));
-  //   const allProducts = useSelector((state) => Object.values(state.product));
-
-  const [searchCategory, setSearchCategory] = useState("All");
-  const [searchText, setSearchText] = useState("");
-
-  //   useEffect(() => {
-  //     dispatch(getCart(sessionUser?.id));
-  //   }, [dispatch, sessionUser]);
-
-  const search = (e) => {
-    e.preventDefault();
-    setSearchText("");
-    history.push(`/search/${searchCategory}/${searchText}`);
-  };
-
   return (
     <nav>
       <span>

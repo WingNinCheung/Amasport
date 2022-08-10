@@ -30,6 +30,7 @@ const NavBar = () => {
     e.preventDefault();
     if (/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(searchText)) {
       window.alert("Special characters '!@#$%^&*()<>/;'[]' are not allowed");
+      setSearchText("");
     } else {
       setSearchText("");
       history.push(`/search/${searchCategory}/${searchText}`);

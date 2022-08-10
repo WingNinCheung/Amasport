@@ -23,22 +23,22 @@ function AddToCart({ showModal }) {
     totalQuantity += item.quantity;
   });
   totalPrice = totalPrice.toFixed(2);
-  console.log("my cart", cart);
+  
 
   const myProduct = cart.find((product) => product.product_id == id);
   const currentProduct = allProducts.find((product) => product.id == id);
-  console.log("the socks ", myProduct);
-  //   console.log("all product", allProducts);
+  
+
   // if no product is found, create that product in the cart table
   useEffect(async () => {
     if (!myProduct) {
-      console.log("should not see me");
+      ;
       await dispatch(addProduct(userId, id));
       await dispatch(getCart(userId));
     } else {
       if (myProduct.quantity < 9) {
         myProduct.quantity = myProduct.quantity + 1;
-        console.log("smaller 9 yes", myProduct.quantity);
+        
         await dispatch(updateQuantity(userId, id, myProduct.quantity));
         await dispatch(getCart(userId));
       } else {
