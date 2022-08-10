@@ -14,8 +14,6 @@ function ProductDetails() {
   // product id
   const { id } = useParams();
 
-  const [showsideMenu, setShowsideMenu] = useState(false);
-
   let about;
   let product;
 
@@ -40,13 +38,6 @@ function ProductDetails() {
     product = allProducts.find((item) => item.id == id);
     about = product.about.split(".");
   }
-
-  const addToCart = (e) => {
-    e.preventDefault();
-    // setShowsideMenu(true);
-    <AddToCart />;
-    console.log("Click");
-  };
 
   return (
     <div>
@@ -83,7 +74,6 @@ function ProductDetails() {
                 <div>FREE Prime delivery {date}. Order by 5 p.m of today</div>
                 <h4>In Stock</h4>
                 <AddToCartModal />
-                <button>Buy Now</button>
               </div>
             </div>
           </div>

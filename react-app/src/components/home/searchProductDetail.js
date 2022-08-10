@@ -10,13 +10,12 @@ function SearchProductDetail() {
   const { category, text } = useParams();
   let searchProduct;
 
-  console.log("here", text);
-
   if (category === "All") {
     searchProduct = allProducts.filter((product) => {
       return product.name.toLowerCase().includes(text.toLowerCase());
     });
-    if (!searchProduct.length) {
+
+    if (!searchProduct.length && text === "~") {
       searchProduct = allProducts;
     }
   } else {
@@ -26,7 +25,7 @@ function SearchProductDetail() {
         product.category.toLowerCase() === category.toLowerCase()
       );
     });
-    if (!searchProduct.length) {
+    if (!searchProduct.length && text === "~") {
       searchProduct = allProducts.filter((product) => {
         return product.category.toLowerCase() === category.toLowerCase();
       });
@@ -39,10 +38,10 @@ function SearchProductDetail() {
 
   return (
     <div>
+      <div>{text !== "~" ? <h4>Search results for "{text}"</h4> : null}</div>
       {searchProduct &&
         searchProduct.map((product) => (
           <div key={product.id}>
-            {text !== "~" ? <h4>Search results for "{text}"</h4> : null}
             <NavLink to={`/products/${product.id}`}>
               <img src={product.image} alt="products"></img>
               <div>{product.name}</div>

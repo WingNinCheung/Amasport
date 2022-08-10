@@ -65,7 +65,6 @@ function Checkout() {
     })();
   }, []);
 
-  console.log(cart);
   useEffect(() => {
     dispatch(getOrder(sessionUser.user.id));
   }, [dispatch]);
@@ -117,8 +116,8 @@ function Checkout() {
             type="radio"
             value="default"
             name="address"
+            checked={true}
             onChange={handleRadio}
-            checked
           />
           <label>
             {user.street}, {user.city}, {user.state}, {user.zip_code},{" "}

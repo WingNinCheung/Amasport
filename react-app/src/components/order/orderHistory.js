@@ -11,8 +11,6 @@ function OrderHistory() {
 
   const dispatch = useDispatch();
 
-  console.log("order", order);
-
   useEffect(() => {
     order.forEach((item) => {
       let orderTime = item.created_at;
@@ -119,6 +117,18 @@ function OrderHistory() {
               <div>
                 <span>Order Status:</span>
                 <span>{item.delivery_status}</span>
+                {item.delivery_status === "Pending" && (
+                  <div>
+                    Your order will be shipped in two hours. Please come back to
+                    check
+                  </div>
+                )}
+                {item.delivery_status === "Shipped" && (
+                  <div>Your order will be delivered in two days.</div>
+                )}
+                {item.delivery_status === "Delivered" && (
+                  <div>Your package was left near the front door or porch.</div>
+                )}
               </div>
               <div className="info-session">
                 <div>
