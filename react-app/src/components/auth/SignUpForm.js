@@ -73,6 +73,7 @@ const SignUpForm = () => {
         alt="logo"
       ></img>
       <form className="form-container" onSubmit={onSignUp}>
+        <div className="signin">Create Account</div>
         <div className="errors">
           {errors.map((error, ind) => (
             <div key={ind}>! {error}</div>
