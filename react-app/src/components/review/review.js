@@ -66,7 +66,8 @@ function Reviews() {
                 {/* <div>{review.rating}</div> */}
                 <div className="review-body">{review.review_body}</div>
                 <div className="review-date">
-                  {review.created_at.split(" ").slice(1, 4).join(" ")}
+                  {review.created_at &&
+                    review.created_at.split(" ").slice(1, 4).join(" ")}
                 </div>
                 {sessionUser.user.id == review.user.id ? (
                   <div className="edit-delete">
