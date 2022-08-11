@@ -12,25 +12,7 @@ function Home() {
     dispatch(getProducts());
   }, [dispatch]);
 
-  return (
-    <div>
-      {allProducts &&
-        allProducts.map((product) => (
-          <div key={product.id}>
-            <NavLink to={`products/${product.id}`}>
-              <img src={product.image} alt="products"></img>
-              <div>{product.name}</div>
-            </NavLink>
-            <div>${product.price}</div>
-            <div>
-              <img style={{ height: "30px" }} src={primeIcon} alt="prime"></img>
-              FREE Two-Day
-            </div>
-            <div>FREE Shipping by {product.manufacturer}</div>
-          </div>
-        ))}
-    </div>
-  );
+  return <div>DAMN</div>;
 }
 
 export default Home;

@@ -38,7 +38,20 @@ function SearchProductDetail() {
 
   return (
     <div>
-      <div>{text !== "~" ? <h4>Search results for "{text}"</h4> : null}</div>
+      <div>
+        {text !== "~" ? (
+          <h4>Search results for "{text}"...</h4>
+        ) : category === "All" ? (
+          <div>
+            <h1>{category} Products</h1>
+          </div>
+        ) : (
+          <div>
+            <h1>{category}</h1>
+          </div>
+        )}
+      </div>
+
       {searchProduct &&
         searchProduct.map((product) => (
           <div key={product.id}>

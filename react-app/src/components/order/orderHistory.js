@@ -31,17 +31,17 @@ function OrderHistory() {
       expiredDate.setMinutes(orderTime.getMinutes());
 
       // expiredDate.setMinutes(orderTime.getMinutes() + 1);
-      expiredDate.setMilliseconds(0);
+      expiredDate.setMilliseconds(orderTime.getMilliseconds());
 
-      let num = expiredDate.getTime() - orderTime.getTime();
+      // let num = expiredDate.getTime() - orderTime.getTime();
 
-      let shipTimer = setTimeout(() => {
-        setStatus("Shipped");
-        const data = {
-          delivery_status: "Shipped",
-        };
-        dispatch(updateStatus(data, item.id));
-      }, num);
+      // let shipTimer = setTimeout(() => {
+      //   setStatus("Shipped");
+      //   const data = {
+      //     delivery_status: "Shipped",
+      //   };
+      //   dispatch(updateStatus(data, item.id));
+      // }, num);
 
       let dateNow = new Date();
       let deliveredDate = new Date();
@@ -50,39 +50,40 @@ function OrderHistory() {
       deliveredDate.setDate(orderTime.getDate() + 2);
       deliveredDate.setHours(orderTime.getHours());
       deliveredDate.setMinutes(orderTime.getMinutes());
+      deliveredDate.setMilliseconds(orderTime.getMilliseconds());
 
-      let num2 = deliveredDate.getTime() - orderTime.getTime();
+      // let num2 = deliveredDate.getTime() - orderTime.getTime();
 
-      let deliveryTimer = setTimeout(() => {
-        setStatus("Delivered");
-        const data1 = {
-          delivery_status: "Delivered",
-        };
-        dispatch(updateStatus(data1, item.id));
-      }, num2);
+      // let deliveryTimer = setTimeout(() => {
+      //   setStatus("Delivered");
+      //   const data1 = {
+      //     delivery_status: "Delivered",
+      //   };
+      //   dispatch(updateStatus(data1, item.id));
+      // }, num2);
 
-      if (status === "Shipped") {
-        return () => clearTimeout(shipTimer);
-      } else if (status === "Delivered") {
-        return () => clearTimeout(deliveryTimer);
-      }
+      // if (status === "Shipped") {
+      //   return () => clearTimeout(shipTimer);
+      // } else if (status === "Delivered") {
+      //   return () => clearTimeout(deliveryTimer);
+      // }
       // 36e5 - convert them into hours like 1.5 means 1.5 hrs
       let expire = (expiredDate - dateNow) / 36e5;
       let isdelivered = (deliveredDate - dateNow) / 36e5;
 
-      // if (expire < 0) {
-      //   setStatus("Shipped");
-      //   const data = {
-      //     delivery_status: "Shipped",
-      //   };
-      //   dispatch(updateStatus(data, item.id));
-      // } else if (isdelivered < 0) {
-      //   setStatus("Delivered");
-      //   const data = {
-      //     delivery_status: "Delivered",
-      //   };
-      //   dispatch(updateStatus(data, item.id));
-      // }
+      if (expire < 0) {
+        setStatus("Shipped");
+        const data = {
+          delivery_status: "Shipped",
+        };
+        dispatch(updateStatus(data, item.id));
+      } else if (isdelivered < 0) {
+        setStatus("Delivered");
+        const data = {
+          delivery_status: "Delivered",
+        };
+        dispatch(updateStatus(data, item.id));
+      }
     });
   }, [dispatch, status]);
 
