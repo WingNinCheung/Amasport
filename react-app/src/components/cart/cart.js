@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory, NavLink } from "react-router-dom";
 import Quantity from "./quantity";
+import "./cart.css";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -23,30 +24,42 @@ function Cart() {
   }, [dispatch]);
 
   return (
-    <div>
-      <div className="upper-cart">
-        <h1>Shopping Cart</h1>
-      </div>
-      <div className="cart-container">
+    <div className="shoppingcart-container">
+      {/* <div className="upper-cart">
+        <h1 className="cart-title">Shopping Cart</h1>
+      </div> */}
+
+      <div className="Incart-container">
+        <div></div>
+        <h1 className="cart-title">Shopping Cart</h1>
+        <div id="cart-price">Price</div>
         <div className="left-section">
-          {cart.length ? (
-            cart.map((item) => (
-              <div className="cart-item" key={item.id}>
-                <div>
-                  <img src={item.products.image} alt="item"></img>
+          <section className="leftcart">
+            {cart.length ? (
+              cart.map((item) => (
+                <div className="cart-item" key={item.id}>
+                  <div>
+                    <img
+                      className="incart-img"
+                      src={item.products.image}
+                      alt="item"
+                    ></img>
+                  </div>
+                  <div className="right-item">
+                    <div>{item.products.name}</div>
+                    <div>
+                      <h3>${item.products.price}</h3>
+                    </div>
+                    <h5>In Stock</h5>
+                    <h4>prime & FREE Returns</h4>
+                    <Quantity product={item} />
+                  </div>
                 </div>
-                <div>{item.products.name}</div>
-                <div>
-                  <h3>${item.products.price}</h3>
-                </div>
-                <h5>In Stock</h5>
-                <h4>prime & FREE Returns</h4>
-                <Quantity product={item} />
-              </div>
-            ))
-          ) : (
-            <h2>Your Amasport Cart is empty.</h2>
-          )}
+              ))
+            ) : (
+              <h2>Your Amasport Cart is empty.</h2>
+            )}
+          </section>
           {cart.length !== 0 && (
             <div className="right-section">
               <span>
