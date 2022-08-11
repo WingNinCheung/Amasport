@@ -2,5 +2,43 @@
   height: 55vh;
   background-image: url("https://img.freepik.com/free-vector/sport-equipment-banner_1284-32611.jpg?w=2000");
   background-repeat: no-repeat;
-  -webkit-mask-image: linear-gradient(#000 85%, transparent);
+  -webkit-mask-image: linear-gradient(#000 88%, transparent);
+}
+
+.bot-container {
+  background-color: #d3d3d391;
+  margin: 0;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  /* padding: 0; */
+}
+
+.product-list {
+  display: flex;
+  /* justify-content: center; */
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  /* margin: 2%; */
+  height: 100%;
+  margin-top: 2%;
+  position: relative;
+  z-index: 2;
+  padding: -20px;
+}
+
+.home-list {
+  height: 400px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  /* border: 1px solid black; */
+  width: 16%;
+}
+
+.product-img {
+  width: 15rem;
+  border-radius: 25px;
 }

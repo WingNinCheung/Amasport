@@ -32,12 +32,8 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
-    } else if (localStorage.getItem("location") !== "") {
-      let link = localStorage.getItem("location");
-      history.push("/products/1");
-      localStorage.clear();
-      // console.log(localStorage.getItem("location"));
     } else {
+      localStorage.clear();
       history.push("/home");
     }
   };
