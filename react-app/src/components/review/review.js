@@ -13,6 +13,11 @@ function Reviews() {
   const [addReview, setAddReview] = useState(false);
   const sessionUser = useSelector((state) => state.session);
 
+  // formattedCreatedAt = reviews.map(review=>{
+  //   review.created_at.split(" ").slice(1, 4).join(" ")
+  // })
+  // console.log(reviews[0].created_at.split(" ").slice(1, 4).join(" "));
+
   useEffect(() => {
     let time = setTimeout(() => {
       dispatch(getReviews(id));
@@ -50,22 +55,42 @@ function Reviews() {
           {reviews &&
             reviews.map((review) => (
               <div className="each-review" key={review.id}>
-                <div>{review.user.username}</div>
-                <div>{review.rating}</div>
-                <div>{review.review_body}</div>
-                <div>{review.created_at}</div>
+                <span>
+                  <img
+                    className="profile-icon"
+                    src="https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png"
+                    alt="icon"
+                  ></img>
+                  <span className="reviewer">{review.user.username}</span>
+                </span>
+                {/* <div>{review.rating}</div> */}
+                <div className="review-body">{review.review_body}</div>
+                <div className="review-date">
+                  {review.created_at.split(" ").slice(1, 4).join(" ")}
+                </div>
                 {sessionUser.user.id == review.user.id ? (
-                  <div>
-                    <NavLink to={`/products/${id}/reviews/${review.id}/edit`}>
-                      Edit
-                    </NavLink>
-                    <button value={review.id} onClick={handleDelete}>
+                  <div className="edit-delete">
+                    <span className="editContainer">
+                      <NavLink
+                        className="edit-btn"
+                        to={`/products/${id}/reviews/${review.id}/edit`}
+                      >
+                        <span className="edit">Edit</span>
+                      </NavLink>
+                    </span>
+
+                    <button
+                      className="rev-btn"
+                      value={review.id}
+                      onClick={handleDelete}
+                    >
                       Delete
                     </button>
                   </div>
                 ) : null}
               </div>
             ))}
+          {!reviews.length && <h4 className="noReview">No reviews yet</h4>}
         </div>
       </section>
     </div>

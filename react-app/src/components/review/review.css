@@ -34,3 +34,72 @@
   /* line-height: 29px; */
   box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
 }
+
+.left-review {
+  width: 50rem;
+}
+
+.profile-icon {
+  width: 30px;
+  padding-right: 1%;
+}
+
+span.reviewer {
+  position: relative;
+  bottom: 8px;
+}
+
+.review-body {
+  margin-top: 2%;
+  margin-bottom: 1%;
+  font-size: 14px;
+}
+
+.edit-delete {
+  margin-bottom: 2%;
+}
+
+.review-date {
+  font-size: 14px;
+  color: #565959;
+}
+
+.rev-btn {
+  text-decoration: none;
+  border: 1px solid #d5d9d9;
+  width: 4rem;
+  border-radius: 7px;
+  color: black;
+  font-size: 14px;
+  box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+  margin-right: 2%;
+  cursor: pointer;
+}
+
+.edit {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+
+  width: 400px;
+}
+
+.editContainer {
+  width: 400px;
+  /* background-color: aqua; */
+  border: 1px solid #d5d9d9;
+  box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+  border-radius: 7px;
+  padding-left: 4%;
+  padding-right: 4%;
+  margin-right: 2%;
+}
+
+.edit-btn {
+  text-decoration: none;
+  width: 400px;
+}
+
+.noReview {
+  text-align: center;
+}
