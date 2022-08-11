@@ -18,7 +18,6 @@ function CreateReview() {
   const sessionUser = useSelector((state) => state.session);
   const myProduct = allProducts.find((product) => product.id == id);
 
-
   // format the date object into Month-Date-Year
   let dateNow = new Date().toDateString().split(" ");
   dateNow.shift();
@@ -61,12 +60,12 @@ function CreateReview() {
   return (
     <div className="createReview-container">
       {myProduct && (
-        <div>
+        <div className="rev-body">
           <h2>Create Review</h2>
-          <div>
-            <img src={myProduct.image} alt="ball"></img>
+          <div className="img-name">
+            <img className="create-img" src={myProduct.image} alt="ball"></img>
+            <span>{myProduct.name}</span>
           </div>
-          <div>{myProduct.name}</div>
           <form onSubmit={handleSubmit}>
             <h3>Overall rating</h3>
             <select onChange={(e) => setRating(e.target.value)} value={rating}>
@@ -76,17 +75,33 @@ function CreateReview() {
               <option>4</option>
               <option>5</option>
             </select>
+
             <h3>Add a written review</h3>
             <ul>
               {validationError.map((error) => (
-                <li key={error}>{error}</li>
+                <li className="errors" key={error}>
+                  ! {error}
+                </li>
               ))}
             </ul>
-            <textarea
-              onChange={(e) => setReview(e.target.value)}
-              value={review}
-            ></textarea>
-            <button disabled={validationError.length}>Submit</button>
+            <div>
+              <textarea
+                className="review-area"
+                onChange={(e) => setReview(e.target.value)}
+                value={review}
+              ></textarea>
+              <div className="errors" id="counter">
+                {review.length}/250
+              </div>
+            </div>
+            <div className="submitbtn-review">
+              <button
+                className="submit-review"
+                disabled={validationError.length}
+              >
+                Submit
+              </button>
+            </div>
           </form>
         </div>
       )}
