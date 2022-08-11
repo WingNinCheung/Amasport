@@ -74,6 +74,12 @@
   background-color: #febd69;
   cursor: pointer;
 }
+
+.search-btn:disabled,
+.search-btn[disabled] {
+  background-color: rgb(33, 13, 13);
+  color: #666666;
+}
 .fa-magnifying-glass {
   font-size: 22px;
 }

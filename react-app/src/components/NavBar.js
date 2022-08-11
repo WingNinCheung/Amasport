@@ -33,6 +33,9 @@ const NavBar = () => {
     } else if (/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(searchText)) {
       window.alert("Special characters '!@#$%^&*()<>/;'[]' are not allowed");
       setSearchText("");
+    } else if (searchText.trim() === "") {
+      window.alert("Content can't be empty or all spaces");
+      setSearchText("");
     } else {
       setSearchText("");
       history.push(`/search/${searchCategory}/${searchText}`);
@@ -171,7 +174,7 @@ const NavBar = () => {
               <button
                 className="search-btn"
                 onClick={search}
-                disabled={searchText.length === 0}
+                // disabled={searchText.length === 0}
               >
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
