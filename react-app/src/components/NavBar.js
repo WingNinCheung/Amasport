@@ -177,26 +177,31 @@ const NavBar = () => {
               </button>
             </span>
           </span>
-          <div className="to-account">
+          <div className="right-nav">
             <NavLink
               className="to-link"
               to="/users"
               exact={true}
               activeClassName="active"
             >
-              <div id="hello">Hello, {sessionUser.username}</div>
-              <div className="acct">Account & Lists</div>
+              <div className="to-account">
+                <div id="hello">Hello, {sessionUser.username}</div>
+                <div className="acct">Account & Lists</div>
+              </div>
             </NavLink>
-          </div>
-          <div className="cart-container">
-            <div className="cart-icon">
+            <div className="cart-container">
               <NavLink to="/cart" exact={true} activeClassName="active">
-                <img style={{ backgroundColor: "black" }} src={cartIcon}></img>
+                <div className="cart-icon">
+                  <img
+                    style={{ backgroundColor: "black" }}
+                    src={cartIcon}
+                  ></img>
+                </div>
               </NavLink>
+              <span className="quantity-icon">{totalQuantity}</span>
             </div>
-            <span className="quantity-icon">{totalQuantity}</span>
+            <LogoutButton />
           </div>
-          <LogoutButton />
         </section>
       )}
     </nav>

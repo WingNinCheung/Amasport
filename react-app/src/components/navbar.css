@@ -80,14 +80,15 @@
 
 .to-account {
   color: white;
-  margin-left: -36%;
-  height: 100%;
+  /* margin-left: -36%; */
+  height: 80%;
   padding: 0px;
   padding-top: 1%;
   position: relative;
-  left: -0.1%;
-  top: 8%;
+  /* right: 50%; */
+  top: 30%;
   box-sizing: border-box;
+  margin: 0;
 }
 
 .to-link {
@@ -109,7 +110,7 @@
   color: white;
 }
 
-div.to-account:hover,
+.to-link:hover,
 .cart-icon:hover {
   border: 1px solid white;
   cursor: pointer;
@@ -194,4 +195,10 @@ div.to-account:hover,
   display: flex;
   justify-content: end;
   align-items: center;
+}
+
+.right-nav {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
