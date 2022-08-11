@@ -5,6 +5,7 @@
   /* align-items: center; */
   height: 39px;
   font-size: 14px;
+  color: white;
 }
 
 .category {
@@ -20,4 +21,8 @@
 
 .category:hover {
   border: 1px solid white;
+}
+
+.nav-word {
+  color: white;
 }

@@ -33,6 +33,7 @@ const LoginForm = () => {
     if (data) {
       setErrors(data);
     } else {
+      localStorage.clear();
       history.push("/home");
     }
   };

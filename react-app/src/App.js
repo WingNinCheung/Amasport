@@ -53,7 +53,7 @@ function App() {
         <Route path="/" exact={true}>
           <Redirect to="/home"></Redirect>
         </Route>
-        <Route path="/home">
+        <Route path="/home" exact={true}>
           <Home />
         </Route>
         <Route path="/login" exact={true}>
@@ -68,9 +68,9 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true}>
           <Profile />
         </ProtectedRoute>
-        <ProtectedRoute path="/home" exact={true}>
+        {/* <ProtectedRoute path="/home" exact={true}>
           <Home />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path="/products/:id" exact={true}>
           <ProductDetails />
         </ProtectedRoute>

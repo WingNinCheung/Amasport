@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
 
 const SignUpForm = () => {
@@ -11,6 +11,7 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState("");
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -18,6 +19,8 @@ const SignUpForm = () => {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data);
+      } else {
+        history.push("/home");
       }
     }
   };
@@ -73,6 +76,7 @@ const SignUpForm = () => {
         alt="logo"
       ></img>
       <form className="form-container" onSubmit={onSignUp}>
+        <div className="signin">Create Account</div>
         <div className="errors">
           {errors.map((error, ind) => (
             <div key={ind}>! {error}</div>

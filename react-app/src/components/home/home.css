@@ -1,0 +1,101 @@
+.home-container {
+  height: 55vh;
+  background-image: url("https://img.freepik.com/free-vector/sport-equipment-banner_1284-32611.jpg?w=2000");
+  /* background-image: url("https://previews.123rf.com/images/vaskinamat/vaskinamat1702/vaskinamat170200022/72494424-sport-banner-facebook-cover-set-of-sport-balls-and-gaming-items-at-a-blue-background-corporate-faceb.jpg"); */
+  /* background-image: url("https://i.pinimg.com/originals/48/5d/f5/485df5ce7d4c18f30c8585373aa244b1.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  -webkit-mask-image: linear-gradient(#000 88%, transparent);
+}
+
+.bot-container {
+  background-color: #d3d3d391;
+  margin: 0;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  /* padding: 0; */
+}
+
+.product-list {
+  display: flex;
+  /* justify-content: center; */
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  /* margin: 2%; */
+  height: 100%;
+  margin-top: 2%;
+  /* position: relative; */
+  /* z-index: 2; */
+  padding: -20px;
+}
+
+.home-list {
+  height: 400px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  /* border: 1px solid black; */
+  width: 16%;
+}
+
+.product-img {
+  width: 15rem;
+  border-radius: 25px;
+}
+
+.footer {
+  display: flex;
+  /* align-content: center; */
+  background-color: #232f3e;
+  justify-content: center;
+  width: 100%;
+  color: black;
+  margin-bottom: 0;
+  /* padding-top: 5px; */
+  padding-bottom: 5px;
+  margin: 0;
+  /* z-index: 3; */
+  color: white;
+}
+
+.profile-pic {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+}
+
+.dev-info {
+  margin-top: auto;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.git-in {
+  margin-top: 15%;
+}
+
+.fa-github,
+.fa-linkedin-in,
+.fa-envelope {
+  margin: 7px;
+  color: white;
+  width: 40px;
+  height: 20px;
+}
+
+.name {
+  margin-left: 7px;
+  position: relative;
+  top: 15%;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+a:visited {
+  color: black;
+}

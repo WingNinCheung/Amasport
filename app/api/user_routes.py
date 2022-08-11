@@ -33,8 +33,6 @@ def updateUser(id):
     zip_code = request.json["zip_code"]
     country = request.json["country"]
 
-    print("*******", country)
-
     user.street = street
     user.city = city
     user.state = state
