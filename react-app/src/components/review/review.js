@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteReview } from "../../store/review";
+import "./review.css";
 
 function Reviews() {
   const dispatch = useDispatch();
@@ -12,16 +13,10 @@ function Reviews() {
   const [addReview, setAddReview] = useState(false);
   const sessionUser = useSelector((state) => state.session);
 
-  // useEffect(() => {
-  //   dispatch(getReviews(id));
-  // }, [dispatch, addReview]);
-
   useEffect(() => {
     let time = setTimeout(() => {
       dispatch(getReviews(id));
     }, 200);
-
-    // dispatch(getAllReviews());
 
     return () => clearTimeout(time);
   }, [dispatch]);
@@ -36,15 +31,18 @@ function Reviews() {
   return (
     <div className="review-container">
       <section className="left-review">
-        <h3>Customer Reviews</h3>
+        <h2>Customer Reviews</h2>
         <h4>Review this product</h4>
-        <h5>Share your thoughts with other customers</h5>
-        <NavLink
-          onClick={() => setAddReview(true)}
-          to={`/products/${id}/reviews/new`}
-        >
-          Write a customer review
-        </NavLink>
+        <div className="share">Share your thoughts with other customers</div>
+        <div className="post-review">
+          <NavLink
+            className="write-review"
+            onClick={() => setAddReview(true)}
+            to={`/products/${id}/reviews/new`}
+          >
+            <div className="review-btn">Write a customer review</div>
+          </NavLink>
+        </div>
       </section>
       <section className="right-review">
         <div>

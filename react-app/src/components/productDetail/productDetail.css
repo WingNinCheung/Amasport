@@ -219,8 +219,14 @@ div.price-section {
   border-top: 1px solid #e7e7e7;
   font-weight: 400;
   font-size: 14px;
+  padding-left: 2%;
 }
 
 .row2 {
   border-bottom: 1px solid #e7e7e7;
+}
+
+.productInfo-section {
+  border-bottom: thin solid lightgrey;
+  height: 24%;
 }
