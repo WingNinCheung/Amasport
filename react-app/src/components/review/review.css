@@ -76,6 +76,10 @@ span.reviewer {
   cursor: pointer;
 }
 
+.review-btn {
+  color: black;
+}
+
 .edit {
   text-decoration: none;
   color: black;
