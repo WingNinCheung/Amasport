@@ -7,37 +7,37 @@ const CategoryNavBar = () => {
     <nav className="cate-nav">
       <span>
         <NavLink className="category" to={`/search/All/~`}>
-          All Products
+          <div className="nav-word">All Products</div>
         </NavLink>
       </span>
       <span>
         <NavLink className="category" to={`/search/Basketball/~`}>
-          Basketball
+          <div className="nav-word">Basketball</div>
         </NavLink>
       </span>
       <span>
         <NavLink className="category" to={`/search/Tennis/~`}>
-          Tennis
+          <div className="nav-word">Tennis</div>
         </NavLink>
       </span>
       <span>
         <NavLink className="category" to={`/search/Training/~`}>
-          Training
+          <div className="nav-word">Training</div>
         </NavLink>
       </span>
       <span>
         <NavLink className="category" to={`/search/Sneakers/~`}>
-          Sneakers
+          <div className="nav-word">Sneakers</div>
         </NavLink>
       </span>
       <span>
         <NavLink className="category" to={`/search/Shirts&Tops/~`}>
-          Shirts & Tops
+          <div className="nav-word">Shirts & Tops</div>
         </NavLink>
       </span>
       <span>
         <NavLink className="category" to={`/search/Skateboarding/~`}>
-          Skateboarding
+          <div className="nav-word">Skateboarding</div>
         </NavLink>
       </span>
     </nav>
