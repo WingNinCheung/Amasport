@@ -109,6 +109,9 @@ div.price-product {
 .middle-container {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10%;
+  height: 65%;
+  border-bottom: thin solid lightgrey;
 }
 
 .main-product {
@@ -183,4 +186,41 @@ div.price-section {
   /* min-width: 200px; */
   width: 10%;
   min-height: 50%;
+}
+
+.description-section {
+  margin-top: -6%;
+}
+
+.second-title {
+  color: #cc6600;
+  /* border-top: thin solid lightgrey; */
+}
+
+.second-des {
+  font-size: 14px;
+  padding-bottom: 2%;
+  border-bottom: thin solid lightgrey;
+}
+
+.col {
+  background-color: #f3f3f3;
+  border-top: 1px solid #e7e7e7;
+  width: 400px;
+  height: 40px;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgb(86, 85, 85);
+  padding-left: 2%;
+}
+
+.row,
+.row2 {
+  border-top: 1px solid #e7e7e7;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.row2 {
+  border-bottom: 1px solid #e7e7e7;
 }

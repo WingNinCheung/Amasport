@@ -98,11 +98,11 @@ function ProductDetails() {
           </div>
 
           <section className="description-section">
-            <h3>Product Description</h3>
-            <div>{product.description}</div>
+            <h3 className="second-title">Product Description</h3>
+            <div className="second-des">{product.description}</div>
           </section>
           <section className="productInfo-section">
-            <h3>Product information</h3>
+            <h3 className="second-title">Product information</h3>
             <table>
               <thead>
                 <tr>
@@ -111,24 +111,24 @@ function ProductDetails() {
               </thead>
               <tbody>
                 <tr>
-                  <td>Item Package Dimensions L x W x H</td>
-                  <td>{product.dimensions}</td>
+                  <td className="col">Item Package Dimensions L x W x H</td>
+                  <td className="row">{product.dimensions}</td>
                 </tr>
                 <tr>
-                  <td>Brand Name</td>
-                  <td>{product.brand}</td>
+                  <td className="col">Brand Name</td>
+                  <td className="row">{product.brand}</td>
                 </tr>
                 <tr>
-                  <td>Manufacturer</td>
-                  <td>{product.manufacturer}</td>
+                  <td className="col">Manufacturer</td>
+                  <td className="row">{product.manufacturer}</td>
                 </tr>
                 <tr>
-                  <td>ASIN</td>
-                  <td>{product.asin}</td>
+                  <td className="col">ASIN</td>
+                  <td className="row">{product.asin}</td>
                 </tr>
                 <tr>
-                  <td>Date First Available</td>
-                  <td>{product.date_available}</td>
+                  <td className="col">Date First Available</td>
+                  <td className="row2">{product.date_available}</td>
                 </tr>
               </tbody>
             </table>
