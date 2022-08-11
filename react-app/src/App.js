@@ -45,22 +45,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <Redirect exact from="/" to="/home" />
-      <Route path="/home">
-        <Home />
-      </Route> */}
-
       <NavBar />
       <ProtectedRoute>
         <CategoryNavBar />
       </ProtectedRoute>
       <Switch>
-        {/* <Route path="/" exact={true}>
-          <Splash />
-        </Route> */}
         <Route path="/" exact={true}>
           <Redirect to="/home"></Redirect>
-          {/* <Home /> */}
         </Route>
         <Route path="/home">
           <Home />

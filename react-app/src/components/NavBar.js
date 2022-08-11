@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory, Redirect } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
 import { useSelector, useDispatch } from "react-redux";
 import cartIcon from "../images/cartIcon.png";
-import { getCart, addProduct, updateQuantity } from "../store/cart";
+import { getCart } from "../store/cart";
 import "./navbar.css";
 
 const NavBar = () => {
@@ -28,7 +28,9 @@ const NavBar = () => {
 
   const search = (e) => {
     e.preventDefault();
-    if (/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(searchText)) {
+    if (!sessionUser) {
+      history.replace("/login");
+    } else if (/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(searchText)) {
       window.alert("Special characters '!@#$%^&*()<>/;'[]' are not allowed");
       setSearchText("");
     } else {
@@ -39,20 +41,6 @@ const NavBar = () => {
 
   return (
     <nav>
-      {/* {!sessionUser && (
-        <section>
-          <NavLink to="/" exact={true} activeClassName="active">
-            Home
-          </NavLink>
-          <NavLink to="/login" exact={true} activeClassName="active">
-            Login
-          </NavLink>
-          <NavLink to="/sign-up" exact={true} activeClassName="active">
-            Sign Up
-          </NavLink>
-        </section>
-      )} */}
-
       {!sessionUser && (
         <section className="navbar">
           <NavLink
@@ -105,25 +93,7 @@ const NavBar = () => {
               </button>
             </span>
           </span>
-          {/* <div className="to-account">
-            <NavLink
-              className="to-link"
-              to="/users"
-              exact={true}
-              activeClassName="active"
-            >
-              <div id="hello">Hello, {sessionUser.username}</div>
-              <div className="acct">Account & Lists</div>
-            </NavLink>
-          </div> */}
-          {/* <div className="cart-container">
-            <div className="cart-icon">
-              <NavLink to="/cart" exact={true} activeClassName="active">
-                <img style={{ backgroundColor: "black" }} src={cartIcon}></img>
-              </NavLink>
-            </div>
-            <span className="quantity-icon">{totalQuantity}</span>
-          </div> */}
+
           <section className="before">
             <div classname="slash-btn">
               <NavLink
