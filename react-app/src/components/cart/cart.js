@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory, NavLink } from "react-router-dom";
 import Quantity from "./quantity";
+import primeIcon from "../../images/amazon-prime-delivery-checkmark._CB659998231_.png";
 import "./cart.css";
 
 function Cart() {
@@ -38,7 +39,7 @@ function Cart() {
             {cart.length ? (
               cart.map((item) => (
                 <div className="cart-item" key={item.id}>
-                  <div>
+                  <div className="inCart-img">
                     <img
                       className="incart-img"
                       src={item.products.image}
@@ -47,11 +48,21 @@ function Cart() {
                   </div>
                   <div className="right-item">
                     <div>{item.products.name}</div>
-                    <div>
+                    <div className="price-cart">
                       <h3>${item.products.price}</h3>
                     </div>
-                    <h5>In Stock</h5>
-                    <h4>prime & FREE Returns</h4>
+                    <h5 className="stock" id="cart-stock">
+                      In Stock
+                    </h5>
+                    <div className="return">
+                      <img
+                        className="prime"
+                        style={{ height: "25px" }}
+                        src={primeIcon}
+                        alt="prime"
+                      ></img>
+                      <div className="free-ship"> & FREE Returns</div>
+                    </div>
                     <Quantity product={item} />
                   </div>
                 </div>
