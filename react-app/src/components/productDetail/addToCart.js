@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory, NavLink } from "react-router-dom";
 import { getProducts } from "../../store/product";
+import "./addCart.css";
 
 function AddToCart({ showModal }) {
   const dispatch = useDispatch();
@@ -23,22 +24,19 @@ function AddToCart({ showModal }) {
     totalQuantity += item.quantity;
   });
   totalPrice = totalPrice.toFixed(2);
-  
 
   const myProduct = cart.find((product) => product.product_id == id);
   const currentProduct = allProducts.find((product) => product.id == id);
-  
 
   // if no product is found, create that product in the cart table
   useEffect(async () => {
     if (!myProduct) {
-      ;
       await dispatch(addProduct(userId, id));
       await dispatch(getCart(userId));
     } else {
       if (myProduct.quantity < 9) {
         myProduct.quantity = myProduct.quantity + 1;
-        
+
         await dispatch(updateQuantity(userId, id, myProduct.quantity));
         await dispatch(getCart(userId));
       } else {
@@ -58,22 +56,31 @@ function AddToCart({ showModal }) {
   return (
     <div>
       {!exceedLimit ? (
-        <div>
-          <span>
-            <i class="fa-solid fa-check"></i>
+        <div className="check-container">
+          <span className="upp-container">
+            <span>
+              <i class="fa-solid fa-check"></i>
+
+              <span className="addedTo">Added to Cart</span>
+            </span>
+
+            <div>
+              <img
+                className="addedCartimg"
+                src={currentProduct.image}
+                alt="product"
+              ></img>
+            </div>
           </span>
-          <span>
-            <h3>Added to Cart</h3>
-          </span>
-          <div>
-            <img src={currentProduct.image} alt="product"></img>
-          </div>
-          <div>
+          <div className="subtotal">
             Subtotal ({totalQuantity} items): $ {totalPrice}
           </div>
-          <div>
-            <NavLink to="/cart">Go to Cart</NavLink>
-          </div>
+
+          <NavLink className="add-links" to="/cart">
+            <div className="addCart-button" id="goCart">
+              Go to Cart
+            </div>
+          </NavLink>
         </div>
       ) : (
         <div>
