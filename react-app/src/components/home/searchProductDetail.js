@@ -65,7 +65,7 @@ function SearchProductDetail() {
                 </div>
                 <div className="pro-name">{product.name}</div>
               </NavLink>
-              <div className="bot-search">
+              <div className="bottom-search">
                 <div className="price-product">
                   <span className="dollar-sign">$</span>
 

@@ -44,40 +44,59 @@ function ProductDetails() {
     <div className="product-container">
       {allProducts && product && (
         <div>
-          <div className="upper-container">
-            <div>
-              <img src={product.image} alt="product"></img>
+          <div className="middle-container">
+            <div className="detail-img">
+              <img className="pro-img" src={product.image} alt="product"></img>
             </div>
-            <div>{product.name}</div>
-            <div>${product.price}</div>
-            <div>
-              <h4>Category:</h4>
-              <span>{product.category}</span>
-            </div>
-            <div>
-              <h4>Brand:</h4>
-              <span>{product.brand}</span>
-            </div>
-            <div>
-              <h4>Item Dimension:</h4>
-              <span>{product.dimensions} inches</span>
-            </div>
-            <div>
-              <h3>About this item:</h3>
-              <ul>
-                {about.map((sentence) => (
-                  <li key={sentence}>{sentence}</li>
-                ))}
-              </ul>
-              <div className="price-section">
-                <h3>${product.price}</h3>
-                <div>& FREE Returns</div>
-                <div>FREE Prime delivery {date}. Order by 5 p.m of today</div>
-                <h4>In Stock</h4>
-                <AddToCartModal />
+            <div className="main-product">
+              <div className="prod-name">{product.name}</div>
+              <div className="price-product">
+                <span className="dollar-sign">$</span>
+                {product.price}
+                <span className="free-ship"> & FREE Two-Day Shipping</span>
+              </div>
+              <span>
+                <h4 className="small-div">Category:</h4>
+                <span>{product.category}</span>
+              </span>
+              <div>
+                <h4 className="small-div">Brand:</h4>
+                <span>{product.brand}</span>
+              </div>
+              <div>
+                <h4 className="small-div">Item Dimension:</h4>
+                <span>{product.dimensions} inches</span>
+              </div>
+              <div>
+                <h3>About this item:</h3>
+                <ul>
+                  {about.map((sentence) => (
+                    <li className="ul-about" key={sentence}>
+                      {sentence}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
+            <div className="price-section">
+              <div className="price-product">
+                <span className="dollar-sign">$</span>
+                {product.price}
+              </div>
+              <div className="free-ship">& FREE Returns</div>
+              <div className="free-ship">
+                FREE Prime delivery
+                <span className="detail-date">
+                  {" "}
+                  {date}.<span className="reg"> Order by</span>
+                  <span className="time"> 5 p.m of today</span>
+                </span>
+              </div>
+              <h4 className="stock">In Stock</h4>
+              <AddToCartModal />
+            </div>
           </div>
+
           <section className="description-section">
             <h3>Product Description</h3>
             <div>{product.description}</div>
