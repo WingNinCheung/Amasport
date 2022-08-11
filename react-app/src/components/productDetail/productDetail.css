@@ -1,0 +1,79 @@
+.search-product {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  /* background-color: aqua; */
+}
+
+.search-productList {
+  /* border: 0.1px solid lightgrey; */
+  border: 2px solid #f5f5f5;
+  border-radius: 4px;
+  height: auto;
+  width: 15vw;
+  /* margin: 35px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+  margin: 7px;
+  min-width: 249px;
+  min-height: 431px;
+}
+
+.cate-list {
+  width: 100%;
+  max-height: 300px;
+  margin-bottom: 10%;
+}
+
+.search-links {
+  /* height: 80%;
+  width: 100%; */
+  text-decoration: none;
+}
+
+.cateList-container {
+  width: 100%;
+  min-height: 50%;
+}
+
+.bot-search {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0px 10px 0px 10px;
+  height: auto;
+}
+
+.pro-name {
+  font-size: 18px;
+
+  color: #0f1111;
+}
+
+a.search-links:visited,
+.pro-name:visited {
+  color: #0f1111;
+}
+
+div.price-product {
+  font-size: 25px;
+  /* font-weight: bold; */
+  margin-top: 10px;
+}
+
+.dollar-sign {
+  font-size: 13px;
+  position: relative;
+  top: -0.55em;
+  font-weight: 100;
+}
+
+.free-prime {
+  font-size: 14px;
+}
+.prime {
+  position: relative;
+  top: 17%;
+}

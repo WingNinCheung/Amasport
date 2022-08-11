@@ -6,6 +6,7 @@ import Reviews from "../review/review";
 import { getReviews } from "../../store/review";
 import AddToCart from "./addToCart";
 import AddToCartModal from "./addToCartModal";
+import "./productDetail.css";
 
 function ProductDetails() {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ function ProductDetails() {
   }
 
   return (
-    <div>
+    <div className="product-container">
       {allProducts && product && (
         <div>
           <div className="upper-container">

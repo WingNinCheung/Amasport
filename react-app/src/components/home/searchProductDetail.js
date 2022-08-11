@@ -51,22 +51,40 @@ function SearchProductDetail() {
           </div>
         )}
       </div>
+      <div className="search-product">
+        {searchProduct &&
+          searchProduct.map((product) => (
+            <div className="search-productList" key={product.id}>
+              <NavLink className="search-links" to={`/products/${product.id}`}>
+                <div className="cateList-container">
+                  <img
+                    className="cate-list"
+                    src={product.image}
+                    alt="products"
+                  ></img>
+                </div>
+                <div className="pro-name">{product.name}</div>
+              </NavLink>
+              <div className="bot-search">
+                <div className="price-product">
+                  <span className="dollar-sign">$</span>
 
-      {searchProduct &&
-        searchProduct.map((product) => (
-          <div key={product.id}>
-            <NavLink to={`/products/${product.id}`}>
-              <img src={product.image} alt="products"></img>
-              <div>{product.name}</div>
-            </NavLink>
-            <div>${product.price}</div>
-            <div>
-              <img style={{ height: "30px" }} src={primeIcon} alt="prime"></img>
-              FREE Two-Day
+                  {product.price}
+                </div>
+                <div className="free-prime">
+                  <img
+                    className="prime"
+                    style={{ height: "30px" }}
+                    src={primeIcon}
+                    alt="prime"
+                  ></img>
+                  FREE Two-Day
+                  <div>FREE Shipping by {product.manufacturer}</div>
+                </div>
+              </div>
             </div>
-            <div>FREE Shipping by {product.manufacturer}</div>
-          </div>
-        ))}
+          ))}
+      </div>
       {!searchProduct.length && (
         <div>
           <h3>Sorry. No products found matching your search "{text}"...</h3>
