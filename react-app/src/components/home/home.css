@@ -1,0 +1,6 @@
+.home-container {
+  height: 55vh;
+  background-image: url("https://img.freepik.com/free-vector/sport-equipment-banner_1284-32611.jpg?w=2000");
+  background-repeat: no-repeat;
+  -webkit-mask-image: linear-gradient(#000 85%, transparent);
+}
