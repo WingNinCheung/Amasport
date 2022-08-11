@@ -22,8 +22,6 @@ function EditReview() {
   const [review, setReview] = useState(myReview?.review_body);
   const [validationError, setValidationError] = useState([]);
 
- 
-
   // format the date object into Month-Date-Year
   let dateNow = new Date().toDateString().split(" ");
   dateNow.shift();
@@ -64,19 +62,17 @@ function EditReview() {
     if (edited) {
       history.push(`/products/${productId}`);
     }
-
-
   };
 
   return (
     <div className="createReview-container">
       {myProduct && (
-        <div>
+        <div className="rev-body">
           <h2>Edit Review</h2>
-          <div>
-            <img src={myProduct.image} alt="ball"></img>
+          <div className="img-name">
+            <img className="create-img" src={myProduct.image} alt="ball"></img>
+            <span>{myProduct.name}</span>
           </div>
-          <div>{myProduct.name}</div>
           <form onSubmit={handleEdit}>
             <h3>Overall rating</h3>
             <select onChange={(e) => setRating(e.target.value)} value={rating}>
@@ -89,14 +85,27 @@ function EditReview() {
             <h3>Add a written review</h3>
             <ul>
               {validationError.map((error) => (
-                <li key={error}>{error}</li>
+                <li className="errors" key={error}>
+                  ! {error}
+                </li>
               ))}
             </ul>
             <textarea
+              className="review-area"
               onChange={(e) => setReview(e.target.value)}
               value={review}
             ></textarea>
-            <button disabled={validationError.length}>Edit</button>
+            <div className="errors" id="counter">
+              {review.length}/250
+            </div>
+            <div className="submitbtn-review">
+              <button
+                className="submit-review"
+                disabled={validationError.length}
+              >
+                Save
+              </button>
+            </div>
           </form>
         </div>
       )}
