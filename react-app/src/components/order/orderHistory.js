@@ -77,12 +77,14 @@ function OrderHistory() {
           delivery_status: "Shipped",
         };
         dispatch(updateStatus(data, item.id));
+        dispatch(getOrder(sessionUser.id));
       } else if (isdelivered < 0) {
         setStatus("Delivered");
         const data = {
           delivery_status: "Delivered",
         };
         dispatch(updateStatus(data, item.id));
+        dispatch(getOrder(sessionUser.id));
       }
     });
   }, [dispatch, status]);

@@ -101,6 +101,9 @@ function App() {
         <ProtectedRoute path="/search/:category/:text" exact={true}>
           <SearchProductDetail />
         </ProtectedRoute>
+        <Route>
+          <h1>404</h1>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
