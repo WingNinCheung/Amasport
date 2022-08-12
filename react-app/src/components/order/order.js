@@ -17,9 +17,9 @@ function Order() {
 
   return (
     <div>
-      <h2>Your Orders</h2>
+      <h2 className="ordertitle">Your Orders</h2>
 
-      <div>
+      <div className="whole-container">
         {order.length ? (
           <OrderHistory />
         ) : (
