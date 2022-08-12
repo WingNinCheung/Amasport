@@ -6,6 +6,7 @@ import primeIcon from "../../images/amazon-prime-delivery-checkmark._CB659998231
 import { createOrder, getOrder } from "../../store/order";
 import OrderedModal from "../modal/orderedModal";
 import { removeCart } from "../../store/cart";
+import "./checkout.css";
 
 function Checkout() {
   const dispatch = useDispatch();
@@ -109,32 +110,35 @@ function Checkout() {
   return (
     <div className="checkout-container">
       <section className="shipping-address">
-        <h2>1 Choose a shipping address</h2>
-        <div>
-          <h3>Your address</h3>
+        <h2 className="check-title">
+          1<span id="choose">Choose a shipping address</span>
+        </h2>
+        <div className="shipping-innerContainer">
+          <h3 className="inner-title">Your address</h3>
           <input
+            className="list-address"
             type="radio"
             value="default"
             name="address"
             checked={true}
             onChange={handleRadio}
           />
-          <label>
+          <label className="label-address">
             {user.street}, {user.city}, {user.state}, {user.zip_code},{" "}
             {user.country}
           </label>
-          <h3>Other addresses</h3>
+          <h3 className="inner-title">Other address</h3>
           {street && (
             <div>
               <input
+                className="list-address"
                 type="radio"
                 name="address"
                 value="added"
                 onChange={handleRadio}
                 checked={true}
               />
-              <label>
-                {" "}
+              <label className="label-address">
                 {street}, {city}, {state}, {zip}, {user.country}
               </label>
             </div>
@@ -150,12 +154,16 @@ function Checkout() {
         </div>
       </section>
       <section className="payment-method">
-        <h2>2 Payment method</h2>
-        <div>VISA ending with 2231</div>
+        <h2 className="check-title">
+          2<span id="choose">Payment method </span>
+        </h2>
+        <div className="shipping-innerContainer">VISA ending with 2231</div>
       </section>
       <section className="shipping-method">
-        <h2>3 Review items and shipping</h2>
-        <div>
+        <h2 className="check-title">
+          3<span id="choose">Review items and shipping</span>
+        </h2>
+        <div className="shipping-innerContainer">
           <div>
             Delivery date: {delivery_date} if you order in the next{" "}
             {expiredDate[0]} hour and {expiredDate[1]} minutes
