@@ -1,0 +1,46 @@
+.account-title {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: bold;
+}
+
+.account-container {
+  margin-left: 5%;
+}
+
+.account-item {
+  display: flex;
+}
+
+.acc-order {
+  border: 1px #d5d9d9 solid;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1%;
+  width: 15%;
+  margin-right: 5%;
+}
+
+.order-img {
+  width: 67px;
+}
+.account-link {
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 400;
+  color: black;
+  margin-bottom: 10px;
+  margin-left: -20%;
+}
+
+.inner-acc {
+  font-size: 17px;
+}
+
+.acc-des {
+  font-size: 14px;
+  color: #565959;
+  margin-left: -20%;
+}
