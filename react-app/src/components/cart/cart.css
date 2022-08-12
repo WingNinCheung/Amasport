@@ -27,13 +27,14 @@
   background-color: white;
   width: 70%;
   margin: 59px;
+  display: grid;
 }
 
 @media screen and (max-width: 1800px) {
   .cart-item {
-    background-color: aqua;
     display: flex;
     flex-wrap: wrap;
+    background-color: antiquewhite;
   }
 
   .price-cart {
@@ -41,15 +42,17 @@
   }
 
   .cartright-container {
-    text-align: center;
+    /* position: fixed;s */
+    top: 30%;
+    left: 70%;
+  }
+  .right-section {
+    background-color: rgb(222, 136, 25);
+    position: relative;
+    top: -1080px;
   }
 
-  .right-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 17%;
+  .Incart-container {
   }
 }
 
@@ -126,9 +129,9 @@
   margin: 20px;
   padding-top: 2%;
   background-color: white;
-  /* position: absolute; */
-  left: 75%;
-  bottom: 510px;
+  position: absolute;
+  left: 105%;
+  bottom: 960px;
   /* bottom: 800px; */
 }
 
@@ -137,9 +140,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  position: relative;
-  left: 67%;
-  bottom: 670px;
+  position: sticky;
+  left: 800px;
   margin: auto;
   /* background-color: #565959; */
 }

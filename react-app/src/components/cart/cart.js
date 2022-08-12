@@ -71,22 +71,22 @@ function Cart() {
               <h2>Your Amasport Cart is empty.</h2>
             )}
           </section>
-          <div className="cartright-container">
-            <div className="right-section">
-              {cart.length !== 0 && (
-                <div>
-                  <span className="subtitle">
-                    Subtotal ({totalQuantity} items):{" "}
-                    <span id="subcheckout">${totalPrice}</span>
-                  </span>
-                  <NavLink className="proceed" to="cart/checkout">
-                    <div className="addCart-button" id="proceed-btn">
-                      Proceed to checkout
-                    </div>
-                  </NavLink>
-                </div>
-              )}
-            </div>
+        </div>
+        <div className="cartright-container">
+          <div className="right-section">
+            {cart.length !== 0 && (
+              <div>
+                <span className="subtitle">
+                  Subtotal ({totalQuantity} items):{" "}
+                  <span id="subcheckout">${totalPrice}</span>
+                </span>
+                <NavLink className="proceed" to="cart/checkout">
+                  <div className="addCart-button" id="proceed-btn">
+                    Proceed to checkout
+                  </div>
+                </NavLink>
+              </div>
+            )}
           </div>
         </div>
       </div>
