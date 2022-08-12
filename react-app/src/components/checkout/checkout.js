@@ -254,34 +254,39 @@ function Checkout() {
         </div>
       </section>
       <section className="summary">
-        <button onClick={placeOrder}>Place your order</button>
-        <div>
+        <div id="place-order">
+          <button className="addCart-button" onClick={placeOrder}>
+            Place your order
+          </button>
+        </div>
+        <div className="condition">
           By placing your order, you agree to Amasport's privacy notice and
           conditions of use.
         </div>
         <div>
-          <h3>Order Summary</h3>
-          <div>
+          <h3 style={{ fontSize: "18px" }}>Order Summary</h3>
+          <div className="table-container">
             <table>
               <tbody>
                 <tr>
                   <td>Items ({totalQuantity}):</td>
-                  <td>{totalPrice}</td>
+                  <td className="checkout-td">${totalPrice}</td>
                 </tr>
                 <tr>
                   <td>Shipping & handling:</td>
-                  <td>$0.00</td>
+                  <td className="checkout-td">$0.00</td>
                 </tr>
 
                 <tr>
                   <td>Total before tax:</td>
-                  <td>${totalPrice}</td>
+                  <td className="checkout-td">${totalPrice}</td>
                 </tr>
                 <tr>
                   <td>Estimated tax to be collected:</td>
-                  <td>${tax}</td>
+                  <td className="checkout-td ">${tax}</td>
                 </tr>
-                <tr>
+                <div className="lasttr"></div>
+                <tr className="last-tr">
                   <td>
                     <h3>Order total:</h3>
                   </td>
