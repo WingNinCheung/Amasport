@@ -87,12 +87,9 @@ div.price-product {
 }
 
 .detail-img {
-  /* max-width: 50%;*/
-  margin-right: 2%;
+  margin-right: 10%;
   width: auto;
   height: auto;
-  /* max-width: 51%;
-  max-height: 100%; */
 }
 
 .pro-img {
@@ -107,8 +104,8 @@ div.price-product {
 }
 
 .middle-container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
   margin-bottom: 10%;
   height: 65%;
   border-bottom: thin solid lightgrey;
@@ -184,8 +181,10 @@ div.price-section {
   border-radius: 10px;
   padding: 10px;
   /* min-width: 200px; */
-  width: 10%;
+  width: 50%;
   min-height: 50%;
+  height: 50%;
+  margin-left: 30%;
 }
 
 .description-section {

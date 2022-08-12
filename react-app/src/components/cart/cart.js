@@ -31,10 +31,10 @@ function Cart() {
       </div> */}
 
       <div className="Incart-container">
-        <div></div>
-        <h1 className="cart-title">Shopping Cart</h1>
-        <div id="cart-price">Price</div>
         <div className="left-section">
+          <div></div>
+          <h1 className="cart-title">Shopping Cart</h1>
+          <div id="cart-price">Price</div>
           <section className="leftcart">
             {cart.length ? (
               cart.map((item) => (
