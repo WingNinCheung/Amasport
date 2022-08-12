@@ -214,7 +214,7 @@
   width: 250px;
   margin-right: -290px;
   border: 1px #d5d9d9 solid;
-  position: fixed;
+  position: sticky;
   left: 1200px;
   bottom: 470px;
   display: flex;
