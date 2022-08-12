@@ -32,22 +32,29 @@ function Checkout() {
   let today = new Date();
   let delivery_date = new Date();
 
-  delivery_date.setDate(today.getDate() + 2);
-  delivery_date.setHours(17);
-  delivery_date.setMinutes(0);
-  delivery_date.setMilliseconds(0);
-  delivery_date = delivery_date.toDateString().split(" ");
-  delivery_date.shift();
-  delivery_date = delivery_date.join(" ");
-
   let cutOff = new Date();
   cutOff.setDate(today.getDate());
   cutOff.setHours(17);
   cutOff.setMinutes(0);
   cutOff.setMilliseconds(0);
 
-  let expiredDate = Math.abs(cutOff - today) / 36e5;
+  // let expiredDate = Math.abs(cutOff.getTime() - today.getTime()) / 36e5;
+  let expiredDate = (cutOff.getTime() - today.getTime()) / 36e5;
+  if (expiredDate < 0) {
+    cutOff.setDate(today.getDate() + 1);
+    expiredDate = (cutOff.getTime() - today.getTime()) / 36e5;
+    delivery_date.setDate(today.getDate() + 3);
+  } else {
+    delivery_date.setDate(today.getDate() + 2);
+  }
   expiredDate = expiredDate.toFixed(2).split(".");
+
+  delivery_date.setHours(17);
+  delivery_date.setMinutes(0);
+  delivery_date.setMilliseconds(0);
+  delivery_date = delivery_date.toDateString().split(" ");
+  delivery_date.shift();
+  delivery_date = delivery_date.join(" ");
 
   let street = window.localStorage.getItem("street");
   let city = window.localStorage.getItem("city");
@@ -157,16 +164,54 @@ function Checkout() {
         <h2 className="check-title">
           2<span id="choose">Payment method </span>
         </h2>
-        <div className="shipping-innerContainer">VISA ending with 2231</div>
+        <div className="shipping-innerContainer">
+          <div className="inner-payment">
+            <img
+              id="visa-img"
+              src="https://www.pngitem.com/pimgs/m/1-15741_visa-icon-png-high-resolution-visa-logo-png.png"
+              alt="visa"
+              style={{ height: "30px" }}
+            ></img>
+            <span id="cc-number">
+              <span id="credit-card">VISA</span> ending with 2231
+            </span>
+          </div>
+        </div>
       </section>
       <section className="shipping-method">
         <h2 className="check-title">
           3<span id="choose">Review items and shipping</span>
         </h2>
+        <div id="before-warning">
+          <div className="inner-warning">
+            <div className="grp1">
+              <i class="fa-solid fa-circle-exclamation"></i>
+              <span id="before-order">Before you place your order:</span>
+            </div>
+            <div className="warning-body">
+              Shop with Points allows customers to pay for Amasport.com
+              purchases using credit card rewards. To see if you have rewards
+              available or to change the rewards amount for this purchase,
+              please contact our
+              <a
+                id="represent"
+                href="https://www.linkedin.com/in/wingnincheung/"
+                target="popup"
+              >
+                {" "}
+                representative.
+              </a>
+            </div>
+          </div>
+        </div>
         <div className="shipping-innerContainer">
-          <div>
-            Delivery date: {delivery_date} if you order in the next{" "}
-            {expiredDate[0]} hour and {expiredDate[1]} minutes
+          <div className="delivery-info">
+            Delivery date: {delivery_date}
+            <span id="ifyou">
+              {"  "}
+              if you order in the next {expiredDate[0]} hours and{" "}
+              {expiredDate[1]} minutes
+            </span>
           </div>
           <div className="product-review">
             {cart.map((item) => (

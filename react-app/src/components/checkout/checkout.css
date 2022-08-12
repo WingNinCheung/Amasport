@@ -6,15 +6,6 @@
   padding-left: 35px;
 }
 
-.shipping-innerContainer {
-  border: 1.5px solid lightgrey;
-  border-radius: 8px;
-  font-size: 15px;
-  line-height: 20px;
-  width: 45%;
-  margin-left: 60px;
-}
-
 #choose {
   margin-left: 1%;
 }
@@ -64,4 +55,81 @@
   margin-top: 10%;
   width: 105%;
   margin-bottom: 5%;
+}
+
+#visa-img {
+  margin-right: 2%;
+}
+#credit-card {
+  font-weight: bold;
+}
+
+#cc-number {
+  font-weight: 400;
+}
+.inner-payment {
+  margin: 2%;
+  display: flex;
+  align-items: center;
+}
+
+#before-warning {
+  border: 2px solid #1196ab;
+  border-radius: 8px;
+  width: 40%;
+  height: 120px;
+  margin-left: 3%;
+  border-left: 13px solid #1196ab;
+  margin-bottom: 1%;
+}
+
+.inner-warning {
+  padding: 14px 18px 18px;
+}
+
+.fa-circle-exclamation {
+  color: #1196ab;
+  font-size: 20px;
+  border-radius: 20px;
+  margin-right: 2%;
+}
+
+#before-order {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.grp1 {
+  margin-bottom: 2%;
+}
+
+.warning-body {
+  font-size: 14px;
+  line-height: 20px;
+}
+#represent {
+  color: #007185;
+  text-decoration: none;
+}
+
+.shipping-innerContainer {
+  border: 1.5px solid lightgrey;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 20px;
+  width: 45%;
+  margin-left: 60px;
+}
+
+.delivery-info {
+  font-weight: 700;
+  font-size: 18px;
+  color: #007600;
+  margin: 2%;
+}
+
+#ifyou {
+  color: #565959;
+  font-weight: 400;
+  font-size: 15px;
 }
