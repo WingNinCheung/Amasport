@@ -205,39 +205,43 @@ function Checkout() {
           </div>
         </div>
         <div className="shipping-innerContainer">
-          <div className="delivery-info">
-            Delivery date: {delivery_date}
-            <span id="ifyou">
-              {"  "}
-              if you order in the next {expiredDate[0]} hours and{" "}
-              {expiredDate[1]} minutes
-            </span>
-            <div className="ship-ama">Items shipped from Amasport.com</div>
-          </div>
-          <div className="product-review">
-            {cart.map((item) => (
-              <div className="checkout-item" key={item.id}>
-                <img
-                  className="checkout-img"
-                  src={item.products.image}
-                  alt="product"
-                ></img>
-                <div className="pro-title">
-                  <h5 className="pro-itemtitle">{item.products.name}</h5>
-                  <div className="second-check">
-                    <span id="checkout-price">${item.products.price}</span>
+          <div className="three-container">
+            <div className="delivery-info">
+              Delivery date: {delivery_date}
+              <span id="ifyou">
+                {"  "}
+                if you order in the next {expiredDate[0]} hours and{" "}
+                {expiredDate[1]} minutes
+              </span>
+              <div className="ship-ama">Items shipped from Amasport.com</div>
+              <div className="product-review">
+                {cart.map((item) => (
+                  <div className="checkout-item" key={item.id}>
                     <img
-                      id="prime-img"
-                      style={{ height: "25px" }}
-                      src={primeIcon}
-                      alt="prime"
+                      className="checkout-img"
+                      src={item.products.image}
+                      alt="product"
                     ></img>
-                    <div>Qty: {item.quantity}</div>
-                    <div id="soldby">Sold by: {item.products.manufacturer}</div>
+                    <div className="pro-title">
+                      <h5 className="pro-itemtitle">{item.products.name}</h5>
+                      <div className="second-check">
+                        <span id="checkout-price">${item.products.price}</span>
+                        <img
+                          id="prime-img"
+                          style={{ height: "25px" }}
+                          src={primeIcon}
+                          alt="prime"
+                        ></img>
+                        <div id="qty">Qty: {item.quantity}</div>
+                        <div id="soldby">
+                          Sold by: {item.products.manufacturer}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
             <div className="right-checkout">
               <h4>Your Prime delivery Info:</h4>
               <div>

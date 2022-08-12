@@ -117,7 +117,7 @@
   border-radius: 8px;
   font-size: 15px;
   line-height: 20px;
-  width: 45%;
+  width: 50%;
   margin-left: 60px;
 }
 
@@ -144,12 +144,15 @@
 .checkout-item {
   display: flex;
   margin-left: 2%;
-  margin-bottom: 2%;
+  margin-bottom: 3%;
 }
 
 .checkout-img {
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 120px;
+  max-height: 120px;
+  margin-right: 1%;
+  width: 130px;
+  box-sizing: border-box;
 }
 
 .pro-title {
@@ -157,18 +160,23 @@
   margin-top: 1%;
   text-align: left;
   font-size: 14px;
-  width: 100%;
+  width: 80%;
 }
 
 .pro-itemtitle {
   font-size: 14px;
   text-align: left;
   margin-left: 1%;
-  margin-top: 0%;
+  margin-top: 2%;
+  color: black;
 }
 .second-check {
   margin-left: 1%;
   margin-top: -3%;
+}
+#qty {
+  font-size: 14px;
+  color: black;
 }
 
 #prime-img {
@@ -185,15 +193,20 @@
 
 #soldby {
   color: #565959;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .right-checkout {
-  /* background-color: gray; */
-  position: relative;
+  /* position: relative;
   width: 30%;
   left: 75%;
   bottom: 280px;
+  z-index: 4;
+  box-sizing: border-box; */
+  /* position: sticky;
+  width: 30%;
+  left: 40%;
+  bottom: 220px; */
 }
 
 #delivery-label {
@@ -203,6 +216,11 @@
 #des-date {
   color: #565959;
   margin-left: 8%;
+}
+
+.three-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
 
 @media screen and (max-width: 1800px) {
@@ -221,6 +239,6 @@
   .pro-title,
   .product-review,
   .pro-itemtitle {
-    width: 70%;
+    width: 100%;
   }
 }
