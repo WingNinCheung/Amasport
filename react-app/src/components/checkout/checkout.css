@@ -133,3 +133,94 @@
   font-weight: 400;
   font-size: 15px;
 }
+
+.ship-ama {
+  line-height: 20px;
+  font-size: 14px;
+  color: #565959;
+  font-weight: 200;
+}
+
+.checkout-item {
+  display: flex;
+  margin-left: 2%;
+  margin-bottom: 2%;
+}
+
+.checkout-img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.pro-title {
+  margin-left: 5%;
+  margin-top: 1%;
+  text-align: left;
+  font-size: 14px;
+  width: 100%;
+}
+
+.pro-itemtitle {
+  font-size: 14px;
+  text-align: left;
+  margin-left: 1%;
+  margin-top: 0%;
+}
+.second-check {
+  margin-left: 1%;
+  margin-top: -3%;
+}
+
+#prime-img {
+  margin-top: -2%;
+  position: relative;
+  bottom: -5px;
+}
+
+#checkout-price {
+  color: #b12704;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#soldby {
+  color: #565959;
+  font-size: 12px;
+}
+
+.right-checkout {
+  /* background-color: gray; */
+  position: relative;
+  width: 30%;
+  left: 75%;
+  bottom: 280px;
+}
+
+#delivery-label {
+  color: #007600;
+}
+
+#des-date {
+  color: #565959;
+  margin-left: 8%;
+}
+
+@media screen and (max-width: 1800px) {
+  .right-checkout {
+    /* background-color: bisque; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .delivery-info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: auto;
+  }
+  .pro-title,
+  .product-review,
+  .pro-itemtitle {
+    width: 70%;
+  }
+}
