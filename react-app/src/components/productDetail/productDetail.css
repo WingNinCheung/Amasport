@@ -180,7 +180,7 @@ div.price-section {
   border: lightgrey thin solid;
   border-radius: 10px;
   padding: 10px;
-  /* min-width: 200px; */
+
   width: 50%;
   min-height: 50%;
   height: 50%;
@@ -229,4 +229,30 @@ div.price-section {
 .productInfo-section {
   border-bottom: thin solid lightgrey;
   height: 24%;
+}
+
+.fa-xmark {
+  background-color: green;
+  font-size: 22px;
+  border-radius: 20px;
+  color: white;
+  width: 8%;
+  text-align: center;
+}
+
+#not-added {
+  margin-top: -7%;
+  margin-left: 24%;
+}
+
+.msg {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.msg2 {
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }

@@ -83,23 +83,34 @@ function AddToCart({ showModal }) {
           </NavLink>
         </div>
       ) : (
-        <div>
+        <div className="check-container" id="notadded-container">
           <span>
             <i class="fa-solid fa-xmark"></i>
           </span>
           <span>
-            <h3>Not Added to Cart</h3>
+            <h3 className="addedTo" id="not-added">
+              Not Added to Cart
+            </h3>
           </span>
           <div>
             <img
+              className="sorryimg"
               src="https://media.istockphoto.com/vectors/sad-dog-cartoon-illustration-vector-id494059175?k=20&m=494059175&s=612x612&w=0&h=DZSc3Tow29THc9nfSe_sEQWV6Cd5BbFlXoTOG2Z4OVE="
               alt="product"
             ></img>
           </div>
-          <div>Your cart has 9 {currentProduct.name} already!</div>
-          <div>Please check out first before you purchase more</div>
+          <div className="msg">
+            Your cart has 9 {currentProduct.name} already!
+          </div>
+          <div className="msg2">
+            Please check out first before you purchase more
+          </div>
           <div>
-            <NavLink to="/cart">Go to Cart</NavLink>
+            <NavLink className="add-links" to="/cart">
+              <div className="addCart-button" id="goCart">
+                Go to Cart
+              </div>
+            </NavLink>
           </div>
         </div>
       )}

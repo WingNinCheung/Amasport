@@ -15,6 +15,7 @@ function Checkout() {
   const cart = useSelector((state) => Object.values(state.cart));
   const order = useSelector((state) => Object.values(state.order));
   const [changed, setChanged] = useState(false);
+  const [radioValue, setRadioValue] = useState("");
   let radioResult = "default";
 
   let totalPrice = 0;
@@ -77,8 +78,8 @@ function Checkout() {
     dispatch(getOrder(sessionUser.user.id));
   }, [dispatch]);
 
-  const handleRadio = (e) => {
-    radioResult = e.target.value;
+  const radioChange = (e) => {
+    setRadioValue(e.target.value);
   };
 
   const placeOrder = async (e) => {
@@ -86,7 +87,7 @@ function Checkout() {
     let data;
 
     cart.forEach((product) => {
-      if (radioResult === "default") {
+      if (radioValue === "default") {
         street = user.street;
         city = user.city;
         state = user.state;
@@ -127,8 +128,8 @@ function Checkout() {
             type="radio"
             value="default"
             name="address"
-            checked={true}
-            onChange={handleRadio}
+            // checked={true}
+            onClick={radioChange}
           />
           <label className="label-address">
             {user.street}, {user.city}, {user.state}, {user.zip_code},{" "}
@@ -142,8 +143,7 @@ function Checkout() {
                 type="radio"
                 name="address"
                 value="added"
-                onChange={handleRadio}
-                checked={true}
+                onClick={radioChange}
               />
               <label className="label-address">
                 {street}, {city}, {state}, {zip}, {user.country}
