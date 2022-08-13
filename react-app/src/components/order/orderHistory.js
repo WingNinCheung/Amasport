@@ -81,15 +81,14 @@ function OrderHistory() {
 
       // console.log("result ", expire, dateNow);
 
-      if (expire < 0) {
+      if (expire < 0 && isdelivered > 0) {
         setStatus("Shipped");
         const data = {
           delivery_status: "Shipped",
         };
         dispatch(updateStatus(data, item.id));
         dispatch(getOrder(sessionUser.id));
-      }
-      if (isdelivered < 0) {
+      } else if (isdelivered < 0) {
         setStatus("Delivered");
         const data = {
           delivery_status: "Delivered",
