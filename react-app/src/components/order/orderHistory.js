@@ -11,7 +11,10 @@ function OrderHistory() {
   const [status, setStatus] = useState("");
 
   const dispatch = useDispatch();
+  let expiredDate = new Date();
 
+  let dateNow = new Date();
+  let deliveredDate = new Date();
   useEffect(() => {
     order.forEach((item) => {
       let orderTime = item.created_at;
@@ -21,7 +24,7 @@ function OrderHistory() {
 
       orderTime = new Date(orderTime);
 
-      let expiredDate = new Date();
+      // let expiredDate = new Date();
       // original
       expiredDate.setDate(orderTime.getDate());
       expiredDate.setHours(orderTime.getHours() + 2);
@@ -44,8 +47,8 @@ function OrderHistory() {
       //   dispatch(updateStatus(data, item.id));
       // }, num);
 
-      let dateNow = new Date();
-      let deliveredDate = new Date();
+      // let dateNow = new Date();
+      // let deliveredDate = new Date();
 
       // For delivery date in two days after the order is made
       deliveredDate.setDate(orderTime.getDate() + 2);
@@ -72,6 +75,12 @@ function OrderHistory() {
       let expire = (expiredDate - dateNow) / 36e5;
       let isdelivered = (deliveredDate - dateNow) / 36e5;
 
+      console.log("order time is", orderTime);
+      console.log("expire time is", expiredDate);
+      console.log("deliver time is", isdelivered);
+
+      // console.log("result ", expire, dateNow);
+
       if (expire < 0) {
         setStatus("Shipped");
         const data = {
@@ -79,7 +88,8 @@ function OrderHistory() {
         };
         dispatch(updateStatus(data, item.id));
         dispatch(getOrder(sessionUser.id));
-      } else if (isdelivered < 0) {
+      }
+      if (isdelivered < 0) {
         setStatus("Delivered");
         const data = {
           delivery_status: "Delivered",
@@ -92,7 +102,7 @@ function OrderHistory() {
 
   useEffect(() => {
     dispatch(getOrder(sessionUser.id));
-  }, [dispatch]);
+  }, [dispatch, status]);
 
   return (
     <div>
