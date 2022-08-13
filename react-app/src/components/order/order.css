@@ -4,6 +4,7 @@
   line-height: 36px;
   margin-left: 12%;
   border-bottom: 1px #d5d9d9 solid;
+  width: 40%;
 }
 
 .order-container {
@@ -112,4 +113,52 @@
 
 .nav-btn {
   padding-top: 10px;
+}
+
+/* Order Details */
+
+.below-order {
+  color: #0f1111;
+  font-size: 14px;
+}
+
+.upperOrder-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 12%;
+  margin-top: 2%;
+  border: 1px #d5d9d9 solid;
+  width: 60%;
+}
+
+.shipment-detail {
+  margin-left: 7%;
+}
+.shipment-title {
+  font-size: 14px;
+}
+.card-num {
+  position: relative;
+  top: -10px;
+  left: 5px;
+}
+
+.row-list {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  font-size: 14px;
+  text-align: left;
+}
+.grand {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 5%;
+}
+.each-price {
+  text-align: right;
+  width: 50%;
+}
+
+#final {
+  margin-top: 11px;
 }
