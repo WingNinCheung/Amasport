@@ -175,8 +175,9 @@ function EditShipping({ myOrder, id, setShowModal }) {
         ) : (
           <div>
             <h3>Sorry Your order is either shipped or delivered already.</h3>
-            <div>
+            <div className="sorry-div">
               <img
+                className="sorryimg"
                 src="https://media.istockphoto.com/vectors/sad-dog-cartoon-illustration-vector-id494059175?k=20&m=494059175&s=612x612&w=0&h=DZSc3Tow29THc9nfSe_sEQWV6Cd5BbFlXoTOG2Z4OVE="
                 alt="product"
               ></img>

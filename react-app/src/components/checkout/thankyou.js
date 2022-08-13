@@ -18,11 +18,23 @@ function ThankYou() {
   }, [timeLeft]);
 
   return (
-    <div>
-      <h3>Thank you for shopping in Amasport!</h3>
-      <div>You can view your order history in your profile.</div>
-      <div>
-        You will be redirected to the home page in {timeLeft} seconds...
+    <div className="outter-thankyou">
+      <div className="thankyou-container">
+        <div className="login-logo">
+          <h2 id="thankyou-title">Amasport</h2>
+        </div>
+        <img
+          className="logo-img"
+          id="thankyou-logo"
+          src="https://rainforest-dev.s3.us-west-1.amazonaws.com/amazonArrow.png"
+          alt="logo"
+        ></img>
+        <h3>Thank you for shopping at Amasport!</h3>
+        <div>You can view your order history in your profile.</div>
+        <div>
+          You will be redirected to the home page in{" "}
+          <span className="count-timer">{timeLeft}</span> seconds...
+        </div>
       </div>
     </div>
   );
