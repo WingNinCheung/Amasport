@@ -103,18 +103,25 @@ function Checkout() {
         city,
         state,
         zip_code: zip,
-        country: user.country,
+        country: "USA",
         delivery_time: 2,
         delivery_status: "Pending",
         created_at: today,
       };
-      dispatch(createOrder(data));
-    });
 
-    await dispatch(removeCart(user.id));
-    history.push("/thank-you");
+      if (!radioValue) {
+        window.alert("Please add or select a shipping address");
+      } else {
+        dispatch(createOrder(data));
+      }
+    });
+    if (radioValue) {
+      await dispatch(removeCart(user.id));
+      history.push("/thank-you");
+    }
   };
 
+  console.log("radio value", radioValue);
   return (
     <div className="checkout-container">
       <section className="shipping-address">
@@ -123,18 +130,27 @@ function Checkout() {
         </h2>
         <div className="shipping-innerContainer">
           <h3 className="inner-title">Your address</h3>
-          <input
-            className="list-address"
-            type="radio"
-            value="default"
-            name="address"
-            // checked={true}
-            onClick={radioChange}
-          />
-          <label className="label-address">
-            {user.street}, {user.city}, {user.state}, {user.zip_code},{" "}
-            {user.country}
-          </label>
+          {user.street ? (
+            <div>
+              <input
+                className="list-address"
+                type="radio"
+                value="default"
+                name="address"
+                // checked={true}
+                onClick={radioChange}
+              />
+              <label className="label-address">
+                {user.street}, {user.city}, {user.state}, {user.zip_code},{" "}
+                {user.country}
+              </label>
+            </div>
+          ) : (
+            <div style={{ marginLeft: "3%" }}>
+              {" "}
+              No address found in your profile
+            </div>
+          )}
           <h3 className="inner-title">Other address</h3>
           {street && (
             <div>
@@ -143,10 +159,11 @@ function Checkout() {
                 type="radio"
                 name="address"
                 value="added"
+                // checked
                 onClick={radioChange}
               />
               <label className="label-address">
-                {street}, {city}, {state}, {zip}, {user.country}
+                {street}, {city}, {state}, {zip}, USA
               </label>
             </div>
           )}

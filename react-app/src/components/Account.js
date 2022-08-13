@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./account.css";
+import { getOrder } from "../store/order";
 
 function Account() {
   const [users, setUsers] = useState([]);
   const sessionUser = useSelector((state) => state.session.user);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function fetchData() {
@@ -14,6 +16,7 @@ function Account() {
       setUsers(responseData.users);
     }
     fetchData();
+    dispatch(getOrder(sessionUser.id));
   }, []);
 
   return (
