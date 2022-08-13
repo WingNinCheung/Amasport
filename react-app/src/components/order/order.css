@@ -192,3 +192,14 @@
   margin-top: 2%;
   border: none;
 }
+
+#cancel-btn {
+  margin-bottom: 2%;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.sorryimg {
+  width: 200px;
+  margin-left: 25%;
+}

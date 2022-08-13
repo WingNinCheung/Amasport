@@ -161,7 +161,6 @@ function AddShippingAddress({ setShowModal, setChanged, changed }) {
         </label>
         <button
           className="addCart-button"
-          // id="add-shippAddress"
           onClick={handleChange}
           disabled={validationError.length}
         >
