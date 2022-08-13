@@ -33,7 +33,7 @@ function OrderDetails() {
     <div>
       {myOrder && (
         <div>
-          <div className="ordertitle">
+          <div className="ordertitle" id="detail-statu">
             Order Details
             <div className="below-order">
               Ordered on {myOrder.created_at.split(" ").slice(1, 4).join("-")}
@@ -97,23 +97,33 @@ function OrderDetails() {
               </div>
             </div>
           </div>
-          <div className="lowerOrder-section">
-            <div>
-              <h4>Status: {myOrder.delivery_status}</h4>
+          <div className="bottomOrder" id="orderDetails">
+            <div className="left-order">
+              <div>
+                <h4 className="order-status" id="detail-status">
+                  Status: {myOrder.delivery_status}
+                </h4>
+              </div>
+              <div className="inner-ordercontainer">
+                <img
+                  className="ordered-img"
+                  src={myOrder.product.image}
+                  alt="product"
+                ></img>
+                <NavLink
+                  className="ordered-links"
+                  id="detail-link"
+                  to={`/products/${myOrder.product.id}`}
+                >
+                  <div className="ordered-name">{myOrder.product.name}</div>
+                </NavLink>
+              </div>
+              <div className="detail-grp">
+                <div>Condition: New</div>
+              </div>
             </div>
-            <div>
-              <img src={myOrder.product.image} alt="product"></img>
-            </div>
-            <div></div>
-            <div>{myOrder.product.name}</div>
-            <div>Category: {myOrder.product.category}</div>
-            <div>Brand: {myOrder.product.brand}</div>
-            <div>Manufacturer: {myOrder.product.manufacturer}</div>
-            <div>Condition: New</div>
-            <div>
+            <div className="links-grp">
               <EditShippingModal myOrder={myOrder} id={id} />
-            </div>
-            <div>
               <DeleteOrderModal myOrder={myOrder} id={id} />
             </div>
           </div>
