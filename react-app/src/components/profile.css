@@ -1,0 +1,67 @@
+#profile-title {
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.title-container {
+  display: flex;
+  width: 42%;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2%;
+}
+
+.name-profile {
+  border: 1px #f0f2f2 solid;
+  background-color: #f0f2f2;
+  width: 40%;
+  border-radius: 8px;
+  padding: 14px 18px;
+}
+
+.profile-name {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+#acc-holder {
+  color: #565959 !important;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.upper-profile {
+  padding-bottom: -5%;
+}
+
+.contact-container {
+  border: 1px #d5d9d9 solid;
+  margin-top: 2%;
+  width: 40%;
+  border-radius: 8px;
+  padding: 14px 18px;
+}
+
+.contact {
+  font-size: 18px;
+  margin-top: 0.5%;
+}
+
+#edit-add {
+  width: 50%;
+  margin-top: 2%;
+}
+
+.profile-last {
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  width: 41%;
+  margin-top: 1%;
+}

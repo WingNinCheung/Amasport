@@ -52,30 +52,42 @@ function EditAddress({ user, setUser, setShowModal, setChanges, changes }) {
   };
 
   return (
-    <div className="editAdd-container">
+    <div className="check-container">
       <div>
-        <h3>Edit your address</h3>
-        <div>Only a U.S address is allowed</div>
+        <h3 className="addAddress">Edit your address</h3>
+        <div className="allowed">Only a U.S address is allowed</div>
       </div>
       <form>
         <ul>
           {validationError.map((error) => (
-            <li key={error}>{error}</li>
+            <li className="errors" key={error}>
+              ! {error}
+            </li>
           ))}
         </ul>
         <label> Street:</label>
         <input
+          className="address-input"
           onChange={(e) => setStreet(e.target.value)}
           value={street}
         ></input>
         <label>
           {" "}
           City
-          <input onChange={(e) => setCity(e.target.value)} value={city}></input>
+          <input
+            className="address-input"
+            onChange={(e) => setCity(e.target.value)}
+            value={city}
+          ></input>
         </label>
         <label>
           State
-          <select onChange={(e) => setState(e.target.value)} value={state}>
+          <select
+            className="address-input"
+            id="state-dropdown"
+            onChange={(e) => setState(e.target.value)}
+            value={state}
+          >
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -131,9 +143,18 @@ function EditAddress({ user, setUser, setShowModal, setChanges, changes }) {
         </label>
         <label>
           Zip code
-          <input onChange={(e) => setZip(e.target.value)} value={zip}></input>
+          <input
+            className="address-input"
+            onChange={(e) => setZip(e.target.value)}
+            value={zip}
+          ></input>
         </label>
-        <button onClick={handleChange} disabled={validationError.length}>
+        <button
+          className="addCart-button"
+          id="addCart"
+          onClick={handleChange}
+          disabled={validationError.length}
+        >
           Save Changes
         </button>
       </form>
