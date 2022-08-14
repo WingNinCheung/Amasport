@@ -26,6 +26,7 @@ import ThankYou from "./components/checkout/thankyou";
 import OrderDetails from "./components/order/orderDetail";
 import SearchProductDetail from "./components/home/searchProductDetail";
 import CategoryNavBar from "./components/home/categoryNavBar";
+import ErrorPage from "./components/errorPage";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -102,7 +103,7 @@ function App() {
           <SearchProductDetail />
         </ProtectedRoute>
         <Route>
-          <h1>404</h1>
+          <ErrorPage />
         </Route>
       </Switch>
     </BrowserRouter>
