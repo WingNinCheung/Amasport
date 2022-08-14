@@ -74,20 +74,27 @@
   background-color: #febd69;
   cursor: pointer;
 }
+
+.search-btn:disabled,
+.search-btn[disabled] {
+  background-color: rgb(33, 13, 13);
+  color: #666666;
+}
 .fa-magnifying-glass {
   font-size: 22px;
 }
 
 .to-account {
   color: white;
-  margin-left: -36%;
-  height: 100%;
+  /* margin-left: -36%; */
+  height: 80%;
   padding: 0px;
   padding-top: 1%;
   position: relative;
-  left: -0.1%;
-  top: 8%;
+  /* right: 50%; */
+  top: 30%;
   box-sizing: border-box;
+  margin: 0;
 }
 
 .to-link {
@@ -109,13 +116,13 @@
   color: white;
 }
 
-div.to-account:hover,
+.to-link:hover,
 .cart-icon:hover {
   border: 1px solid white;
   cursor: pointer;
   overflow: hidden;
-  margin-right: -2px;
-  margin-top: -2px;
+  margin-right: -1px;
+  /* margin-top: -2px;s */
 }
 
 .cart-icon {
@@ -123,6 +130,7 @@ div.to-account:hover,
   padding-top: 35%;
   padding-bottom: 30%;
   width: 100%;
+  /* height: 10%; */
 }
 
 .quantity-icon {
@@ -131,8 +139,8 @@ div.to-account:hover,
   font-weight: bold;
   width: 19px;
   position: relative;
-  right: -50%;
-  bottom: 72%;
+  right: -39%;
+  bottom: 77%;
 }
 
 .logout-btn {
@@ -148,7 +156,7 @@ div.to-account:hover,
   width: 103%;
   padding: 8px 20px;
   height: 30px;
-  margin-top: 10px;
+  margin-top: 0px;
   border-radius: 4px;
   font-size: 14px;
 }
@@ -194,4 +202,10 @@ div.to-account:hover,
   display: flex;
   justify-content: end;
   align-items: center;
+}
+
+.right-nav {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }

@@ -20,9 +20,6 @@ function Quantity({ product }) {
     dispatch(updateQuantity(userId, productId, qty));
   }, [dispatch, qty]);
 
-  // useEffect(() => {
-  //   setQty(myProduct.quantity);
-  // }, []);
   const deleteCartItem = async (e) => {
     e.preventDefault();
     await dispatch(deleteProduct(userId, productId));
@@ -30,9 +27,13 @@ function Quantity({ product }) {
   };
 
   return (
-    <div>
+    <div className="qty-container">
       <label>Qty:</label>
-      <select onChange={(e) => setQty(e.target.value)} value={qty}>
+      <select
+        className="qty-list"
+        onChange={(e) => setQty(e.target.value)}
+        value={qty}
+      >
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -43,7 +44,9 @@ function Quantity({ product }) {
         <option>8</option>
         <option>9</option>
       </select>
-      <button onClick={deleteCartItem}>Delete</button>
+      <button className="remove-item" onClick={deleteCartItem}>
+        Delete
+      </button>
     </div>
   );
 }

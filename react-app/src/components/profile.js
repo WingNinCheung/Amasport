@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import EditAddressModal from "./modal/editAddressModal";
 import AddAddressModal from "./modal/addAddressModal";
+import "./profile.css";
 
 function Profile() {
   const [user, setUser] = useState({});
@@ -24,24 +25,26 @@ function Profile() {
   }
 
   return (
-    <div>
-      <div>
-        <h3>Manage your Profiles</h3>
+    <div className="profile-container">
+      <div className="title-container">
+        <h3 id="profile-title">Manage your Profiles</h3>
       </div>
-      <div>
-        <h3>{user.username}</h3>
-        <div>Account holder</div>
+      <div className="name-profile">
+        <div className="upper-profile">
+          <h3 className="profile-name">{user.username}</h3>
+          <div id="acc-holder">Account holder</div>
+        </div>
       </div>
       <section className="contact-container">
         <div>
-          <h4>Contact Details</h4>
+          <h4 className="contact">Contact Details</h4>
           <h5>Email Address</h5>
           <div>{user.email}</div>
         </div>
       </section>
-      <section className="address-container">
+      <section className="contact-container">
         <div>
-          <h4>Physical Address</h4>
+          <h4 className="contact">Physical Address</h4>
           <div>
             {user.street === null ? (
               <div>
@@ -74,7 +77,9 @@ function Profile() {
           </div>
         </div>
       </section>
-      <div>The account holder's profile cannot be removed.</div>
+      <div className="profile-last">
+        The account holder's profile cannot be removed.
+      </div>
     </div>
   );
 }

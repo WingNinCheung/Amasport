@@ -87,12 +87,9 @@ div.price-product {
 }
 
 .detail-img {
-  /* max-width: 50%;*/
-  margin-right: 2%;
+  margin-right: 10%;
   width: auto;
   height: auto;
-  /* max-width: 51%;
-  max-height: 100%; */
 }
 
 .pro-img {
@@ -107,8 +104,8 @@ div.price-product {
 }
 
 .middle-container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
   margin-bottom: 10%;
   height: 65%;
   border-bottom: thin solid lightgrey;
@@ -183,9 +180,11 @@ div.price-section {
   border: lightgrey thin solid;
   border-radius: 10px;
   padding: 10px;
-  /* min-width: 200px; */
-  width: 10%;
+
+  width: 50%;
   min-height: 50%;
+  height: 50%;
+  margin-left: 30%;
 }
 
 .description-section {
@@ -220,6 +219,7 @@ div.price-section {
   font-weight: 400;
   font-size: 14px;
   padding-left: 2%;
+  width: 300px;
 }
 
 .row2 {
@@ -229,4 +229,30 @@ div.price-section {
 .productInfo-section {
   border-bottom: thin solid lightgrey;
   height: 24%;
+}
+
+.fa-xmark {
+  background-color: green;
+  font-size: 22px;
+  border-radius: 20px;
+  color: white;
+  width: 8%;
+  text-align: center;
+}
+
+#not-added {
+  margin-top: -7%;
+  margin-left: 24%;
+}
+
+.msg {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.msg2 {
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }

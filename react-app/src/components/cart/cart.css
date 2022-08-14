@@ -1,0 +1,166 @@
+.shoppingcart-container {
+  display: flex;
+  background-color: whitesmoke;
+}
+
+.cart-title {
+  border-bottom: thin solid lightgrey;
+  padding-bottom: 3%;
+  padding-top: 2%;
+  padding-left: 5%;
+  width: 135%;
+}
+
+.title-price {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#cart-price {
+  text-align: right;
+  position: relative;
+  bottom: 7%;
+  left: 38%;
+  color: #565959;
+  font-size: 14px;
+}
+.Incart-container {
+  background-color: white;
+  width: 70%;
+  margin: 59px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+@media screen and (max-width: 1800px) {
+  .cart-item {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .price-cart {
+    margin-left: -20%;
+  }
+
+  /* .cartright-container {
+    top: 30%;
+    left: 70%;
+  }
+  .right-section {
+    background-color: rgb(222, 136, 25);
+    position: relative;
+    top: -1080px;
+  } */
+}
+
+.leftcart {
+  display: flex;
+  flex-direction: column;
+}
+
+.incart-img {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+}
+.inCart-img {
+  text-align: center;
+  padding-left: 5%;
+}
+.cart-item {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  border-bottom: thin solid lightgrey;
+  padding-bottom: 2%;
+  padding-top: 2%;
+  height: 190px;
+  width: 140%;
+}
+.right-item {
+  width: 50%;
+  text-align: left;
+  position: relative;
+  left: 6%;
+}
+
+.price-cart {
+  position: relative;
+  left: 136%;
+  bottom: 22%;
+}
+
+#cart-stock {
+  position: relative;
+  font-size: 13px;
+  bottom: 30%;
+}
+
+.return {
+  position: relative;
+  bottom: 35%;
+}
+
+.qty-container {
+  position: relative;
+  bottom: 40%;
+}
+
+.qty-list {
+  font-size: 13px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+}
+
+.remove-item {
+  margin-left: 5%;
+  color: #007185;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  border-left: 1px solid lightgrey;
+}
+
+.right-section {
+  width: 260px;
+  height: 130px;
+  margin: 20px;
+  padding-top: 5%;
+  background-color: white;
+  left: 105%;
+  bottom: 960px;
+}
+
+.cartright-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  left: 400px;
+  bottom: 15px;
+  margin: auto;
+}
+
+.subtitle {
+  font-size: 18px;
+  padding-left: 10%;
+  margin-bottom: 250px;
+}
+
+#subcheckout {
+  font-weight: bold;
+}
+
+.proceed {
+  text-decoration: none;
+}
+
+#proceed-btn {
+  width: 50%;
+  padding: 8px 20px;
+  margin: 20px 10px 10px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

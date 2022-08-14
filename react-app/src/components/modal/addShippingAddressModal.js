@@ -7,7 +7,11 @@ function AddShippingAddressModal({ setChanged, changed }) {
 
   return (
     <>
-      <button className="addCart-button" onClick={() => setShowModal(true)}>
+      <button
+        className="addCart-button"
+        id="checkout-address"
+        onClick={() => setShowModal(true)}
+      >
         <i class="fa-solid fa-plus"></i> Add a new address
       </button>
       {showModal && (

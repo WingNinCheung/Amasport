@@ -26,6 +26,7 @@ import ThankYou from "./components/checkout/thankyou";
 import OrderDetails from "./components/order/orderDetail";
 import SearchProductDetail from "./components/home/searchProductDetail";
 import CategoryNavBar from "./components/home/categoryNavBar";
+import ErrorPage from "./components/errorPage";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -101,6 +102,9 @@ function App() {
         <ProtectedRoute path="/search/:category/:text" exact={true}>
           <SearchProductDetail />
         </ProtectedRoute>
+        <Route>
+          <ErrorPage />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

@@ -7,7 +7,11 @@ function EditAddressModal({ user, setUser, setChanges, changes }) {
 
   return (
     <>
-      <button className="addCart-button" onClick={() => setShowModal(true)}>
+      <button
+        className="addCart-button"
+        id="edit-add"
+        onClick={() => setShowModal(true)}
+      >
         <i class="fa-solid fa-pen"></i>
       </button>
       {showModal && (

@@ -1,0 +1,51 @@
+.fa-check {
+  background-color: green;
+  font-size: 22px;
+  border-radius: 20px;
+  color: white;
+  width: 8%;
+  text-align: center;
+}
+
+.check-container {
+  width: 300px;
+  height: 300px;
+  min-width: 300px;
+  display: block;
+  margin-bottom: 5%;
+}
+
+.addedTo {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 15%;
+}
+
+.addedCartimg {
+  height: 200px;
+  width: 200px;
+  margin-top: 10%;
+  border-radius: 5px;
+}
+
+.upp-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.subtotal {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+#goCart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-links {
+  text-decoration: none;
+  color: black;
+}

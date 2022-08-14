@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import OrderHistory from "./orderHistory";
-import BugAgain from "./buyAgain";
-import DeleteOrder from "./deleteOrder";
 import { getOrder } from "../../store/order";
 
 function Order() {
@@ -17,9 +14,9 @@ function Order() {
 
   return (
     <div>
-      <h2>Your Orders</h2>
+      {order && <h2 className="ordertitle">Your Orders</h2>}
 
-      <div>
+      <div className="whole-container">
         {order.length ? (
           <OrderHistory />
         ) : (

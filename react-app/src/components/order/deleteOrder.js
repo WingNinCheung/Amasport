@@ -3,6 +3,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import OrderHistory from "./orderHistory";
 import { removeOrder } from "../../store/order";
+import "./order.css";
 
 function DeleteOrder({ setShowModal, id, myOrder }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -35,17 +36,30 @@ function DeleteOrder({ setShowModal, id, myOrder }) {
         <div>
           <h2>Are you sure you want to cancel this order?</h2>
           <div>
-            <button onClick={handleDelete}>Yes</button>
+            <button
+              className="addCart-button"
+              id="cancel-btn"
+              onClick={handleDelete}
+            >
+              Yes
+            </button>
           </div>
           <div>
-            <button onClick={() => setShowModal(false)}>Cancel</button>
+            <button
+              className="addCart-button"
+              id="cancel-btn"
+              onClick={() => setShowModal(false)}
+            >
+              Cancel
+            </button>
           </div>
         </div>
       ) : (
         <div>
-          <h3>Sorry Your order is either shipped or delivered already.</h3>
-          <div>
+          <h3>Sorry your order is either shipped or delivered already.</h3>
+          <div className="sorry-div">
             <img
+              className="sorryimg"
               src="https://media.istockphoto.com/vectors/sad-dog-cartoon-illustration-vector-id494059175?k=20&m=494059175&s=612x612&w=0&h=DZSc3Tow29THc9nfSe_sEQWV6Cd5BbFlXoTOG2Z4OVE="
               alt="product"
             ></img>

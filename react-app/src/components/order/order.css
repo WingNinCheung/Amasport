@@ -1,0 +1,205 @@
+.ordertitle {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  margin-left: 12%;
+  border-bottom: 1px #d5d9d9 solid;
+  width: 40%;
+}
+
+.order-container {
+  border-radius: 18px;
+  width: fit-content;
+}
+
+.topOrder {
+  display: flex;
+  background-color: rgb(240, 242, 242);
+  border: 1px solid #d5d9d9;
+  border-radius: 3px;
+  max-height: 70px;
+  padding: 5px;
+  margin: 2%;
+  width: 50%;
+  padding-top: 10px;
+  margin-top: -1px;
+}
+
+.order-date {
+  margin-right: 5%;
+  color: #565959;
+  font-size: 13px;
+}
+
+.bottomOrder {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  margin: 2%;
+  border: 2px solid #d5d9d9;
+  border-radius: 3px;
+  padding: 2%;
+  width: 46.5%;
+  margin-top: -31px;
+}
+
+.order-status {
+  color: #0f1111;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.isdeli {
+  font-size: 14px;
+  margin-bottom: 5%;
+}
+
+.ordered-img {
+  width: 100px;
+}
+
+.whole-container {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+}
+
+.ordered-name {
+  color: #007185;
+  font-size: 15px;
+  margin-top: -10px;
+  height: 100px;
+}
+.ordered-links {
+  text-decoration: none;
+  margin-left: 5%;
+  /* height: 100px; */
+  padding-top: -2%;
+  width: 250px;
+}
+.inner-ordercontainer {
+  display: grid;
+  /* align-items: center; */
+  grid-template-columns: 1fr 9fr;
+}
+
+.left-order {
+  width: 50%;
+}
+
+.orderLinks {
+  text-decoration: none;
+  border: 1px solid #d5d9d9;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+  width: 100px;
+  /* height: 200px; */
+}
+
+.orderLinks:hover {
+  background-color: rgb(217, 206, 206);
+}
+.order-word {
+  color: #0f1111;
+  font-size: 14px;
+  line-height: 29px;
+  padding: 5%;
+}
+
+.links-grp {
+  height: 20px;
+  /* width: 100px; */
+}
+
+.nav-btn {
+  padding-top: 10px;
+}
+
+/* Order Details */
+
+.below-order {
+  color: #0f1111;
+  font-size: 14px;
+}
+
+.upperOrder-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 12%;
+  margin-top: 2%;
+  border: 1px #d5d9d9 solid;
+  width: 60%;
+}
+
+.shipment-detail {
+  margin-left: 7%;
+}
+.shipment-title {
+  font-size: 14px;
+}
+.card-num {
+  position: relative;
+  top: -10px;
+  left: 5px;
+}
+
+.row-list {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  font-size: 14px;
+  text-align: left;
+}
+.grand {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 5%;
+}
+.each-price {
+  text-align: right;
+  width: 50%;
+}
+
+#final {
+  margin-top: 11px;
+}
+
+#orderDetails {
+  margin-left: 12%;
+  margin-top: 1%;
+  width: 56%;
+}
+
+#detail-link {
+  margin-left: 30%;
+}
+
+.detail-grp {
+  margin-left: 50%;
+  margin-top: -16%;
+  color: #565959;
+}
+
+#cancel-order {
+  /* width: 55%; */
+  margin-top: 5%;
+}
+
+#detail-status {
+  margin-top: -5%;
+}
+
+#detail-statu {
+  margin-top: 2%;
+  border: none;
+}
+
+#cancel-btn {
+  margin-bottom: 2%;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.sorryimg {
+  width: 180px;
+  margin-left: 21%;
+}
