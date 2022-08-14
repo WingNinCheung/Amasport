@@ -10,8 +10,6 @@ function Home() {
   const allProducts = useSelector((state) => Object.values(state.product));
   const sessionUser = useSelector((state) => state.session.user);
 
-  console.log("product is ", allProducts);
-  console.log("product is ", sessionUser);
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);

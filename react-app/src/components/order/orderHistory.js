@@ -24,62 +24,20 @@ function OrderHistory() {
 
       orderTime = new Date(orderTime);
 
-      // let expiredDate = new Date();
-      // original
       expiredDate.setDate(orderTime.getDate());
       expiredDate.setHours(orderTime.getHours() + 2);
 
-      // expiredDate.setHours(orderTime.getHours());
-
-      // original
       expiredDate.setMinutes(orderTime.getMinutes());
 
-      // expiredDate.setMinutes(orderTime.getMinutes() + 1);
       expiredDate.setMilliseconds(orderTime.getMilliseconds());
 
-      // let num = expiredDate.getTime() - orderTime.getTime();
-
-      // let shipTimer = setTimeout(() => {
-      //   setStatus("Shipped");
-      //   const data = {
-      //     delivery_status: "Shipped",
-      //   };
-      //   dispatch(updateStatus(data, item.id));
-      // }, num);
-
-      // let dateNow = new Date();
-      // let deliveredDate = new Date();
-
-      // For delivery date in two days after the order is made
       deliveredDate.setDate(orderTime.getDate() + 2);
       deliveredDate.setHours(orderTime.getHours());
       deliveredDate.setMinutes(orderTime.getMinutes());
       deliveredDate.setMilliseconds(orderTime.getMilliseconds());
 
-      // let num2 = deliveredDate.getTime() - orderTime.getTime();
-
-      // let deliveryTimer = setTimeout(() => {
-      //   setStatus("Delivered");
-      //   const data1 = {
-      //     delivery_status: "Delivered",
-      //   };
-      //   dispatch(updateStatus(data1, item.id));
-      // }, num2);
-
-      // if (status === "Shipped") {
-      //   return () => clearTimeout(shipTimer);
-      // } else if (status === "Delivered") {
-      //   return () => clearTimeout(deliveryTimer);
-      // }
-      // 36e5 - convert them into hours like 1.5 means 1.5 hrs
       let expire = (expiredDate - dateNow) / 36e5;
       let isdelivered = (deliveredDate - dateNow) / 36e5;
-
-      console.log("order time is", orderTime);
-      console.log("expire time is", expiredDate);
-      console.log("deliver time is", isdelivered);
-
-      // console.log("result ", expire, dateNow);
 
       if (expire < 0 && isdelivered > 0) {
         setStatus("Shipped");

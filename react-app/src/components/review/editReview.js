@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateReview } from "../../store/review";
 import { getReviews } from "../../store/review";
+import EditStarRating from "./editStarRating";
 
 function EditReview() {
   // product id
@@ -22,7 +23,6 @@ function EditReview() {
   const [review, setReview] = useState(myReview?.review_body);
   const [validationError, setValidationError] = useState([]);
 
-  // format the date object into Month-Date-Year
   let dateNow = new Date().toDateString().split(" ");
   dateNow.shift();
   dateNow = dateNow.join(" ");
@@ -57,10 +57,14 @@ function EditReview() {
       created_at: dateNow,
     };
 
-    const edited = dispatch(updateReview(data, id));
+    if (!rating || !review) {
+      window.alert("Rating or review cannot be empty!");
+    } else {
+      const edited = dispatch(updateReview(data, id));
 
-    if (edited) {
-      history.push(`/products/${productId}`);
+      if (edited) {
+        history.push(`/products/${productId}`);
+      }
     }
   };
 
@@ -75,13 +79,8 @@ function EditReview() {
           </div>
           <form onSubmit={handleEdit}>
             <h3>Overall rating</h3>
-            <select onChange={(e) => setRating(e.target.value)} value={rating}>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+            <EditStarRating rating={rating} setRating={setRating} />
+
             <h3>Add a written review</h3>
             <ul>
               {validationError.map((error) => (
@@ -90,14 +89,18 @@ function EditReview() {
                 </li>
               ))}
             </ul>
+
             <textarea
               className="review-area"
               onChange={(e) => setReview(e.target.value)}
               value={review}
             ></textarea>
-            <div className="errors" id="counter">
-              {review.length}/250
-            </div>
+
+            {review && (
+              <div className="errors" id="counter">
+                {review.length}/250
+              </div>
+            )}
             <div className="submitbtn-review">
               <button
                 className="submit-review"

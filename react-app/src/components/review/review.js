@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteReview } from "../../store/review";
+import StarRating from "./starRating";
 import "./review.css";
 
 function Reviews() {
@@ -12,11 +13,6 @@ function Reviews() {
   const reviews = useSelector((state) => Object.values(state.review));
   const [addReview, setAddReview] = useState(false);
   const sessionUser = useSelector((state) => state.session);
-
-  // formattedCreatedAt = reviews.map(review=>{
-  //   review.created_at.split(" ").slice(1, 4).join(" ")
-  // })
-  // console.log(reviews[0].created_at.split(" ").slice(1, 4).join(" "));
 
   useEffect(() => {
     let time = setTimeout(() => {
@@ -63,9 +59,13 @@ function Reviews() {
                   ></img>
                   <span className="reviewer">{review.user.username}</span>
                 </span>
-                {/* <div>{review.rating}</div> */}
+                <div>
+                  <StarRating review={review} />
+                </div>
                 <div className="review-body">{review.review_body}</div>
                 <div className="review-date">
+                  {" "}
+                  Reviewed on
                   {review.created_at &&
                     review.created_at.split(" ").slice(1, 4).join(" ")}
                 </div>

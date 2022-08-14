@@ -45,7 +45,7 @@ span.reviewer {
 }
 
 .review-body {
-  margin-top: 2%;
+  margin-top: 1%;
   margin-bottom: 1%;
   font-size: 14px;
 }
@@ -57,6 +57,7 @@ span.reviewer {
 .review-date {
   font-size: 14px;
   color: #565959;
+  margin-bottom: 3%;
 }
 
 .rev-btn {
@@ -158,4 +159,31 @@ span.reviewer {
 .submitbtn-review {
   display: flex;
   justify-content: flex-end;
+}
+
+#ratingbtn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.on {
+  color: rgb(255, 223, 0);
+}
+.off {
+  color: #ccc;
+}
+
+.fa-star {
+  width: 20px;
+  /* height: 55px; */
+}
+
+#review-star {
+  color: rgb(255, 149, 41);
+}
+
+#create-star {
+  width: 20px;
 }
