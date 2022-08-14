@@ -19,7 +19,6 @@ function CreateReview() {
   const sessionUser = useSelector((state) => state.session);
   const myProduct = allProducts.find((product) => product.id == id);
 
-  console.log("rat", rating);
   // format the date object into Month-Date-Year
   let dateNow = new Date().toDateString().split(" ");
   dateNow.shift();

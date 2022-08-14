@@ -121,7 +121,6 @@ function Checkout() {
     }
   };
 
-  console.log("radio value", radioValue);
   return (
     <div className="checkout-container">
       <section className="shipping-address">
