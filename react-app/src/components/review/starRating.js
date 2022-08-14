@@ -1,12 +1,14 @@
 import { useSelector } from "react-redux";
 
 function StarRating({ review }) {
-  //   const reviews = useSelector((state) => Object.values(state.review));
-  //   const ratingLength =
   return (
     <div className="star-rating">
       {[...Array(review.rating)].map((star) => {
-        return <span className="star">&#9733;</span>;
+        return (
+          <span className="star">
+            <i class="fa-solid fa-star" id="review-star"></i>
+          </span>
+        );
       })}
     </div>
   );

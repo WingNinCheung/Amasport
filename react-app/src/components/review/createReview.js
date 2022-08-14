@@ -3,6 +3,7 @@ import { getProducts } from "../../store/product";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addReview } from "../../store/review";
+import CreateStarRating from "./createStarRating";
 
 function CreateReview() {
   // product id
@@ -10,7 +11,7 @@ function CreateReview() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [rating, setRating] = useState(1);
+  const [rating, setRating] = useState(0);
   const [review, setReview] = useState("");
   const [validationError, setValidationError] = useState([]);
 
@@ -18,6 +19,7 @@ function CreateReview() {
   const sessionUser = useSelector((state) => state.session);
   const myProduct = allProducts.find((product) => product.id == id);
 
+  console.log("rat", rating);
   // format the date object into Month-Date-Year
   let dateNow = new Date().toDateString().split(" ");
   dateNow.shift();
@@ -36,9 +38,12 @@ function CreateReview() {
     } else if (review.length > 250) {
       errors.push("Review cannot be more than 250 characters");
     }
+    if (rating === 0) {
+      errors.push("Please select a rating");
+    }
 
     setValidationError(errors);
-  }, [review]);
+  }, [review, rating]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -68,13 +73,7 @@ function CreateReview() {
           </div>
           <form onSubmit={handleSubmit}>
             <h3>Overall rating</h3>
-            <select onChange={(e) => setRating(e.target.value)} value={rating}>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+            <CreateStarRating rating={rating} setRating={setRating} />
 
             <h3>Add a written review</h3>
             <ul>
