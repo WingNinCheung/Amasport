@@ -40,7 +40,7 @@ Amasport, an Amazon clone, is a full-stack web application for sports products/g
    - A dropdown menu next to the search bar allows users to filter results to the selected category. 
    - Matching results to the current category and search-term combination will be displayed as links in real time.
    
-  <img src="https://im.ezgif.com/tmp/ezgif-1-ae22b36bc7.gif"></img>
+
 
 
 ### Shopping Cart
