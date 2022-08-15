@@ -86,35 +86,37 @@ function Checkout() {
     e.preventDefault();
     let data;
 
-    cart.forEach((product) => {
-      if (radioValue === "default") {
-        street = user.street;
-        city = user.city;
-        state = user.state;
-        zip = user.zip_code;
-      }
+    if (!radioValue) {
+      window.alert("Please add or select a shipping address");
+    } else {
+      cart.forEach((product) => {
+        if (radioValue === "default") {
+          street = user.street;
+          city = user.city;
+          state = user.state;
+          zip = user.zip_code;
+        }
 
-      data = {
-        user_id: user.id,
-        product_id: product.product_id,
-        quantity: product.quantity,
-        price: (product.products.price * product.quantity * 1.0863).toFixed(2),
-        street,
-        city,
-        state,
-        zip_code: zip,
-        country: "USA",
-        delivery_time: 2,
-        delivery_status: "Pending",
-        created_at: today,
-      };
-
-      if (!radioValue) {
-        window.alert("Please add or select a shipping address");
-      } else {
+        data = {
+          user_id: user.id,
+          product_id: product.product_id,
+          quantity: product.quantity,
+          price: (product.products.price * product.quantity * 1.0863).toFixed(
+            2
+          ),
+          street,
+          city,
+          state,
+          zip_code: zip,
+          country: "USA",
+          delivery_time: 2,
+          delivery_status: "Pending",
+          created_at: today,
+        };
         dispatch(createOrder(data));
-      }
-    });
+      });
+    }
+
     if (radioValue) {
       await dispatch(removeCart(user.id));
       history.push("/thank-you");
