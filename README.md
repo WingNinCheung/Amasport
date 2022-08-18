@@ -1,5 +1,5 @@
 # Amasport
-Amasport, an Amazon clone, is a full-stack web application for sports products/goods. Users can browse a collections of sports products and add desired items to their shopping cart. Users can checkout items when they are finished.
+Amasport, an Amazon clone, is a full-stack web application for sports products/goods. Users can browse a collection of sports products and add desired items to their shopping cart. Users can checkout items when they are finished.
 
 ## Links
 
