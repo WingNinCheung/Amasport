@@ -34,19 +34,18 @@ function AddToCart({ showModal }) {
       await dispatch(addProduct(userId, id));
       await dispatch(getCart(userId));
     } else {
+      // if found, check if the quantity is <= 9, if yes, then add to db increase +1
       if (myProduct.quantity < 9) {
         myProduct.quantity = myProduct.quantity + 1;
 
         await dispatch(updateQuantity(userId, id, myProduct.quantity));
         await dispatch(getCart(userId));
       } else {
+        // if no, then display a message, do not add to cart
         setExceedLimit(true);
       }
     }
   }, [dispatch]);
-
-  // if found, check if the quantity is <= 9, if yes, then add to db increase +1
-  // if no, then display a message, do not add to cart
 
   useEffect(() => {
     dispatch(getCart(userId));
