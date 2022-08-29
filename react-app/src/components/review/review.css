@@ -14,7 +14,6 @@
 
 .write-review {
   text-decoration: none;
-
   cursor: pointer;
 }
 
@@ -27,7 +26,6 @@
   border-radius: 7px;
   height: 1.5rem;
   font-size: 13px;
-
   box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
 }
 
@@ -49,12 +47,12 @@ span.reviewer {
   margin-top: 1%;
   margin-bottom: 1%;
   font-size: 14px;
-  /* max-width: 10px; */
   word-break: break-all;
 }
 
 .edit-delete {
   margin-bottom: 2%;
+  width: 600px;
 }
 
 .review-date {
@@ -88,19 +86,21 @@ span.reviewer {
 }
 
 .editContainer {
-  width: 400px;
-  /* background-color: aqua; */
   border: 1px solid #d5d9d9;
   box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
   border-radius: 7px;
-  padding-left: 4%;
-  padding-right: 4%;
+  /* padding-left: 2%;
+  padding-right: 2%;
+  */
   margin-right: 2%;
 }
 
 .edit-btn {
   text-decoration: none;
-  width: 400px;
+
+  padding-left: 3%;
+  padding-right: 3%;
+  /* margin-right: 2%; */
 }
 
 .noReview {

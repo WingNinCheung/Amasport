@@ -117,8 +117,8 @@ div.price-product {
 .middle-container {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  margin-bottom: 10%;
-  height: 65%;
+  margin-bottom: 3%;
+  height: 60%;
   border-bottom: thin solid lightgrey;
 }
 
@@ -199,12 +199,11 @@ div.price-section {
 }
 
 .description-section {
-  margin-top: -6%;
+  /* margin-top: -6%; */
 }
 
 .second-title {
   color: #cc6600;
-  /* border-top: thin solid lightgrey; */
 }
 
 .second-des {
@@ -239,7 +238,7 @@ div.price-section {
 
 .productInfo-section {
   border-bottom: thin solid lightgrey;
-  height: 24%;
+  height: 23%;
 }
 
 .fa-xmark {
