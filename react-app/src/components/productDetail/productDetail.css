@@ -1,15 +1,26 @@
 /* Search product page */
 .search-product {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-left: 2%;
+}
+
+@media screen and (max-width: 1340px) {
+  .search-product {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.search-title {
+  margin-left: 2.3%;
 }
 
 .search-productList {
-  border: 2px solid #f5f5f5;
+  border: 1px solid #f5f5f5;
   border-radius: 4px;
   height: auto;
   width: 15vw;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
