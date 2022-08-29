@@ -65,7 +65,7 @@ function Reviews() {
                 <div className="review-body">{review.review_body}</div>
                 <div className="review-date">
                   {" "}
-                  Reviewed on
+                  Reviewed on{" "}
                   {review.created_at &&
                     review.created_at.split(" ").slice(1, 4).join(" ")}
                 </div>

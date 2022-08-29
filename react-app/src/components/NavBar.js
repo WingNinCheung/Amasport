@@ -76,16 +76,16 @@ const NavBar = () => {
                 <option>Skateboarding</option>
                 <option>Other</option>
               </select>
+              <div>
+                <input
+                  className="search-input"
+                  type="text"
+                  placeholder="Search by product name"
+                  onChange={(e) => setSearchText(e.target.value)}
+                  value={searchText}
+                ></input>
+              </div>
             </span>
-            <div>
-              <input
-                className="search-input"
-                type="text"
-                placeholder="Search by product name"
-                onChange={(e) => setSearchText(e.target.value)}
-                value={searchText}
-              ></input>
-            </div>
             <span>
               <button
                 className="search-btn"

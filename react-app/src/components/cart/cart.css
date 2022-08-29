@@ -42,15 +42,15 @@
     margin-left: -20%;
   }
 
-  /* .cartright-container {
-    top: 30%;
-    left: 70%;
+  .shoppingcart-container {
+    overflow: hidden;
+    width: 100%;
   }
-  .right-section {
-    background-color: rgb(222, 136, 25);
-    position: relative;
-    top: -1080px;
-  } */
+
+  .right-section,
+  .cartright-container {
+    min-width: 320px;
+  }
 }
 
 .leftcart {

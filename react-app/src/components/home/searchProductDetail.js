@@ -40,14 +40,14 @@ function SearchProductDetail() {
     <div>
       <div>
         {text !== "~" ? (
-          <h4>Search results for "{text}"...</h4>
+          <h4 className="search-title">Search results for "{text}"...</h4>
         ) : category === "All" ? (
           <div>
-            <h1>{category} Products</h1>
+            <h1 className="search-title">{category} Products</h1>
           </div>
         ) : (
           <div>
-            <h1>{category}</h1>
+            <h1 className="search-title">{category}</h1>
           </div>
         )}
       </div>
@@ -87,7 +87,9 @@ function SearchProductDetail() {
       </div>
       {!searchProduct.length && (
         <div>
-          <h3>Sorry. No products found matching your search "{text}"...</h3>
+          <h3 className="search-title">
+            Sorry. No products found matching your search "{text}"...
+          </h3>
         </div>
       )}
     </div>

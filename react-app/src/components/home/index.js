@@ -105,30 +105,48 @@ function Home() {
       </div>
 
       <div className="footer">
-        <div className="dev-info">
-          <img
-            className="profile-pic"
-            src="https://media-exp1.licdn.com/dms/image/C5603AQGWk2Gqsts5JA/profile-displayphoto-shrink_800_800/0/1563818007698?e=1664409600&v=beta&t=vVd1pvvenK9aSpDCYrZI9CSI6NZHXnAa4b6rjRPlnUk"
-            alt="Ricky"
-          ></img>
-          <div className="profile-section">
-            <div className="name">Ricky Cheung</div>
-
-            <div className="git-in">
-              <a href="https://github.com/WingNinCheung" target="popup">
-                <i className="fa-brands fa-github"></i>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/wingnincheung/"
-                target="popup"
-              >
-                <i className="fa-brands fa-linkedin-in"></i>
-              </a>
-              <a href="mailto:wingnin.cheung415@gmail.com">
-                <i className="fa-solid fa-envelope"></i>
-              </a>
-            </div>
+        <div>
+          <div className="tit">Get to Know Me</div>
+          <div>
+            <span className="name">Ricky Cheung </span>
+            <a
+              href="https://wingnincheung.github.io/"
+              target="popup"
+              className="a-links"
+            >
+              <div className="a-div">Portfolio</div>
+            </a>
+            <a
+              href="https://github.com/WingNinCheung/Amasport"
+              target="popup"
+              className="a-links"
+            >
+              <div className="a-div">Github</div>
+            </a>
           </div>
+        </div>
+        <div>
+          <div className="tit">Connect with Me</div>
+          <a
+            href="https://www.linkedin.com/in/wingnincheung/"
+            target="popup"
+            className="a-links"
+          >
+            <div className="a-div">LinkedIn</div>
+          </a>
+          <a href="mailto:wingnin.cheung415@gmail.com" className="a-links">
+            <div className="a-div">Email</div>
+          </a>
+        </div>
+        <div className="tech-container">
+          <div className="tit">Technologies Used</div>
+          <div className="a-div">JavaScript</div>
+          <div className="a-div">React / Redux</div>
+          <div className="a-div">Python / Flask</div>
+          <div className="a-div">SQL Alchemy</div>
+          <div className="a-div">PostgresSQL</div>
+          <div className="a-div">HTML5 / CSS3</div>
+          <div className="a-div">Docker</div>
         </div>
       </div>
     </div>

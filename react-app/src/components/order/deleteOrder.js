@@ -34,7 +34,9 @@ function DeleteOrder({ setShowModal, id, myOrder }) {
     <div>
       {myOrder.delivery_status === "Pending" ? (
         <div>
-          <h2>Are you sure you want to cancel this order?</h2>
+          <h2 className="cancel-question">
+            Are you sure you want to cancel this order?
+          </h2>
           <div>
             <button
               className="addCart-button"

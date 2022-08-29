@@ -13,6 +13,7 @@ function CreateReview() {
 
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const [validationError, setValidationError] = useState([]);
 
   const allProducts = useSelector((state) => Object.values(state.product));
@@ -46,6 +47,7 @@ function CreateReview() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSubmitted(true);
 
     const data = {
       user_id: sessionUser.user.id,
@@ -55,9 +57,11 @@ function CreateReview() {
       created_at: dateNow,
     };
 
-    const newReview = dispatch(addReview(data, id));
-    if (newReview) {
-      history.push(`/products/${id}`);
+    if (!validationError.length) {
+      const newReview = dispatch(addReview(data, id));
+      if (newReview) {
+        history.push(`/products/${id}`);
+      }
     }
   };
 
@@ -76,11 +80,12 @@ function CreateReview() {
 
             <h3>Add a written review</h3>
             <ul>
-              {validationError.map((error) => (
-                <li className="errors" key={error}>
-                  ! {error}
-                </li>
-              ))}
+              {submitted &&
+                validationError.map((error) => (
+                  <li className="errors" key={error}>
+                    ! {error}
+                  </li>
+                ))}
             </ul>
             <div>
               <textarea
