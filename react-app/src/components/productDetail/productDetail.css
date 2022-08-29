@@ -181,6 +181,7 @@ div.price-product {
   cursor: pointer;
   border-radius: 20px;
   font-size: 14px;
+  color: black;
 }
 
 .addCart-button:hover {
@@ -196,10 +197,6 @@ div.price-section {
   min-height: 50%;
   height: 50%;
   margin-left: 30%;
-}
-
-.description-section {
-  /* margin-top: -6%; */
 }
 
 .second-title {
@@ -238,7 +235,7 @@ div.price-section {
 
 .productInfo-section {
   border-bottom: thin solid lightgrey;
-  height: 23%;
+  height: 25%;
 }
 
 .fa-xmark {

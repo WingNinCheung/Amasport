@@ -81,7 +81,6 @@ span.reviewer {
   text-decoration: none;
   color: black;
   font-size: 14px;
-
   width: 400px;
 }
 
@@ -89,9 +88,7 @@ span.reviewer {
   border: 1px solid #d5d9d9;
   box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
   border-radius: 7px;
-  /* padding-left: 2%;
-  padding-right: 2%;
-  */
+
   margin-right: 2%;
 }
 
@@ -100,7 +97,6 @@ span.reviewer {
 
   padding-left: 3%;
   padding-right: 3%;
-  /* margin-right: 2%; */
 }
 
 .noReview {
@@ -137,7 +133,6 @@ span.reviewer {
 .review-area {
   width: 100%;
   height: 169px;
-  /* margin-bottom: 5%; */
 }
 
 .submit-review {
