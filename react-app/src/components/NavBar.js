@@ -60,8 +60,8 @@ const NavBar = () => {
             ></img>
           </NavLink>
 
-          <span className="search-container">
-            <span className="drop-down">
+          <span className="search-container" id="main-container">
+            <span className="drop-down" id="outer-drop">
               <select
                 className="drop-down"
                 onChange={(e) => setSearchCategory(e.target.value)}
@@ -76,19 +76,21 @@ const NavBar = () => {
                 <option>Skateboarding</option>
                 <option>Other</option>
               </select>
-              <div>
+              <span className="search-input">
                 <input
                   className="search-input"
+                  id="nouser-input"
                   type="text"
                   placeholder="Search by product name"
                   onChange={(e) => setSearchText(e.target.value)}
                   value={searchText}
                 ></input>
-              </div>
+              </span>
             </span>
             <span>
               <button
                 className="search-btn"
+                id="nouser-btn"
                 onClick={search}
                 disabled={searchText.length === 0}
               >
@@ -171,11 +173,7 @@ const NavBar = () => {
               ></input>
             </div>
             <span>
-              <button
-                className="search-btn"
-                onClick={search}
-                // disabled={searchText.length === 0}
-              >
+              <button className="search-btn" onClick={search}>
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
             </span>
