@@ -4,18 +4,22 @@ import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
 
 const SignUpForm = () => {
-  const [errors, setErrors] = useState([]);
+  const [validationErrors, setErrors] = useState([]);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
+    setHasSubmitted(true);
+
+    if (password === repeatPassword && !validationErrors.length) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data);
@@ -35,8 +39,8 @@ const SignUpForm = () => {
       errors.push("Email cannot be empty");
     }
 
-    if (!email.includes("@") || !email.includes(".")) {
-      errors.push("Invalid email address");
+    if (!/[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}/.test(email)) {
+      errors.push("Invalid email address (e.g abc@gmail.com)");
     }
 
     if (password !== repeatPassword) {
@@ -78,9 +82,10 @@ const SignUpForm = () => {
       <form className="form-container" onSubmit={onSignUp}>
         <div className="signin">Create Account</div>
         <div className="errors">
-          {errors.map((error, ind) => (
-            <div key={ind}>! {error}</div>
-          ))}
+          {hasSubmitted &&
+            validationErrors.map((error, ind) => (
+              <div key={ind}>! {error}</div>
+            ))}
         </div>
         <div>
           <div>

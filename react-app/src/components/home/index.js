@@ -140,7 +140,7 @@ function Home() {
         </div>
         <div className="tech-container">
           <div className="tit">Technologies Used</div>
-          <div className="a-div">Javascript</div>
+          <div className="a-div">JavaScript</div>
           <div className="a-div">React / Redux</div>
           <div className="a-div">Python / Flask</div>
           <div className="a-div">SQL Alchemy</div>

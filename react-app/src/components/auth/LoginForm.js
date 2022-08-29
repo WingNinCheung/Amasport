@@ -10,6 +10,8 @@ const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -29,12 +31,16 @@ const LoginForm = () => {
 
   const onLogin = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login(email, password));
-    if (data) {
-      setErrors(data);
-    } else {
-      localStorage.clear();
-      history.push("/home");
+    setHasSubmitted(true);
+
+    if (!errors.length) {
+      const data = await dispatch(login(email, password));
+      if (data) {
+        setErrors(data);
+      } else {
+        localStorage.clear();
+        history.push("/home");
+      }
     }
   };
 
@@ -63,9 +69,8 @@ const LoginForm = () => {
       <form className="form-container" onSubmit={onLogin}>
         <div className="signin">Sign-In</div>
         <div className="errors">
-          {errors.map((error, ind) => (
-            <div key={ind}>! {error}</div>
-          ))}
+          {hasSubmitted &&
+            errors.map((error, ind) => <div key={ind}>! {error}</div>)}
         </div>
         <div>
           <div>
