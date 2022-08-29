@@ -21,6 +21,7 @@ function EditReview() {
 
   const [rating, setRating] = useState(myReview?.rating);
   const [review, setReview] = useState(myReview?.review_body);
+  const [submitted, setSubmitted] = useState(false);
   const [validationError, setValidationError] = useState([]);
 
   let dateNow = new Date().toDateString().split(" ");
@@ -48,6 +49,7 @@ function EditReview() {
 
   const handleEdit = (e) => {
     e.preventDefault();
+    setSubmitted(true);
 
     const data = {
       user_id: sessionUser.user.id,
@@ -83,11 +85,12 @@ function EditReview() {
 
             <h3>Add a written review</h3>
             <ul>
-              {validationError.map((error) => (
-                <li className="errors" key={error}>
-                  ! {error}
-                </li>
-              ))}
+              {submitted &&
+                validationError.map((error) => (
+                  <li className="errors" key={error}>
+                    ! {error}
+                  </li>
+                ))}
             </ul>
 
             <textarea

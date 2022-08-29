@@ -1,6 +1,7 @@
 .review-container {
   display: flex;
   margin-top: 2%;
+  padding-bottom: 3%;
 }
 
 .left-review {
@@ -48,6 +49,8 @@ span.reviewer {
   margin-top: 1%;
   margin-bottom: 1%;
   font-size: 14px;
+  /* max-width: 10px; */
+  word-break: break-all;
 }
 
 .edit-delete {

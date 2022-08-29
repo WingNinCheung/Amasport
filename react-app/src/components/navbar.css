@@ -159,6 +159,12 @@
   font-size: 14px;
 }
 
+@media screen and (max-width: 1340px) {
+  .logout-btn {
+    min-width: 100px;
+  }
+}
+
 .log-container {
   width: auto;
   position: relative;
