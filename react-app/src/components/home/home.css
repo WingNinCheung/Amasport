@@ -1,31 +1,31 @@
 .home-container {
   height: 55vh;
   background-image: url("https://img.freepik.com/free-vector/sport-equipment-banner_1284-32611.jpg?w=2000");
-  /* background-image: url("https://previews.123rf.com/images/vaskinamat/vaskinamat1702/vaskinamat170200022/72494424-sport-banner-facebook-cover-set-of-sport-balls-and-gaming-items-at-a-blue-background-corporate-faceb.jpg"); */
-  /* background-image: url("https://i.pinimg.com/originals/48/5d/f5/485df5ce7d4c18f30c8585373aa244b1.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
-
-  -webkit-mask-image: linear-gradient(#000 88%, transparent);
+  -webkit-mask-image: linear-gradient(#000 95%, transparent);
 }
 
 .bot-container {
-  background-color: #d3d3d391;
   margin: 0;
-  height: 100%;
+  height: 600px;
   display: block;
   overflow: hidden;
+  background-color: #d3d3d391;
 }
 
 .product-list {
   display: flex;
-
   justify-content: space-around;
   align-items: center;
   text-align: center;
   height: 100%;
-  margin-top: 2%;
+  margin-top: -2%;
   padding: -20px;
+  border-radius: 95px;
+}
+
+#root {
 }
 
 .home-list {
@@ -34,13 +34,20 @@
   display: flex;
   flex-direction: column;
   background-color: white;
-  /* border: 1px solid black; */
+
   width: 16%;
+  border-radius: 5px;
 }
 
 .product-img {
   width: 15rem;
   border-radius: 25px;
+}
+
+@media screen and (max-width: 1800px) {
+  .product-img {
+    max-width: 200px;
+  }
 }
 
 /* footer  */
@@ -53,6 +60,8 @@
   padding-top: 2%;
   color: white;
   height: 30vh;
+
+  /* margin-top: 2%; */
 }
 
 .tit {
