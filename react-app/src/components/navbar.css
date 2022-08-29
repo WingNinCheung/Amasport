@@ -54,23 +54,38 @@
   align-items: center;
 }
 
+#main-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .drop-down {
   height: 35px;
   width: 110px;
 }
 
+#outer-drop {
+  width: 1350px;
+}
+
+#nouser-input {
+  min-width: 1200px;
+}
+
 .search-input {
   height: 29px;
   font-size: 15px;
-  width: 100%;
   min-width: 1000px;
+}
+
+#nouser-btn {
+  margin-left: -65%;
 }
 
 .search-btn {
   width: 45px;
   height: 37px;
   font-size: 14px;
-  margin-left: 5px;
   background-color: #febd69;
   cursor: pointer;
 }
@@ -168,7 +183,6 @@
 .log-container {
   width: auto;
   position: relative;
-  /* left: 60px; */
   top: 20px;
   padding: 10px;
   border-radius: 4px;
@@ -177,8 +191,30 @@
 }
 
 @media screen and (max-width: 1900px) {
-  .search-input {
+  .search-input,
+  #nouser-input {
     min-width: 500px;
+  }
+  #nouser-input {
+    max-width: 500px;
+  }
+
+  #nouser-btn {
+    width: 20%;
+    margin-left: 0;
+  }
+
+  .before {
+    width: fit-content;
+  }
+
+  .navbar {
+    width: 100%;
+    position: relative;
+  }
+
+  #outer-drop {
+    max-width: 650px;
   }
 }
 
