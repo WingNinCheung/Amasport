@@ -49,51 +49,33 @@
   display: flex;
   background-color: #232f3e;
   justify-content: space-evenly;
-  width: 100%;
+  /* width: 100%; */
+  padding-top: 2%;
   color: white;
   height: 30vh;
 }
 
 .tit {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
-  margin-top: 25%;
+  /* margin-top: 25%; */
   margin-bottom: 7%;
-}
-
-.profile-pic {
-  width: 70px;
-  height: 70px;
-  border-radius: 100%;
-}
-
-.dev-info {
-  margin-top: auto;
-  /* display: flex; */
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  justify-content: space-between;
-  /* width: 100%; */
 }
 
 .a-links {
   text-decoration: none;
 }
-.connect-in {
+
+.tech-container {
+  width: 10%;
 }
 
 .a-div {
   margin-top: 10px;
   width: fit-content;
-}
-
-.fa-github,
-.fa-linkedin-in,
-.fa-envelope {
-  margin: 7px;
-  color: white;
-  width: 40px;
-  height: 20px;
+  color: #ddd;
+  font-weight: bold;
+  font-size: 13px;
 }
 
 .name {
