@@ -110,7 +110,7 @@ function Home() {
           <div>
             <span className="name">Ricky Cheung </span>
             <a
-              href="https://wingnincheung.github.io/"
+              href="https://rickycheung.dev/"
               target="popup"
               className="a-links"
             >
