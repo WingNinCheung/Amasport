@@ -15,20 +15,16 @@
   height: 100%;
   display: block;
   overflow: hidden;
-  /* padding: 0; */
 }
 
 .product-list {
   display: flex;
-  /* justify-content: center; */
+
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  /* margin: 2%; */
   height: 100%;
   margin-top: 2%;
-  /* position: relative; */
-  /* z-index: 2; */
   padding: -20px;
 }
 
@@ -47,19 +43,22 @@
   border-radius: 25px;
 }
 
+/* footer  */
+
 .footer {
   display: flex;
-  /* align-content: center; */
   background-color: #232f3e;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 100%;
-  color: black;
-  margin-bottom: 0;
-  /* padding-top: 5px; */
-  padding-bottom: 5px;
-  margin: 0;
-  /* z-index: 3; */
   color: white;
+  height: 30vh;
+}
+
+.tit {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 25%;
+  margin-bottom: 7%;
 }
 
 .profile-pic {
@@ -70,13 +69,22 @@
 
 .dev-info {
   margin-top: auto;
-  display: flex;
+  /* display: flex; */
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
+  justify-content: space-between;
+  /* width: 100%; */
 }
 
-.git-in {
-  margin-top: 15%;
+.a-links {
+  text-decoration: none;
+}
+.connect-in {
+}
+
+.a-div {
+  margin-top: 10px;
+  width: fit-content;
 }
 
 .fa-github,
@@ -89,13 +97,15 @@
 }
 
 .name {
-  margin-left: 7px;
-  position: relative;
-  top: 15%;
+  color: #ddd;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 a:visited {
-  color: black;
+  color: white;
+}
+
+.a-div:hover {
+  border-bottom: 1px solid white;
 }

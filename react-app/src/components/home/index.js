@@ -105,30 +105,33 @@ function Home() {
       </div>
 
       <div className="footer">
-        <div className="dev-info">
-          <img
-            className="profile-pic"
-            src="https://media-exp1.licdn.com/dms/image/C5603AQGWk2Gqsts5JA/profile-displayphoto-shrink_800_800/0/1563818007698?e=1664409600&v=beta&t=vVd1pvvenK9aSpDCYrZI9CSI6NZHXnAa4b6rjRPlnUk"
-            alt="Ricky"
-          ></img>
+        <div className="footer-title">
+          <div className="tit">Get to Know Me</div>
           <div className="profile-section">
-            <div className="name">Ricky Cheung</div>
-
-            <div className="git-in">
-              <a href="https://github.com/WingNinCheung" target="popup">
-                <i className="fa-brands fa-github"></i>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/wingnincheung/"
-                target="popup"
-              >
-                <i className="fa-brands fa-linkedin-in"></i>
-              </a>
-              <a href="mailto:wingnin.cheung415@gmail.com">
-                <i className="fa-solid fa-envelope"></i>
-              </a>
-            </div>
+            <span className="name">Ricky Cheung</span>
+            <a
+              href="https://wingnincheung.github.io/"
+              target="popup"
+              className="a-links"
+            >
+              <div className="a-div">Portfolio Site</div>
+            </a>
           </div>
+        </div>
+        <div className="connect-in">
+          <div className="tit">Connect with Me</div>
+          <a href="https://github.com/WingNinCheung" target="popup">
+            <i className="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/wingnincheung/" target="popup">
+            <i className="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:wingnin.cheung415@gmail.com">
+            <i className="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+        <div className="tech-list">
+          <div className="tit">Technologies</div>
         </div>
       </div>
     </div>
