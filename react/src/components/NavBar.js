@@ -52,7 +52,7 @@ const NavBar = () => {
             exact={true}
             activeClassName="active"
           >
-            <div className="logo">Amasport</div>
+            <div className="logo">Amasport!</div>
             <img
               className="logo-img"
               src="https://rainforest-dev.s3.us-west-1.amazonaws.com/amazonArrow.png"
