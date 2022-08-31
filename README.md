@@ -9,7 +9,7 @@ Amasport, an Amazon clone, is a full-stack web application for sports products/g
 - <a href="https://github.com/WingNinCheung/Amasport/wiki/Feature-List"> Feature List
 - <a href="https://github.com/WingNinCheung/Amasport/wiki"> Documentation
 
-## Technologies used
+## Technologies Used
    
 ### Frontend
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
