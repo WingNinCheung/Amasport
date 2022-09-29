@@ -88,12 +88,7 @@ const NavBar = () => {
               </span>
             </span>
             <span>
-              <button
-                className="search-btn"
-                id="nouser-btn"
-                onClick={search}
-                disabled={searchText.length === 0}
-              >
+              <button className="search-btn" id="nouser-btn" onClick={search}>
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
             </span>
