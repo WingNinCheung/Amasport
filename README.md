@@ -1,5 +1,5 @@
 # Amasport
-Amasport, an Amazon clone, is a full-stack web application for sports products/goods. Users can browse a collection of sports products and add desired items to their shopping cart. Users can checkout items when they are finished.
+Amasport, an Amazon clone, is a full-stack web application for sports products/goods. Users can browse a collection of sports products and add desired items to their shopping cart. Users can checkout items in their carts. Users can also view their order history and change their shipping address.
 
 ## Links
 
@@ -27,12 +27,7 @@ Amasport, an Amazon clone, is a full-stack web application for sports products/g
 ![Docker](https://img.shields.io/badge/docker-container-blue)
    
 ## Key Features & Screenshots
-   
-### Home Page
   
-   - When users are logged in, they will get redirected to the home page with categories navigation bar and shopping cart.
-
-<img width="1881" alt="Screen Shot 2022-08-14 at 5 15 42 PM" src="https://user-images.githubusercontent.com/96600317/184560209-2a2f2dd1-4599-430c-9975-dd7faa370607.png">
    
 ### Products Search & Sort-by category
    
@@ -42,18 +37,18 @@ Amasport, an Amazon clone, is a full-stack web application for sports products/g
    
 
 
-
 ### Shopping Cart
    
-   - Users can add, update quantities, and delete products from their cart. 
-   - Users can checkout their cart when they are finished shopping. 
-   - When users are on the shopping cart page, they are see the total costs on the right.
-   - Items that are in the cart will be deleted from the cart after payment is complete.
+   - Users can add, update quantities, and remove products from their carts. 
+   - Users can checkout their carts and will be directed to the checkout page.
+   - Total price will be displayed on the shopping cart page.
+   - Items that are in the cart will be cleared from the cart after payment is complete.
    
 <img width="1762" alt="Screen Shot 2022-08-14 at 5 38 41 PM" src="https://user-images.githubusercontent.com/96600317/184561063-e8d19a02-f0b7-4c3e-9f4a-f8c8c5aede5c.png">
 
 <img width="1628" alt="Screen Shot 2022-08-14 at 5 47 00 PM" src="https://user-images.githubusercontent.com/96600317/184561373-3bc38063-ed45-40bf-a6a4-966c316ee965.png">
 
+   
    - Users are only able to buy a maximum of nine of the same products. If the cart has already nine of a particular product, adding one more to the cart will lead to a message that users have to check out before purchasing more.
    
    <img width="365" alt="Screen Shot 2022-08-14 at 5 50 00 PM" src="https://user-images.githubusercontent.com/96600317/184561518-f281b13b-11d6-4125-9d0a-50c452be19ac.png">
@@ -64,14 +59,16 @@ Amasport, an Amazon clone, is a full-stack web application for sports products/g
     if (!myProduct) {
       await dispatch(addProduct(userId, id));
       await dispatch(getCart(userId));
+   
     } else {
+   
       // if found, check if the quantity is <= 9, if yes, then add to db increase +1
       if (myProduct.quantity < 9) {
         myProduct.quantity = myProduct.quantity + 1;
-
         await dispatch(updateQuantity(userId, id, myProduct.quantity));
-        await dispatch(getCart(userId));
+   
       } else {
+   
         // if not found, then display a message and do not add to cart
         setExceedLimit(true);
       }
@@ -81,7 +78,7 @@ Amasport, an Amazon clone, is a full-stack web application for sports products/g
    
 ### Checkout
    
-   - On the checkout page, users can choose their shipping address if they have put it in their profile page. 
+   - On the checkout page, users can choose their shipping address.
    (Users can put their delivery address on their profile page and this address will be shown when they check out). 
    - Or users can add a new/different shipping address during checkout.
    
@@ -96,7 +93,7 @@ Amasport, an Amazon clone, is a full-stack web application for sports products/g
    
    <img width="1080" alt="Screen Shot 2022-08-14 at 6 09 24 PM" src="https://user-images.githubusercontent.com/96600317/184562321-1af6a019-1393-4128-99af-9daf7848f2ef.png">
    
-   - User can edit their shipping address or cancel their orders **if the order status is pending.**
+   - User can edit their shipping address or cancel their orders **if the order status pending.**
   
 ### Dynamic Order Status
    
@@ -129,6 +126,7 @@ Amasport, an Amazon clone, is a full-stack web application for sports products/g
    
    ```
 ### Reviews
+                                 
    - Users can write reviews on any products and rate them using stars.
    - Users can edit or remove their own reviews.
                                  
@@ -150,9 +148,10 @@ function StarRating({ review }) {
   );
 }
 ```
+   
 ### Undefined URLs
 
-   - A customized page for any unknown URLs, such as /abc or /xyz
+   - A customized page for any undefined URLs, such as /abc or /xyz
    <img width="1699" alt="Screen Shot 2022-09-30 at 11 43 55 AM" src="https://user-images.githubusercontent.com/96600317/193336189-7c2c9f75-035a-4cd6-9ee1-e2330370aec6.png">
 
    
