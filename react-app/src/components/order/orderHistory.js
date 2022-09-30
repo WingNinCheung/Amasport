@@ -12,9 +12,9 @@ function OrderHistory() {
 
   const dispatch = useDispatch();
   let expiredDate = new Date();
-
   let dateNow = new Date();
   let deliveredDate = new Date();
+
   useEffect(() => {
     order.forEach((item) => {
       let orderTime = item.created_at;
@@ -26,11 +26,10 @@ function OrderHistory() {
 
       expiredDate.setDate(orderTime.getDate());
       expiredDate.setHours(orderTime.getHours() + 2);
-
       expiredDate.setMinutes(orderTime.getMinutes());
-
       expiredDate.setMilliseconds(orderTime.getMilliseconds());
 
+      deliveredDate.setMonth(orderTime.getMonth());
       deliveredDate.setDate(orderTime.getDate() + 2);
       deliveredDate.setHours(orderTime.getHours());
       deliveredDate.setMinutes(orderTime.getMinutes());
