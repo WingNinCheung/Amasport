@@ -150,3 +150,9 @@ function StarRating({ review }) {
   );
 }
 ```
+### Undefined URLs
+
+   - A customized page for any unknown URLs, such as /abc or /xyz
+   <img width="1699" alt="Screen Shot 2022-09-30 at 11 43 55 AM" src="https://user-images.githubusercontent.com/96600317/193336189-7c2c9f75-035a-4cd6-9ee1-e2330370aec6.png">
+
+   
