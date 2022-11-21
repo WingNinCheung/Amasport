@@ -34,8 +34,7 @@ def upgrade():
     op.alter_column(
         "users", "country", existing_type=sa.VARCHAR(length=50), nullable=True
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE <table_name> SET SCHEMA {SCHEMA};")
+
     # ### end Alembic commands ###
 
 
