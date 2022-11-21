@@ -19,6 +19,13 @@ def seed():
     if environment == "production":
         # Before seeding, truncate all tables prefixed with schema name
         db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.reviews RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.products RESTART IDENTITY CASCADE;"
+        )
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.cart_items RESTART IDENTITY CASCADE;"
+        )
         # Add a truncate command here for every table that will be seeded.
         db.session.commit()
     seed_users()
