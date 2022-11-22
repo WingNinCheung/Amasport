@@ -59,7 +59,6 @@ def editReview(id):
 @review_routes.route("/<int:id>/delete", methods=["DELETE"])
 def deleteReview(id):
     review = Review.query.get(id)
-    print("******", review)
     db.session.delete(review)
     db.session.commit()
     return jsonify("Successfully deleted")

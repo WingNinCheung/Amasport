@@ -10,7 +10,6 @@ cart_routes = Blueprint("carts", __name__)
 def getCart(id):
 
     cart = Cart_Item.query.filter(Cart_Item.user_id == id).all()
-    # print(cart[1].products)
     return {"cart": [item.to_dict() for item in cart]}
 
 
@@ -61,5 +60,5 @@ def deleteCart(userId):
         db.session.delete(item)
 
     db.session.commit()
-    print("carts *****", carts)
+
     return {"cart": [item.id for item in carts]}
