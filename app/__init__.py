@@ -5,7 +5,6 @@ from flask import (
     request,
     session,
     redirect,
-    send_from_directory,
 )
 from flask_cors import CORS
 from flask_migrate import Migrate
