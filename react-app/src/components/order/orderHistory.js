@@ -11,24 +11,26 @@ function OrderHistory() {
   const [status, setStatus] = useState("");
 
   const dispatch = useDispatch();
-  let expiredDate = new Date();
-  let dateNow = new Date();
-  let deliveredDate = new Date();
 
   useEffect(() => {
     order.forEach((item) => {
+      let expiredDate = new Date();
+      let dateNow = new Date();
+      let deliveredDate = new Date();
       let orderTime = item.created_at;
       orderTime = orderTime.split(" ");
       orderTime.pop();
       orderTime.join("");
 
       orderTime = new Date(orderTime);
-
+      expiredDate.setYear(orderTime.getYear() + 1900);
+      expiredDate.setMonth(orderTime.getMonth());
       expiredDate.setDate(orderTime.getDate());
       expiredDate.setHours(orderTime.getHours() + 2);
       expiredDate.setMinutes(orderTime.getMinutes());
       expiredDate.setMilliseconds(orderTime.getMilliseconds());
 
+      deliveredDate.setYear(orderTime.getYear() + 1900);
       deliveredDate.setMonth(orderTime.getMonth());
       deliveredDate.setDate(orderTime.getDate() + 2);
       deliveredDate.setHours(orderTime.getHours());
@@ -38,14 +40,14 @@ function OrderHistory() {
       let expire = (expiredDate - dateNow) / 36e5;
       let isdelivered = (deliveredDate - dateNow) / 36e5;
 
-      if (expire < 0 && isdelivered > 0) {
+      if (expire <= 0 && isdelivered > 0) {
         setStatus("Shipped");
         const data = {
           delivery_status: "Shipped",
         };
         dispatch(updateStatus(data, item.id));
         dispatch(getOrder(sessionUser.id));
-      } else if (isdelivered < 0) {
+      } else if (isdelivered <= 0) {
         setStatus("Delivered");
         const data = {
           delivery_status: "Delivered",
@@ -93,13 +95,12 @@ function OrderHistory() {
                 <span className="order-status">{item.delivery_status}</span>
                 {item.delivery_status === "Pending" && (
                   <div className="isdeli">
-                    Your order will be shipped in two hours. Please come back to
-                    check
+                    Your order will be shipped within two hours.
                   </div>
                 )}
                 {item.delivery_status === "Shipped" && (
                   <div className="isdeli">
-                    Your order will be delivered in two days.
+                    Your order is shipped and will be delivered in two days.
                   </div>
                 )}
                 {item.delivery_status === "Delivered" && (
