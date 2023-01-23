@@ -108,7 +108,6 @@ function Home() {
         <div>
           <div className="tit">Get to Know Me</div>
           <div>
-            <span className="name">Ricky Cheung </span>
             <a
               href="https://rickycheung.dev/"
               target="popup"
@@ -143,7 +142,7 @@ function Home() {
           <div className="a-div">JavaScript</div>
           <div className="a-div">React / Redux</div>
           <div className="a-div">Python / Flask</div>
-          <div className="a-div">SQL Alchemy</div>
+          <div className="a-div">SQLAlchemy</div>
           <div className="a-div">PostgresSQL</div>
           <div className="a-div">HTML5 / CSS3</div>
           <div className="a-div">Docker</div>
