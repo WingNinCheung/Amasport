@@ -4,7 +4,7 @@ Amasport, an Amazon clone, is a full-stack web application for sports products/g
 ## Links
 
 
-- <a href="https://amasport.onrender.com/" target="popup"> Live Site
+- <a href="https://amasport.herokuapp.com/" target="popup"> Live Site
 - <a href="https://github.com/WingNinCheung/Amasport/wiki/Database-Schema"> Database Schema
 - <a href="https://github.com/WingNinCheung/Amasport/wiki/Feature-List"> Feature List
 - <a href="https://github.com/WingNinCheung/Amasport/wiki"> Documentation
