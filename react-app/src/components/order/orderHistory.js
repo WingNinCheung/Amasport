@@ -6,52 +6,47 @@ import "./order.css";
 
 function OrderHistory() {
   const sessionUser = useSelector((state) => state.session.user);
-  const orderOri = useSelector((state) => Object.values(state.order));
-  const order = orderOri.reverse();
+  const orderData = useSelector((state) => Object.values(state.order));
+  const order = orderData.reverse();
   const [status, setStatus] = useState("");
 
   const dispatch = useDispatch();
-  let expiredDate = new Date();
-  let dateNow = new Date();
-  let deliveredDate = new Date();
 
   useEffect(() => {
     order.forEach((item) => {
+      // orderTime is in "Sun, 12 Feb 2023 17:09:43 GMT" format
       let orderTime = item.created_at;
+      // This process is to ensure the timezone information is not taken into account when creating the date object,
+      // which can cause issues when comparing dates in different timezones.
       orderTime = orderTime.split(" ");
       orderTime.pop();
       orderTime.join("");
-
       orderTime = new Date(orderTime);
 
-      expiredDate.setDate(orderTime.getDate());
-      expiredDate.setHours(orderTime.getHours() + 2);
-      expiredDate.setMinutes(orderTime.getMinutes());
-      expiredDate.setMilliseconds(orderTime.getMilliseconds());
+      let twoHoursLater = new Date(orderTime);
+      let twoDaysLater = new Date(orderTime);
+      let currentTime = new Date();
+      // shipment date defined as two hours
+      twoHoursLater.setHours(orderTime.getHours() + 2);
+      // delivery date defined as two days after
+      twoDaysLater.setDate(orderTime.getDate() + 2);
 
-      deliveredDate.setMonth(orderTime.getMonth());
-      deliveredDate.setDate(orderTime.getDate() + 2);
-      deliveredDate.setHours(orderTime.getHours());
-      deliveredDate.setMinutes(orderTime.getMinutes());
-      deliveredDate.setMilliseconds(orderTime.getMilliseconds());
-
-      let expire = (expiredDate - dateNow) / 36e5;
-      let isdelivered = (deliveredDate - dateNow) / 36e5;
-
-      if (expire < 0 && isdelivered > 0) {
+      // it compares the current time to two hours&days after users place their orders
+      // if it pasts two hours and not two days, the order status will change to shipped
+      // or else it will change it delivered
+      // Default status is pending
+      if (currentTime >= twoHoursLater && currentTime < twoDaysLater) {
         setStatus("Shipped");
         const data = {
           delivery_status: "Shipped",
         };
         dispatch(updateStatus(data, item.id));
-        dispatch(getOrder(sessionUser.id));
-      } else if (isdelivered < 0) {
+      } else if (currentTime >= twoDaysLater) {
         setStatus("Delivered");
         const data = {
           delivery_status: "Delivered",
         };
         dispatch(updateStatus(data, item.id));
-        dispatch(getOrder(sessionUser.id));
       }
     });
   }, [dispatch, status]);
