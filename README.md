@@ -107,13 +107,13 @@ Amasport, an Amazon clone, is a full-stack web application for sports products/g
       ...
       ...
    
-      if (expire < 0 && isdelivered > 0) {
+      if (currentTime >= twoHoursLater && currentTime < twoDaysLater) {
         setStatus("Shipped");
         const data = {
           delivery_status: "Shipped",
         };
         dispatch(updateStatus(data, item.id));
-      } else if (isdelivered < 0) {
+      } else if (currentTime >= twoDaysLater) {
         setStatus("Delivered");
         const data = {
           delivery_status: "Delivered",
