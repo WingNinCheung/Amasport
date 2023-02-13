@@ -23,6 +23,7 @@ function OrderHistory() {
       orderTime.join("");
       orderTime = new Date(orderTime);
 
+
       let twoHoursLater = new Date(orderTime);
       let twoDaysLater = new Date(orderTime);
       let currentTime = new Date();
@@ -88,13 +89,12 @@ function OrderHistory() {
                 <span className="order-status">{item.delivery_status}</span>
                 {item.delivery_status === "Pending" && (
                   <div className="isdeli">
-                    Your order will be shipped in two hours. Please come back to
-                    check
+                    Your order will be shipped within two hours.
                   </div>
                 )}
                 {item.delivery_status === "Shipped" && (
                   <div className="isdeli">
-                    Your order will be delivered in two days.
+                    Your order is shipped and will be delivered in two days.
                   </div>
                 )}
                 {item.delivery_status === "Delivered" && (
