@@ -4,25 +4,31 @@ import { useSelector, useDispatch } from "react-redux";
 import { getOrder, updateStatus } from "../../store/order";
 import "./order.css";
 
+/*
+This function is to load the order history of the logged-in user.
+The order status by default is pending. It will change to shipped and delivered in two hours and two days after
+a user placed an order
+*/
 function OrderHistory() {
+  // grab the login user infomation and his/her order data from the Redux store
   const sessionUser = useSelector((state) => state.session.user);
   const orderData = useSelector((state) => Object.values(state.order));
+  // reverse the orderData array so latest orders will display first
   const order = orderData.reverse();
   const [status, setStatus] = useState("");
-
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // loop over the order histroy array to update the order status dynamically
     order.forEach((item) => {
       // orderTime is in "Sun, 12 Feb 2023 17:09:43 GMT" format
       let orderTime = item.created_at;
-      // This process is to ensure the timezone information is not taken into account when creating the date object,
+      // This process is to ensure the timezone information is not taken into account before converting it to the date object,
       // which can cause issues when comparing dates in different timezones.
       orderTime = orderTime.split(" ");
       orderTime.pop();
       orderTime.join("");
       orderTime = new Date(orderTime);
-
 
       let twoHoursLater = new Date(orderTime);
       let twoDaysLater = new Date(orderTime);
@@ -52,10 +58,12 @@ function OrderHistory() {
     });
   }, [dispatch, status]);
 
+  // get the order history of the logged-in user
   useEffect(() => {
     dispatch(getOrder(sessionUser.id));
   }, [dispatch, status]);
 
+  // load the order history page
   return (
     <div>
       <div>
