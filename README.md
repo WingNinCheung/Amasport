@@ -1,5 +1,4 @@
 # Amasport
-Amasport, an Amazon clone, is a full-stack web application for sports products/goods. Users can browse a collection of sports products and add desired items to their shopping cart. Users can checkout items in their carts. Users can also view their order history and change their shipping address.
 
 Amasport, an Amazon clone, is a full-stack web application that allows users to browse, review and checkout products in a similar way to Amazon. It includes features such as user authentication, search and filter functionality, product pages with detailed information and reviews, as well as a shopping cart and checkout process. With a modern and user-friendly interface, Amasport provides a seamless e-commerce experience for users, and was built using a combination of front-end and back-end technologies such as React, Node.js, Flask, and PostgreSQL.
 
