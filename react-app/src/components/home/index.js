@@ -18,7 +18,7 @@ function Home() {
     <div>
       <div className="home-container"></div>
       <div className="bot-container">
-        {allProducts.length && (
+        {allProducts.length > 0 && (
           <div className="product-list">
             <div className="home-list">
               <h2>Shoot it like Curry</h2>
