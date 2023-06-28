@@ -5,12 +5,12 @@ import { getOrder, updateStatus } from "../../store/order";
 import "./order.css";
 
 /*
-This function is to load the order history of the logged-in user.
+This function is to render the order history of the logged-in user.
 The order status by default is pending. It will change to shipped and delivered in two hours and two days after
-a user placed an order
+users place their orders
 */
 function OrderHistory() {
-  // grab the login user infomation and his/her order data from the Redux store
+  // grab infomation and data from Redux store
   const sessionUser = useSelector((state) => state.session.user);
   const orderData = useSelector((state) => Object.values(state.order));
   // reverse the orderData array so latest orders will display first
@@ -18,52 +18,64 @@ function OrderHistory() {
   const [status, setStatus] = useState("");
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    // loop over the order histroy array to update the order status dynamically
-    order.forEach((item) => {
-      // orderTime is in "Sun, 12 Feb 2023 17:09:43 GMT" format
-      let orderTime = item.created_at;
-      // This process is to ensure the timezone information is not taken into account before converting it to the date object,
-      // which can cause issues when comparing dates in different timezones.
-      orderTime = orderTime.split(" ");
-      orderTime.pop();
-      orderTime.join("");
-      orderTime = new Date(orderTime);
+  /*
+    Updates order status dynamically based on the orders' dates
+    Returns an array of updated orders with the updated delivery status.
+   */
+  const updateOrderStatus = () => {
+    // loop over the order histroy array to update the status
+    return orderData.map((order) => {
+      let orderDate = order.created_at;
+      let current = new Date();
+      // The default status is set to "Pending".
+      let deliveryStatus = "Pending";
+      // Remove the timezone information to ensure consistent date comparison across timezones
+      orderDate = orderDate.split(" ");
+      orderDate.pop();
+      orderDate.join("");
+      orderDate = new Date(orderDate);
 
-      let twoHoursLater = new Date(orderTime);
-      let twoDaysLater = new Date(orderTime);
-      let currentTime = new Date();
-      // shipment date defined as two hours
-      twoHoursLater.setHours(orderTime.getHours() + 2);
-      // delivery date defined as two days after
-      twoDaysLater.setDate(orderTime.getDate() + 2);
+      // shipment date defined as two hours and two days after placing orders
+      let shipmentDate = new Date(orderDate);
+      let deliveryDate = new Date(orderDate);
+      shipmentDate.setHours(orderDate.getHours() + 2);
+      deliveryDate.setDate(orderDate.getDate() + 2);
 
-      // it compares the current time to two hours&days after users place their orders
-      // if it pasts two hours and not two days, the order status will change to shipped
-      // or else it will change it delivered
-      // Default status is pending
-      if (currentTime >= twoHoursLater && currentTime < twoDaysLater) {
+      // The code compares the current time to two hours and two days after the user places their order.
+      // If more than two hours have passed but less than two days, the order status will be changed to "Shipped".
+      // Otherwise, if two days or more have passed, the order status will be changed to "Delivered".
+      // The default status is set to "Pending".
+      if (current >= shipmentDate && current < deliveryDate) {
+        deliveryStatus = "Shipped";
         setStatus("Shipped");
-        const data = {
-          delivery_status: "Shipped",
-        };
-        dispatch(updateStatus(data, item.id));
-      } else if (currentTime >= twoDaysLater) {
+      } else if (current >= deliveryDate) {
+        deliveryStatus = "Delivered";
         setStatus("Delivered");
-        const data = {
-          delivery_status: "Delivered",
-        };
-        dispatch(updateStatus(data, item.id));
       }
+      return {
+        ...order,
+        delivery_status: deliveryStatus,
+      };
     });
-  }, [dispatch, status]);
+  };
 
-  // get the order history of the logged-in user
+  // retreive the order history
   useEffect(() => {
     dispatch(getOrder(sessionUser.id));
   }, [dispatch, status]);
 
-  // load the order history page
+  // update status by dispatching to trigger Redux actions
+  useEffect(() => {
+    const updatedOrder = updateOrderStatus();
+    updatedOrder.forEach((item) => {
+      const data = {
+        delivery_status: item.delivery_status,
+      };
+      dispatch(updateStatus(data, item.id));
+    });
+  }, [dispatch]);
+
+  // render the order history page
   return (
     <div>
       <div>
@@ -74,23 +86,19 @@ function OrderHistory() {
                 <div>ORDER PLACED</div>
                 <span>{item.created_at.split(" ").slice(1, 4).join("-")}</span>
               </div>
-
               <div className="order-date">
                 <div>Qty</div>
                 <span>{item.quantity}</span>
               </div>
-
               <div className="order-date">
                 <div>TOTAL</div>
                 <span>${item.price}</span>
               </div>
-
               <div className="order-date">
                 <div className="ord">SHIP TO</div>
                 <span>{sessionUser.username}</span>
               </div>
             </div>
-
             <div className="bottomOrder">
               <div className="left-order">
                 <span className="order-status">Order Status: </span>
@@ -124,7 +132,6 @@ function OrderHistory() {
                   </NavLink>
                 </div>
               </div>
-
               <div className="links-grp">
                 <div className="nav-btn">
                   <NavLink className="orderLinks" to={`/order/${item.id}`}>
