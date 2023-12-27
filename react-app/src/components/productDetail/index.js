@@ -15,10 +15,8 @@ function ProductDetails() {
   const { id } = useParams();
 
   let about;
-  // let product;
   let [product, setProduct] = useState(null);
   let today = new Date();
-  // let date = new Date().toDateString().split(" ");
   let date = new Date();
   date.setDate(today.getDate() + 2);
   date.setHours(today.getHours());
@@ -68,7 +66,7 @@ function ProductDetails() {
                 ></img>
               ))}
             </div>
-            <div>
+            <div className="main-img-container">
               <img className="main-img" src={selectedImage}></img>
             </div>
             <div className="main-product">
