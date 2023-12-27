@@ -2,10 +2,9 @@
   display: flex;
   justify-content: space-around;
   background-color: #232f3e;
-  /* align-items: center; */
   height: 39px;
-  font-size: 14px;
   color: white;
+  /* margin-top: 1%; */
 }
 
 .category {
@@ -25,4 +24,11 @@
 
 .nav-word {
   color: white;
+}
+
+@media screen and (max-width: 800px) {
+  .cate-nav {
+    height: auto;
+    width: auto;
+  }
 }

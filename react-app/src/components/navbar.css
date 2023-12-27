@@ -1,6 +1,5 @@
 .navbar {
   display: flex;
-  justify-content: start;
   height: 80px;
   background-color: #131921;
 }
@@ -13,10 +12,14 @@
   color: white;
   cursor: pointer;
 }
+.logo-container {
+  height: 30%;
+  margin-top: 4%;
+}
 
 .logo-img {
   width: 170px;
-  height: 100%;
+  height: 80px;
   position: relative;
   top: -40px;
   left: -10px;
@@ -49,7 +52,7 @@
 .search-container {
   padding: 10px 4px 10px 3px;
   height: 60px;
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   align-items: center;
 }
@@ -61,7 +64,9 @@
 
 .drop-down {
   height: 35px;
-  width: 110px;
+  min-width: 50px;
+  background-color: #e6e6e6;
+  text-align: center;
 }
 
 #outer-drop {
@@ -75,7 +80,7 @@
 .search-input {
   height: 29px;
   font-size: 15px;
-  min-width: 1000px;
+  width: 800px;
 }
 
 #nouser-btn {
@@ -146,6 +151,10 @@
   width: 100%;
 }
 
+.cart-img {
+  background-color: #131921;
+}
+
 .quantity-icon {
   color: #f08804;
   font-size: 20px;
@@ -190,10 +199,10 @@
   align-items: center;
 }
 
-@media screen and (max-width: 1900px) {
+@media screen and (max-width: 1500px) {
   .search-input,
   #nouser-input {
-    min-width: 500px;
+    width: 200px;
   }
   #nouser-input {
     max-width: 500px;
@@ -210,6 +219,19 @@
 
   #outer-drop {
     max-width: 650px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .search-input,
+  #nouser-input {
+    width: 100px;
+  }
+
+  .logo-img,
+  .logo {
+    max-width: 150px;
+    max-height: 150px;
   }
 }
 

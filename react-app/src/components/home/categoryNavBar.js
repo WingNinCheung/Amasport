@@ -7,7 +7,7 @@ const CategoryNavBar = () => {
     <nav className="cate-nav">
       <span>
         <NavLink className="category" to={`/search/All/~`}>
-          <div className="nav-word">All Products</div>
+          <div className="nav-word">All</div>
         </NavLink>
       </span>
       <span>

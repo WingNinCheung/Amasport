@@ -44,6 +44,7 @@ const NavBar = () => {
 
   return (
     <nav>
+      {/* when not login */}
       {!sessionUser && (
         <section className="navbar">
           <NavLink
@@ -118,6 +119,7 @@ const NavBar = () => {
           </section>
         </section>
       )}
+      {/* when users login */}
       {sessionUser && (
         <section className="navbar">
           <NavLink
@@ -126,12 +128,14 @@ const NavBar = () => {
             exact={true}
             activeClassName="active"
           >
-            <div className="logo">Amasport</div>
-            <img
-              className="logo-img"
-              src="https://rainforest-dev.s3.us-west-1.amazonaws.com/amazonArrow.png"
-              alt="logo"
-            ></img>
+            <div className="logo-container">
+              Amasport
+              <img
+                className="logo-img"
+                src="https://rainforest-dev.s3.us-west-1.amazonaws.com/amazonArrow.png"
+                alt="logo"
+              ></img>
+            </div>
           </NavLink>
           <span className="deli-to">
             <div id="to-name">Deliver to {sessionUser.username}</div>
@@ -142,7 +146,7 @@ const NavBar = () => {
             </div>
           </span>
           <span className="search-container">
-            <span className="drop-down">
+            <span className="drop-down2">
               <select
                 className="drop-down"
                 onChange={(e) => setSearchCategory(e.target.value)}
@@ -189,8 +193,9 @@ const NavBar = () => {
               <NavLink to="/cart" exact={true} activeClassName="active">
                 <div className="cart-icon">
                   <img
-                    style={{ backgroundColor: "black" }}
+                    // style={{ backgroundColor: "black" }}
                     src={cartIcon}
+                    className="cart-img"
                   ></img>
                 </div>
               </NavLink>

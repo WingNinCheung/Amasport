@@ -14,7 +14,6 @@ function Home() {
     dispatch(getProducts());
   }, [dispatch]);
 
-  console.log("home", allProducts);
   return (
     <div>
       <div className="home-container"></div>

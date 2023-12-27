@@ -4,6 +4,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   -webkit-mask-image: linear-gradient(#000 95%, transparent);
+  z-index: 0;
 }
 
 .bot-container {
