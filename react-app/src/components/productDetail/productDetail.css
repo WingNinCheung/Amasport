@@ -98,16 +98,28 @@ div.price-product {
 }
 
 .detail-img {
-  margin-right: 10%;
-  width: auto;
-  height: auto;
+  /* width: 70%;
+  height: 50%; */
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
 }
 
 .pro-img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
+  /* max-width: 100%; */
+  /* margin: 2%; */
+  width: 20%;
   height: auto;
+  border-radius: 20%;
+}
+
+.pro-img.selected {
+  border: 2px solid rgb(74, 134, 225);
+}
+
+.main-img {
+  width: 20%;
+  padding: 0%;
 }
 
 .upper-container {

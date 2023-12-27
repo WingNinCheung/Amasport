@@ -14,7 +14,7 @@ def seed_products():
         date_available="August 2, 2021",
         manufacturer="Wilson Sporting Goods - Team",
         asin="B00KXVPN8A",
-        image="https://m.media-amazon.com/images/I/71FqoE-kMjL._AC_SX466_.jpg",
+        images=["https://m.media-amazon.com/images/I/71FqoE-kMjL._AC_SX466_.jpg", "https://m.media-amazon.com/images/I/81joPWcgkdL._AC_SX679_.jpg", "https://m.media-amazon.com/images/I/51wXnQ2KH5L._AC_SX679_.jpg"]
     )
 
     pump = Product(
@@ -28,7 +28,9 @@ def seed_products():
         date_available="August 17, 2021",
         manufacturer="BOM",
         asin="B08ZDHLQV1",
-        image="https://m.media-amazon.com/images/I/61R2d6UqWCL._AC_SX679_.jpg",
+        images=["https://m.media-amazon.com/images/I/61R2d6UqWCL._AC_SX679_.jpg",
+                "https://m.media-amazon.com/images/I/61d8KS7zJRL._AC_SX679_.jpg",
+                "https://m.media-amazon.com/images/I/81abyREqyoL._AC_SX679_.jpg"],
     )
 
     tennis_Racket = Product(
@@ -42,7 +44,10 @@ def seed_products():
         date_available="September 7, 2021",
         manufacturer="Layway",
         asin="B09FL5TQWJ",
-        image="https://m.media-amazon.com/images/I/61-Vc0AUkxL._AC_SX679_.jpg",
+        images=["https://m.media-amazon.com/images/I/61-Vc0AUkxL._AC_SX679_.jpg",
+                "https://m.media-amazon.com/images/I/619jXPjTwaL._AC_SX466_.jpg",
+                "https://m.media-amazon.com/images/I/711gbXU1rTL._AC_SX466_.jpg"
+                ],
     )
 
     sock = Product(
@@ -56,7 +61,7 @@ def seed_products():
         date_available="March 3, 2012",
         manufacturer="adidas",
         asin="B007GJQHTQ",
-        image="https://m.media-amazon.com/images/I/61ov4JfiwVS._AC_UX679_.jpg",
+        images=["https://m.media-amazon.com/images/I/61ov4JfiwVS._AC_UX679_.jpg","https://m.media-amazon.com/images/I/71k2J-qFo9S._AC_SX679_.jpg"],
     )
 
     nike_ball = Product(
@@ -70,7 +75,8 @@ def seed_products():
         date_available="May 20, 2020",
         manufacturer="JR286",
         asin="B088YNLJ7Z",
-        image="https://m.media-amazon.com/images/I/61fLvRrphLL._AC_.jpg",
+        images=["https://m.media-amazon.com/images/I/61fLvRrphLL._AC_.jpg",
+                "https://m.media-amazon.com/images/I/71maxuh4XKL._AC_SX679_.jpg"],
     )
 
     hoop = Product(
@@ -84,7 +90,8 @@ def seed_products():
         date_available="June 20, 2020",
         manufacturer="WETONG",
         asin="B08BCJF2ZQ",
-        image="https://m.media-amazon.com/images/I/71uQw+pVsCL._AC_SX679_.jpg",
+        images=["https://m.media-amazon.com/images/I/71uQw+pVsCL._AC_SX679_.jpg",
+                "https://m.media-amazon.com/images/I/71P1kZhzObL._AC_SX522_.jpg"],
     )
 
     kryie = Product(
@@ -98,7 +105,7 @@ def seed_products():
         date_available="December 10, 2021",
         manufacturer="Nike",
         asin="B09NPQ4DYJ",
-        image="https://m.media-amazon.com/images/I/81RBWXgIjAL._AC_UX575_.jpg",
+        images=["https://m.media-amazon.com/images/I/81RBWXgIjAL._AC_UX575_.jpg"],
     )
 
     kd14 = Product(
@@ -112,7 +119,8 @@ def seed_products():
         date_available="August 21, 2021",
         manufacturer="Nike",
         asin="B09DB3FBZK",
-        image="https://m.media-amazon.com/images/I/71mX2N9l2QL._AC_UY575_.jpg",
+        images=["https://m.media-amazon.com/images/I/71mX2N9l2QL._AC_UY575_.jpg",
+                "https://m.media-amazon.com/images/I/619iKBfKbKL._AC_SX625_.jpg"],
     )
 
     curry6 = Product(
@@ -126,7 +134,8 @@ def seed_products():
         date_available="August 21, 2020",
         manufacturer="Under Armour",
         asin="B091SDYY8D",
-        image="https://m.media-amazon.com/images/I/61hfZXpMLnS._AC_UX625_.jpg",
+        images=["https://m.media-amazon.com/images/I/61hfZXpMLnS._AC_UX625_.jpg",
+                "https://m.media-amazon.com/images/I/510GQmLo9XL._AC_SX625_.jpg"],
     )
 
     mamba = Product(
@@ -140,7 +149,7 @@ def seed_products():
         date_available="May 29, 2021",
         manufacturer="URUHR",
         asin="B099PPP4KN",
-        image="https://m.media-amazon.com/images/I/812C1ZZ+UsL._AC_UX679_.jpg",
+        images=["https://m.media-amazon.com/images/I/812C1ZZ+UsL._AC_UX679_.jpg"],
     )
 
     shorts = Product(
@@ -154,7 +163,7 @@ def seed_products():
         date_available="May 29, 2021",
         manufacturer="PRTCYPNT",
         asin="B09ZQCTHBF",
-        image="https://m.media-amazon.com/images/I/714XbzhUdTL._AC_UX679_.jpg",
+        images=["https://m.media-amazon.com/images/I/714XbzhUdTL._AC_UX679_.jpg"],
     )
 
     ten = Product(
@@ -168,7 +177,8 @@ def seed_products():
         date_available="May 29, 2021",
         manufacturer="PRTCYPNT",
         asin="B0002JZEL4",
-        image="https://m.media-amazon.com/images/I/91lZP+tyg0L._AC_SX679_.jpg",
+        images=["https://m.media-amazon.com/images/I/91lZP+tyg0L._AC_SX679_.jpg",
+                "https://m.media-amazon.com/images/I/61K0D7iPEoL._AC_SX522_.jpg"],
     )
 
     tShoe = Product(
@@ -182,7 +192,8 @@ def seed_products():
         date_available="June 29, 2021",
         manufacturer="Asics",
         asin="B096QCPDWW",
-        image="https://m.media-amazon.com/images/I/51cBqgO18XL._AC_UX625_.jpg",
+        images=["https://m.media-amazon.com/images/I/51cBqgO18XL._AC_UX625_.jpg",
+                "https://m.media-amazon.com/images/I/61cizL5NVqL._AC_SY625_.jpg"],
     )
 
     soft = Product(
@@ -196,7 +207,7 @@ def seed_products():
         date_available="November 29, 2021",
         manufacturer="TRP",
         asin="B09MV3MCKJ",
-        image="https://m.media-amazon.com/images/I/41yNpoqhzlL._AC_SX466_.jpg",
+        images=["https://m.media-amazon.com/images/I/41yNpoqhzlL._AC_SX466_.jpg"],
     )
 
     net = Product(
@@ -210,7 +221,10 @@ def seed_products():
         date_available="November 29, 2021",
         manufacturer="ProGoal",
         asin="B08Y1MKS2Z",
-        image="https://m.media-amazon.com/images/I/61OiffD3oaL._AC_SX466_.jpg",
+        images=["https://m.media-amazon.com/images/I/61OiffD3oaL._AC_SX466_.jpg",
+                "https://m.media-amazon.com/images/I/71V81+ACs8L._AC_SX466_.jpg",
+                "https://m.media-amazon.com/images/I/71v2BmE7CCL._AC_SX466_.jpg"
+                ],
     )
 
     tBag = Product(
@@ -224,7 +238,7 @@ def seed_products():
         date_available="November 29, 2021",
         manufacturer="ProGoal",
         asin="B08MTBF6JJ",
-        image="https://m.media-amazon.com/images/I/71-GldGAQiL._AC_SX466_.jpg",
+        images=["https://m.media-amazon.com/images/I/71-GldGAQiL._AC_SX466_.jpg"],
     )
 
     tRack = Product(
@@ -238,7 +252,7 @@ def seed_products():
         date_available="November 29, 2021",
         manufacturer="Lunnade",
         asin="B097RB64Y4",
-        image="https://m.media-amazon.com/images/I/71gAnuMI9oS._AC_SX679_.jpg",
+        images=["https://m.media-amazon.com/images/I/71gAnuMI9oS._AC_SX679_.jpg","https://m.media-amazon.com/images/I/81optIGffSL._AC_SX466_.jpg"],
     )
 
     tosser = Product(
@@ -252,7 +266,7 @@ def seed_products():
         date_available="February 20, 2021",
         manufacturer="SCIFANTA",
         asin="B08X2RG61Q",
-        image="https://m.media-amazon.com/images/I/61bKV1xImkL._AC_SX679_.jpg",
+        images=["https://m.media-amazon.com/images/I/61bKV1xImkL._AC_SX679_.jpg",],
     )
 
     bar = Product(
@@ -266,7 +280,7 @@ def seed_products():
         date_available="February 20, 2021",
         manufacturer="Stud",
         asin="B002X60W1G",
-        image="https://m.media-amazon.com/images/I/71BLXxOaBgL._AC_SX466_.jpg",
+        images=["https://m.media-amazon.com/images/I/71BLXxOaBgL._AC_SX466_.jpg","https://m.media-amazon.com/images/I/71CznFDwWYL._AC_SX679_.jpg"],
     )
 
     pad = Product(
@@ -280,7 +294,7 @@ def seed_products():
         date_available="May 20, 2021",
         manufacturer="Stud",
         asin="B004XMO00M",
-        image="https://m.media-amazon.com/images/I/716w4J3gk6L._AC_SX679_.jpg",
+        images=["https://m.media-amazon.com/images/I/716w4J3gk6L._AC_SX679_.jpg"],
     )
 
     run = Product(
@@ -294,7 +308,9 @@ def seed_products():
         date_available="May 20, 2014",
         manufacturer="StillCool",
         asin="B00UD4BQDS",
-        image="https://m.media-amazon.com/images/I/61Kv7eVnr1L._AC_UX679_.jpg",
+        images=["https://m.media-amazon.com/images/I/61Kv7eVnr1L._AC_UX679_.jpg",
+                "https://m.media-amazon.com/images/I/61DW1cY45qL._AC_SX679_.jpg",
+                "https://m.media-amazon.com/images/I/610dw949kXL._AC_SX679_.jpg"],
     )
 
     snShoe1 = Product(
@@ -308,7 +324,8 @@ def seed_products():
         date_available="May 20, 2020",
         manufacturer="Feehit",
         asin="B088W7FMYM",
-        image="https://m.media-amazon.com/images/I/71SHutr-zyL._AC_UY625_.jpg",
+        images=["https://m.media-amazon.com/images/I/71SHutr-zyL._AC_UY625_.jpg",
+                "https://m.media-amazon.com/images/I/61r7ktHjX4L._AC_SY695_.jpg"],
     )
 
     snShoe2 = Product(
@@ -322,7 +339,7 @@ def seed_products():
         date_available="November 20, 2020",
         manufacturer="Reebok",
         asin="B09H5BLDNH",
-        image="https://m.media-amazon.com/images/I/61GIsOj8kLL._AC_UX625_.jpg",
+        images=["https://m.media-amazon.com/images/I/61GIsOj8kLL._AC_UX625_.jpg"],
     )
     snShoe3 = Product(
         name="Tommy Hilfiger Women's Luster Sneaker",
@@ -335,7 +352,8 @@ def seed_products():
         date_available="April 20, 2020",
         manufacturer="Tommy Hilfiger",
         asin="B07QRV1S4D",
-        image="https://m.media-amazon.com/images/I/81eaoz5WVqL._AC_UX625_.jpg",
+        images=["https://m.media-amazon.com/images/I/81eaoz5WVqL._AC_UX625_.jpg",
+                "https://m.media-amazon.com/images/I/51MA5UHfzdL._AC_SY695_.jpg"],
     )
 
     snShoe4 = Product(
@@ -349,7 +367,7 @@ def seed_products():
         date_available="April 20, 2019",
         manufacturer="Nike",
         asin="B07SMSY5RD",
-        image="https://m.media-amazon.com/images/I/61EWznN7P6L._AC_UY625_.jpg",
+        images=["https://m.media-amazon.com/images/I/61EWznN7P6L._AC_UY625_.jpg"],
     )
 
     top1 = Product(
@@ -363,7 +381,8 @@ def seed_products():
         date_available="April 10, 2021",
         manufacturer="Geyoga",
         asin="B08YK21SP4",
-        image="https://m.media-amazon.com/images/I/711pYNlWgkL._AC_UY741_.jpg",
+        images=["https://m.media-amazon.com/images/I/711pYNlWgkL._AC_UY741_.jpg",
+                "https://m.media-amazon.com/images/I/91SLL+RkkML._AC_SY741_.jpg"],
     )
 
     top2 = Product(
@@ -377,7 +396,9 @@ def seed_products():
         date_available="April 10, 2022",
         manufacturer="TBMPOY",
         asin="B0B4K147HF",
-        image="https://m.media-amazon.com/images/I/61J9YSdjLWL._AC_UX569_.jpg",
+        images=["https://m.media-amazon.com/images/I/61u6ZNi9DiL._AC_SX679_.jpg",
+                "https://m.media-amazon.com/images/I/61frSpJqDYL._AC_SX679_.jpg",
+                "https://m.media-amazon.com/images/I/81TiW7L7jcL._AC_SX679_.jpg"],
     )
 
     skBoard = Product(
@@ -391,7 +412,8 @@ def seed_products():
         date_available="March 10, 2022",
         manufacturer="INFIDEZ",
         asin="B09WQQ9MW1",
-        image="https://m.media-amazon.com/images/I/51qs2dhHPDL._AC_SX679_.jpg",
+        images=["https://m.media-amazon.com/images/I/51qs2dhHPDL._AC_SX679_.jpg",
+                "https://m.media-amazon.com/images/I/71w3Djd3eGL._AC_SX522_.jpg"],
     )
 
     pad = Product(
@@ -405,7 +427,9 @@ def seed_products():
         date_available="March 10, 2022",
         manufacturer="INFIDEZ",
         asin="B07MWCB55D",
-        image="https://m.media-amazon.com/images/I/61D1ImIH0zL._AC_SX466_.jpg",
+        images=["https://m.media-amazon.com/images/I/61D1ImIH0zL._AC_SX466_.jpg",
+                "https://m.media-amazon.com/images/I/710VQMc5l2L._AC_SX466_.jpg",
+                "https://m.media-amazon.com/images/I/61xR8GLs-pL._AC_SX466_.jpg"],
     )
 
     board1 = Product(
@@ -419,7 +443,8 @@ def seed_products():
         date_available="July 10, 2018",
         manufacturer="Magneto",
         asin="B07PDHRQ43",
-        image="https://m.media-amazon.com/images/I/811jJuvz0-S._AC_SX679_.jpg",
+        images=["https://m.media-amazon.com/images/I/91UPQ+XN+KL._AC_SY300_SX300_.jpg",
+                "https://m.media-amazon.com/images/I/81fUaEH9UlL._AC_SX466_.jpg"],
     )
 
     hel = Product(
@@ -433,7 +458,9 @@ def seed_products():
         date_available="May 11, 2020",
         manufacturer="Retrospec",
         asin="B094Q545D4",
-        image="https://m.media-amazon.com/images/I/815GyimG52S._AC_SX466_.jpg",
+        images=["https://m.media-amazon.com/images/I/815GyimG52S._AC_SX466_.jpg",
+                "https://m.media-amazon.com/images/I/81MpJ4ZyN4L._AC_SX466_.jpg",
+                "https://m.media-amazon.com/images/I/81Szs+y6TgL._AC_SX466_.jpg"],
     )
 
     db.session.add(basketball)

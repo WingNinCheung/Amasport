@@ -10,14 +10,13 @@ import "./productDetail.css";
 
 function ProductDetails() {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   // product id
   const { id } = useParams();
 
   let about;
-  let product;
-
+  // let product;
+  let [product, setProduct] = useState(null);
   let today = new Date();
   // let date = new Date().toDateString().split(" ");
   let date = new Date();
@@ -39,6 +38,18 @@ function ProductDetails() {
     product = allProducts.find((item) => item.id == id);
     about = product.about.split(".");
   }
+  const initialSelectedImage = product ? product.images[0] : null;
+  const [selectedImage, setselectedImage] = useState(initialSelectedImage);
+
+  useEffect(() => {
+    const fetchProductData = async () => {
+      let item = allProducts.find((item) => item.id == id);
+      setProduct(item);
+      setselectedImage(item ? item.images[0] : "");
+    };
+
+    fetchProductData();
+  }, [product]);
 
   return (
     <div className="product-container">
@@ -46,7 +57,19 @@ function ProductDetails() {
         <div>
           <div className="middle-container">
             <div className="detail-img">
-              <img className="pro-img" src={product.image} alt="product"></img>
+              {product.images.map((image) => (
+                <img
+                  className={`pro-img ${
+                    selectedImage === image ? "selected" : ""
+                  }`}
+                  src={image}
+                  alt="product"
+                  onClick={() => setselectedImage(image)}
+                ></img>
+              ))}
+            </div>
+            <div>
+              <img className="main-img" src={selectedImage}></img>
             </div>
             <div className="main-product">
               <div className="prod-name">{product.name}</div>

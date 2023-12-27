@@ -7,6 +7,7 @@ import primeIcon from "../../images/amazon-prime-delivery-checkmark._CB659998231
 function SearchProductDetail() {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => Object.values(state.product));
+
   const { category, text } = useParams();
   let searchProduct;
 
@@ -59,7 +60,7 @@ function SearchProductDetail() {
                 <div className="cateList-container">
                   <img
                     className="cate-list"
-                    src={product.image}
+                    src={product.images[0]}
                     alt="products"
                   ></img>
                 </div>
