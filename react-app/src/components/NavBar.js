@@ -111,17 +111,6 @@ const NavBar = () => {
             >
               Sign Up
             </NavLink>
-
-            {/* <div classname="slash-btn"> */}
-            {/* <NavLink
-                id="slash-link"
-                to="/sign-up"
-                exact={true}
-                activeClassName="active"
-              >
-                Sign Up
-              </NavLink> */}
-            {/* </div> */}
           </section>
           //{" "}
         </section>
