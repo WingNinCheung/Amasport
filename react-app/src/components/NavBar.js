@@ -60,9 +60,8 @@ const NavBar = () => {
               alt="logo"
             ></img>
           </NavLink>
-
           <span className="search-container" id="main-container">
-            <span className="drop-down" id="outer-drop">
+            <span className="drop-down2" id="outer-drop">
               <select
                 className="drop-down"
                 onChange={(e) => setSearchCategory(e.target.value)}
@@ -94,29 +93,37 @@ const NavBar = () => {
               </button>
             </span>
           </span>
-
           <section className="before">
-            <div classname="slash-btn">
-              <NavLink
-                id="slash-link"
-                to="/login"
-                exact={true}
-                activeClassName="active"
-              >
-                Login
-              </NavLink>
-            </div>
-            <div>
-              <NavLink
+            <NavLink
+              id="slash-link"
+              to="/login"
+              exact={true}
+              activeClassName="active"
+            >
+              Login
+            </NavLink>
+
+            <NavLink
+              id="slash-link"
+              to="/sign-up"
+              exact={true}
+              activeClassName="active"
+            >
+              Sign Up
+            </NavLink>
+
+            {/* <div classname="slash-btn"> */}
+            {/* <NavLink
                 id="slash-link"
                 to="/sign-up"
                 exact={true}
                 activeClassName="active"
               >
                 Sign Up
-              </NavLink>
-            </div>
+              </NavLink> */}
+            {/* </div> */}
           </section>
+          //{" "}
         </section>
       )}
       {/* when users login */}
