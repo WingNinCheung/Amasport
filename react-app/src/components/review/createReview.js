@@ -71,7 +71,11 @@ function CreateReview() {
         <div className="rev-body">
           <h2>Create Review</h2>
           <div className="img-name">
-            <img className="create-img" src={myProduct.image} alt="ball"></img>
+            <img
+              className="create-img"
+              src={myProduct.images[0]}
+              alt="ball"
+            ></img>
             <span>{myProduct.name}</span>
           </div>
           <form onSubmit={handleSubmit}>

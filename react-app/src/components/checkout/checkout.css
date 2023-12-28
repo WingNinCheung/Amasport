@@ -78,9 +78,17 @@
   border-radius: 8px;
   width: 40%;
   height: 120px;
-  margin-left: 3%;
+  margin-left: 3.5%;
   border-left: 13px solid #1196ab;
   margin-bottom: 1%;
+}
+
+@media screen and (max-width: 1200px) {
+  #before-warning {
+    height: auto;
+    /* width: 30%; */
+    margin-left: 5%;
+  }
 }
 
 .inner-warning {
@@ -215,7 +223,6 @@
 }
 .summary {
   width: 250px;
-  margin-right: -290px;
   border: 1px #d5d9d9 solid;
   position: sticky;
   left: 1200px;
@@ -283,12 +290,12 @@ td.checkout-td {
     width: 100%;
   }
 
-  .summary {
+  /* .summary {
     position: fixed;
     left: 900px;
     top: 180px;
     height: 40%;
-  }
+  } */
 }
 
 /* Thank you */

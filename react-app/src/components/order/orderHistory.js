@@ -121,7 +121,7 @@ function OrderHistory() {
                 <div className="inner-ordercontainer">
                   <img
                     className="ordered-img"
-                    src={item.product.image}
+                    src={item.product.images[0]}
                     alt="product"
                   ></img>
                   <NavLink
