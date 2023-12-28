@@ -13,7 +13,7 @@ function Home() {
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
-  console.log("allpro", allProducts[0].images[0]);
+
   return (
     <div>
       <div className="home-container"></div>
