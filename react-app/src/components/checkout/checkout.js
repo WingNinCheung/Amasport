@@ -13,10 +13,8 @@ function Checkout() {
   const history = useHistory();
   const [user, setUser] = useState({});
   const cart = useSelector((state) => Object.values(state.cart));
-  const order = useSelector((state) => Object.values(state.order));
   const [changed, setChanged] = useState(false);
   const [radioValue, setRadioValue] = useState("");
-  let radioResult = "default";
 
   let totalPrice = 0;
   let totalQuantity = 0;
@@ -138,7 +136,6 @@ function Checkout() {
                 type="radio"
                 value="default"
                 name="address"
-                // checked={true}
                 onClick={radioChange}
               />
               <label className="label-address">
@@ -237,7 +234,7 @@ function Checkout() {
                   <div className="checkout-item" key={item.id}>
                     <img
                       className="checkout-img"
-                      src={item.products.image}
+                      src={item.products.images[0]}
                       alt="product"
                     ></img>
                     <div className="pro-title">

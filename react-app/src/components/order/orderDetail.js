@@ -107,7 +107,7 @@ function OrderDetails() {
               <div className="inner-ordercontainer">
                 <img
                   className="ordered-img"
-                  src={myOrder.product.image}
+                  src={myOrder.product.images[0]}
                   alt="product"
                 ></img>
                 <NavLink

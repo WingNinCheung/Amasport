@@ -2,14 +2,15 @@
   font-weight: 400;
   font-size: 28px;
   line-height: 36px;
-  margin-left: 12%;
+  margin-left: 9%;
   border-bottom: 1px #d5d9d9 solid;
-  width: 40%;
+  width: 38%;
 }
 
 .order-container {
   border-radius: 18px;
-  width: fit-content;
+  /* width: fit-content; */
+  margin-left: 22%;
 }
 
 .topOrder {
@@ -17,10 +18,9 @@
   background-color: rgb(240, 242, 242);
   border: 1px solid #d5d9d9;
   border-radius: 3px;
-  max-height: 70px;
   padding: 5px;
   margin: 2%;
-  width: 50%;
+  width: 653px;
   padding-top: 10px;
   margin-top: -1px;
 }
@@ -38,10 +38,27 @@
   border: 2px solid #d5d9d9;
   border-radius: 3px;
   padding: 2%;
-  width: 46.5%;
-  margin-top: -31px;
+  width: 640px;
+  margin-top: -11px;
 }
 
+@media screen and (max-width: 1400px) {
+  .ordertitle {
+    margin-left: 2%;
+    width: 680px;
+  }
+  .order-container {
+    margin-left: 2%;
+  }
+
+  .topOrder {
+    width: 670px;
+  }
+  .bottomOrder {
+    width: 650px;
+    margin-top: -14px;
+  }
+}
 .order-status {
   color: #0f1111;
   font-size: 18px;
@@ -61,7 +78,7 @@
   display: flex;
   /* flex-direction: column; */
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .ordered-name {
@@ -92,8 +109,6 @@
   border: 1px solid #d5d9d9;
   border-radius: 7px;
   box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
-  width: 100px;
-  /* height: 200px; */
 }
 
 .orderLinks:hover {
@@ -104,11 +119,13 @@
   font-size: 14px;
   line-height: 29px;
   padding: 5%;
+  min-height: 20px;
+  min-width: 50px;
 }
 
 .links-grp {
-  height: 20px;
-  /* width: 100px; */
+  min-height: 30px;
+  min-width: 200px;
 }
 
 .nav-btn {

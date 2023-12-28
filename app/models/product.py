@@ -1,5 +1,6 @@
 from .db import db
 from sqlalchemy.orm import relationship
+from sqlalchemy.dialects.postgresql import ARRAY
 
 
 class Product(db.Model):
@@ -16,13 +17,15 @@ class Product(db.Model):
     date_available = db.Column(db.String(100), nullable=False)
     manufacturer = db.Column(db.String(1000), nullable=False)
     asin = db.Column(db.String(100), nullable=False)
-    image = db.Column(db.String(1000), nullable=False)
+    images = db.Column(ARRAY(db.TEXT), nullable=True)
+
 
     cart_items = relationship("Cart_Item", back_populates="products")
 
     review = relationship("Review", back_populates="product")
 
     orders = relationship("Order", back_populates="product")
+
 
     def to_dict(self):
 
@@ -38,7 +41,7 @@ class Product(db.Model):
             "date_available": self.date_available,
             "manufacturer": self.manufacturer,
             "asin": self.asin,
-            "image": self.image,
+            "images": self.images,
         }
 
     def __repr__(self):

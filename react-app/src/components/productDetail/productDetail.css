@@ -67,9 +67,19 @@ a.search-links:visited,
 
 div.price-product {
   font-size: 25px;
-
+  min-width: 50%;
   margin-top: 10px;
   margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 700px) {
+  div.price-product {
+    font-size: 18px;
+    min-width: 100%;
+  }
+  .dollar-sign {
+    font-size: 10px;
+  }
 }
 
 .dollar-sign {
@@ -90,24 +100,31 @@ div.price-product {
 /* Product details page */
 
 .product-container {
-  display: flex;
-  flex-direction: row;
   padding: 20px 20px;
   min-height: 100vh;
   margin-top: 3%;
 }
 
 .detail-img {
-  margin-right: 10%;
-  width: auto;
-  height: auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
 }
 
 .pro-img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+  max-width: 50px;
+  height: 50px;
+  margin-bottom: 10%;
+  border-radius: 20%;
+}
+
+.pro-img.selected {
+  border: 2px solid rgb(74, 134, 225);
+}
+
+.main-img {
+  max-width: 90%;
 }
 
 .upper-container {
@@ -116,7 +133,7 @@ div.price-product {
 
 .middle-container {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 5fr 10fr 5fr;
   margin-bottom: 3%;
   height: 60%;
   border-bottom: thin solid lightgrey;
@@ -191,11 +208,11 @@ div.price-product {
 div.price-section {
   border: lightgrey thin solid;
   border-radius: 10px;
-  padding: 10px;
+  padding: 5%;
 
+  min-width: 65px;
   width: 50%;
-  min-height: 50%;
-  height: 50%;
+  max-height: 70%;
   margin-left: 30%;
 }
 

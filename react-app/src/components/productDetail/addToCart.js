@@ -59,14 +59,12 @@ function AddToCart({ showModal }) {
           <span className="upp-container">
             <span>
               <i class="fa-solid fa-check"></i>
-
               <span className="addedTo">Added to Cart</span>
             </span>
-
             <div>
               <img
                 className="addedCartimg"
-                src={currentProduct.image}
+                src={currentProduct.images[0]}
                 alt="product"
               ></img>
             </div>

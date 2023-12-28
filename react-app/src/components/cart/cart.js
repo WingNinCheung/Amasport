@@ -1,7 +1,7 @@
 import { getCart } from "../../store/cart";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Quantity from "./quantity";
 import primeIcon from "../../images/amazon-prime-delivery-checkmark._CB659998231_.png";
 import "./cart.css";
@@ -26,13 +26,9 @@ function Cart() {
 
   return (
     <div className="shoppingcart-container">
-      {/* <div className="upper-cart">
-        <h1 className="cart-title">Shopping Cart</h1>
-      </div> */}
-
       <div className="Incart-container">
         <div className="left-section">
-          <div></div>
+          {/* <div></div> */}
           <h1 className="cart-title">Shopping Cart</h1>
           <div id="cart-price">Price</div>
           <section className="leftcart">
@@ -42,7 +38,7 @@ function Cart() {
                   <div className="inCart-img">
                     <img
                       className="incart-img"
-                      src={item.products.image}
+                      src={item.products.images[0]}
                       alt="item"
                     ></img>
                   </div>
