@@ -20,7 +20,7 @@ function Order() {
         {order.length ? (
           <OrderHistory />
         ) : (
-          <div>
+          <div className="empty-msg">
             <h3>Your order history is empty</h3>
           </div>
         )}

@@ -7,6 +7,10 @@
   width: 38%;
 }
 
+.empty-msg {
+  margin-left: 9%;
+}
+
 .order-container {
   border-radius: 18px;
   /* width: fit-content; */
